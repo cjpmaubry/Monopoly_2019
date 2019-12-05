@@ -76,5 +76,24 @@ namespace Monopoly_2019
             }
             return name;
         }
+
+        public int ValueDice()
+        {
+            dice.RollDice();
+            int value = dice.SumDice();
+            return value;
+        }
+
+        public int NewPosition(Player player, int value)
+        {
+            player.Position = (value + player.position) % 40;
+            return player.Position;
+        }
+
+        public void LaunchCaseMethode(int newposition,Player player)
+        {
+           Abs_Box box = board.gameboard[newposition];
+           box.BoxEffect(player);
+        }
     }
 }
