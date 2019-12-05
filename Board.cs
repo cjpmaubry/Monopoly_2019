@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Monopoly_2019
 {
-    class Board
+    public class Board
     {
         Abs_Box[] gameboard;
 
