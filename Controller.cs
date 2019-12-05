@@ -10,9 +10,9 @@ namespace Monopoly_2019
         View view;
 
         // Constructor
-        public Controller(Game game, View view)
+        public Controller( View view)
         {
-            this.game = game;
+            this.game = new Game();
             this.view = view;
         }
 
@@ -25,11 +25,11 @@ namespace Monopoly_2019
         }
 
         /// <summary>
-        /// This fonction initialize the game ( with value of the beginning of the game  party )
+        /// This fonction initialize the view thanks to the information include in the game
         /// </summary>
         public void Initialisation()
         {
-            // Initialisation des joueurs du plateau et plus générallement du game....
+            view.Initialisation();
         }
 
 
@@ -38,8 +38,9 @@ namespace Monopoly_2019
         /// </summary>
         public void LaunchGame()
         {
-            this.Initialisation();  // this. ???
-            // Boucle pour les tours
+            Initialisation();
+
+            // Loop for the turns
             int tour = 0;
             while (tour != 20)
             {
