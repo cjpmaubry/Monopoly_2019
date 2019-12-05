@@ -8,6 +8,7 @@ namespace Monopoly_2019
     {
         List<Player> list = new List<Player>();
         Board board;
+        Dice dice;
 
         // Constructor
 
@@ -32,9 +33,11 @@ namespace Monopoly_2019
                 list.Add(player);
             }
 
+            Dice dice = new Dice();
             Board board = new Board();
             this.list = list;
             this.board = board;
+            this.dice = dice;
         }
 
 
