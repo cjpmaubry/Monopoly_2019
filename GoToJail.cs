@@ -11,9 +11,11 @@ namespace Monopoly_2019
             this.box_description = "gotojail";
         }
 
-        public void sendToJail()
+        public override void BoxEffect(Player joueur, Board monopoly)
         {
-            //a faire
+            //sends the player to jail
+            monopoly.SendTojail(joueur);
         }
+
     }
 }
