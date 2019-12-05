@@ -8,22 +8,22 @@ namespace Monopoly_2019
     {
         Abs_Box[] gameboard;
 
-        public Board(Abs_Box[] gameboard)
+        public Board()
         {
-            this.gameboard = gameboard;
+            this.gameboard = new Abs_Box[40];
         }
-    }
 
-    //Function wich allocates boxes to the board using the factory pattern
-    public void AllocateBoard(Abs_Box[] board)
-    {
-        BoxFactory.createJail(9, board);
-        BoxFactory.createGoToJail(29, board);
-        for (int i = 0; i < board.Length; i++)
+        //Function wich allocates boxes to the board using the factory pattern
+        public void InitialiseBoard()
         {
-            if (i != 9 || i != 29)
+            BoxFactory.createJail(9, gameboard);
+            BoxFactory.createGoToJail(29, gameboard);
+            for (int i = 0; i < gameboard.Length; i++)
             {
-                BoxFactory.createNeutral(i, board);
+                if (i != 9 || i != 29)
+                {
+                    BoxFactory.createNeutral(i, gameboard);
+                }
             }
         }
     }
