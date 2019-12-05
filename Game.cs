@@ -8,7 +8,7 @@ namespace Monopoly_2019
     {
         List<Player> list = new List<Player>();
         Board board;
-        Dice dice;
+
 
         // Constructor
 
@@ -37,9 +37,15 @@ namespace Monopoly_2019
             Board board = new Board();
             this.list = list;
             this.board = board;
-            this.dice = dice;
         }
 
+        public Board Board
+        {
+            get
+            {
+                return this.board;
+            }
+        }
 
         /// <summary>
         /// Allocate color to a player
@@ -77,23 +83,17 @@ namespace Monopoly_2019
             return name;
         }
 
-        public int ValueDice()
-        {
-            dice.RollDice();
-            int value = dice.SumDice();
-            return value;
-        }
+
 
         public int NewPosition(Player player, int value)
         {
-            player.Position = (value + player.position) % 40;
+            player.Position = (value + player.Position) % 40;
             return player.Position;
         }
 
-        public void LaunchCaseMethode(int newposition,Player player)
+        public void LaunchCaseMethode(int newposition,Player player,Board board)
         {
-           Abs_Box box = board.gameboard[newposition];
-           box.BoxEffect(player);
+           board.Gameboard[newposition].BoxEffect(player,board);
         }
     }
 }

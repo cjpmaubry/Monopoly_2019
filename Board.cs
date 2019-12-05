@@ -37,6 +37,15 @@ namespace Monopoly_2019
             }
         }
 
+        public Abs_Box[] Gameboard
+        {
+            get
+            {
+                return this.gameboard;
+            }
+          
+        }
+
         /// <summary>
         /// Sends a player to jail
         /// Adds it to the list of trapped players
@@ -66,6 +75,13 @@ namespace Monopoly_2019
                     jailed_players.Remove(joueur);
                 }
             }
+        }
+
+        public int ValueDice()
+        {
+            dices.RollDice();
+            int value = dices.SumDice();
+            return value;
         }
     }
 }

@@ -54,9 +54,9 @@ namespace Monopoly_2019
 
         public void TurnOfPlayer(Player player)
         {
-            int value = game.ValueDice();
-            int newposition=game.NewPosition(player.position, value);
-            game.LaunchCaseMethode(newposition, player);
+            int value = game.Board.ValueDice();
+            int newposition=game.NewPosition(player, value);
+            game.LaunchCaseMethode(newposition, player,game.Board);
         }
 
         
