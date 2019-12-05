@@ -18,10 +18,8 @@ namespace Monopoly_2019
         /// Takes a player and apllies the effect of the box
         /// The default method called by the controller when a player arrives on a box
         /// </summary>
-        /// <param name="joueur">Player affected</param>
-        public void BoxEffect(Player joueur)
-        {
-
-        }
+        /// <param name="joueur">Affected player</param>
+        /// <param name="gameboard">Board of the game, contains all the boxs</param>
+        public abstract void BoxEffect(Player joueur, Board monopoly);
     }
 }

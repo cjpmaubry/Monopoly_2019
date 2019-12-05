@@ -55,6 +55,11 @@ namespace Monopoly_2019
         }
 
         /// <summary>
+        /// Getter for name of the player
+        /// </summary>
+        public string Name { get => name; }
+
+        /// <summary>
         /// Allow the posibility to attach an observer
         /// </summary>
         /// <param name="observer"></param>

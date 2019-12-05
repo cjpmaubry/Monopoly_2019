@@ -6,34 +6,35 @@ namespace Monopoly_2019
 {
     class Dice
     {
-        int[] dices;
+        private int[] dices;
 
-        public Dice(int[] dices)
+        public Dice()
         {
-            this.dices = dices;
+            this.dices = new int[2];
         }
 
-        //function which returns an array with two numbers randomly generated between 1 and 6
-        public static int[] RollDice(int[] dice)
+        //Function which returns an array with two numbers randomly generated between 1 and 6
+        public void RollDice()
         {
             Random alea = new Random();
-            for (int i = 0; i < dice.Length; i++)
-                dice[i] = alea.Next(6) + 1;
-            return dice;
+            dices[0] = alea.Next(0, 7);
+            dices[1] = alea.Next(0, 7);      
         }
 
-        //Funcion that calaculate the sum of the dices
-        public static int SumDice(int[] dice)
+        //Function that calaculate the sum of the dices
+        //Returns the value of the sum
+        public int SumDice()
         {
-            int res = dice[0] + dice[1];
+            int res = dices[0] + dices[1];
             return res;
         }
 
-        //Function which checks if the dices are equalss
-        public static Boolean DoubleDice(int[] dice)
+        //Function which checks if the dices are equal
+        //Return true if they are
+        public bool DoubleDice()
         {
             bool doubledice = false;
-            if (dice[0] == dice[1])
+            if (dices[0] == dices[1])
             {
                 doubledice = true;
             }
