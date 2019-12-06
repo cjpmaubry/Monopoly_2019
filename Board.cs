@@ -6,7 +6,7 @@ namespace Monopoly_2019
 {
     public class Board
     {
-        Abs_Box[] gameboard;
+        public Abs_Box[] gameboard;
 
         public Board()
         {
@@ -16,11 +16,11 @@ namespace Monopoly_2019
         //Function wich allocates boxes to the board using the factory pattern
         public void InitialiseBoard()
         {
-            BoxFactory.createJail(9, gameboard);
-            BoxFactory.createGoToJail(29, gameboard);
+            BoxFactory.createJail(10, gameboard);
+            BoxFactory.createGoToJail(30, gameboard);
             for (int i = 0; i < gameboard.Length; i++)
             {
-                if (i != 9 || i != 29)
+                if (i != 10 && i != 30)
                 {
                     BoxFactory.createNeutral(i, gameboard);
                 }
