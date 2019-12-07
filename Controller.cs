@@ -44,7 +44,7 @@ namespace Monopoly_2019
             int tour = 0;
             while (tour != 20)
             {
-                foreach (Player p in this.game.list) // Il faut creer un pattern Iterator pour pouvoir appliquer le foreach
+                foreach (Player p in game.Player_list)
                 {
                     TurnOfPlayer(p);
                 }
@@ -54,10 +54,12 @@ namespace Monopoly_2019
 
         public void TurnOfPlayer(Player player)
         {
-            int value = ValueDice(); // A DEFINIR
-            player.Position = NewPosition(player.position, value);// A DEFINIR
-
+            int value = game.Board.ValueDice();
+            int newposition=game.NewPosition(player, value);
+            game.LaunchCaseMethode(newposition, player,game.Board);
         }
+
+        
 
 
 

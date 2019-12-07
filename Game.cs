@@ -6,22 +6,23 @@ namespace Monopoly_2019
 {
     public class Game
     {
-        List<Player> list = new List<Player>();
+        List<Player> player_list = new List<Player>();
         Board board;
 
         // Constructor
-
         public Game()
         {
-            int choice = 0;
-            List<Player> list = new List<Player>();
+            List<Player> tempPlayers = new List<Player>();
             Console.WriteLine("MONOPOLY GAME INITIALISATION\n");
-            Console.WriteLine("How many player ?");
-            while (choice < 5 && choice >= 2)
+            Console.WriteLine("How many players ?");
+            int choice = 0;
+            choice = Convert.ToInt32(Console.ReadLine());
+            while (choice >= 5 || choice < 2)
             {
-                Console.WriteLine("The value must be between 2 and 4 ?");
+                Console.WriteLine("Choose between 2 and 4 players");
                 choice = Convert.ToInt32(Console.ReadLine());
             }
+            //Player information
             string name;
             int color;
             for (int i = 1; i <= choice; i++)
@@ -29,13 +30,19 @@ namespace Monopoly_2019
                 name = Entername(i);
                 color = GiveColor(i);
                 Player player = new Player(i, name, color, 0, 500);
-                list.Add(player);
+                tempPlayers.Add(player);
             }
 
-            Board board = new Board();
-            this.list = list;
-            this.board = board;
+            //Initialisation of the board
+            this.board = new Board();
+            this.board.InitialiseBoard();
+            this.player_list = tempPlayers;
         }
+
+        //Getters
+        public Board Board { get => board; }
+
+        public List<Player> Player_list { get => player_list; }
 
 
         /// <summary>
@@ -72,6 +79,19 @@ namespace Monopoly_2019
                 name = Console.ReadLine();
             }
             return name;
+        }
+
+
+
+        public int NewPosition(Player player, int value)
+        {
+            player.Position = (value + player.Position) % 40;
+            return player.Position;
+        }
+
+        public void LaunchCaseMethode(int newposition,Player player,Board board)
+        {
+           board.Gameboard[newposition].BoxEffect(player,board);
         }
     }
 }
