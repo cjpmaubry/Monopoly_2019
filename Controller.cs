@@ -44,7 +44,7 @@ namespace Monopoly_2019
             int tour = 0;
             while (tour != 20)
             {
-                foreach (Player p in this.game.list) // Il faut creer un pattern Iterator pour pouvoir appliquer le foreach
+                foreach (Player p in game.Player_list)
                 {
                     TurnOfPlayer(p);
                 }

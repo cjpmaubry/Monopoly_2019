@@ -42,6 +42,9 @@ namespace Monopoly_2019
         //Getters
         public Board Board { get => board; }
 
+        public List<Player> Player_list { get => player_list; }
+
+
         /// <summary>
         /// Allocate color to a player
         /// </summary>
