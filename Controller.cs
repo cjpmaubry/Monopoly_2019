@@ -27,7 +27,7 @@ namespace Monopoly_2019
 
         public void UpdateView(int tour)
         {
-            view.UpdateDisplayBoard(game.Board, game.Player_list, tour);
+            view.UpdateDisplayBoard(game.Board, game.Player_list);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Monopoly_2019
             {
                 foreach (Player p in game.Player_list)
                 {
-                    PlayerAction(p);
+                    PlayerAction(p,tour);
                     TurnOfPlayer(p);
                     UpdateView(tour);
                     PlayerAction2(p);
@@ -55,13 +55,14 @@ namespace Monopoly_2019
         public void TurnOfPlayer(Player player)
         {          
             int value = game.Board.ValueDice(); // A REGARDER
+            DiplayDice(value,player);
             int newposition=game.NewPosition(player, value);
             game.LaunchCaseMethode(newposition, player,game.Board);
         }
 
-        public void PlayerAction(Player player)
+        public void PlayerAction(Player player,int tour)
         {
-            view.AskPlayerforAction(player);
+            view.AskPlayerforAction(player,tour);
         }
         public void PlayerAction2(Player player)
         {
@@ -72,7 +73,11 @@ namespace Monopoly_2019
         {
             view.ClearConsole();
         }
-
+        public void DiplayDice(int value,Player player)
+        {
+            view.DisplayDiceValue(value,player);
+        }
+        
 
     }
 }

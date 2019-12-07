@@ -426,16 +426,16 @@ namespace Monopoly_2019
         }
 
 
-        public void UpdateDisplayBoard(Board board, List<Player> list, int tour)
+        public void UpdateDisplayBoard(Board board, List<Player> list)
         {           
-            Console.WriteLine("Tour numéro " + tour);
             DisplayBoard(board, list);
         }
 
 
-        public void AskPlayerforAction(Player player)
+        public void AskPlayerforAction(Player player,int tour)
         {
-        Console.WriteLine("Turn of player "+player.Name);
+        Console.WriteLine("TURN NUMBER " + tour);
+        Console.WriteLine("\nTurn of player "+player.Name);
         Console.WriteLine("Press a key to launch dice");
         Console.ReadKey();
         }
@@ -453,5 +453,13 @@ namespace Monopoly_2019
         {
             Console.Clear();
         }
+
+        public void DisplayDiceValue(int value,Player player)
+        {
+            Console.WriteLine(player.Name + " obtain the value of "+value+" with the dice");
+        }
+
+     
+
     }
 }
