@@ -30,6 +30,8 @@ namespace Monopoly_2019
                 name = Entername(i);
                 color = GiveColor(i);
                 Player player = new Player(i, name, color, 0, 500);
+                ObservePlayer observer = new ObservePlayer(Convert.ToString(i));
+                player.Attach(observer);
                 tempPlayers.Add(player);
             }
 
