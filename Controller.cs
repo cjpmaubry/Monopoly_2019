@@ -16,13 +16,6 @@ namespace Monopoly_2019
             this.view = view;
         }
 
-        /// <summary>
-        /// This fonction launch the view update. It allows to vizualize the change of the party
-        /// </summary>
-        public void ViewUpdate()
-        {
-            view.Display(this.game);
-        }
 
         /// <summary>
         /// This fonction initialize the view thanks to the information include in the game
@@ -50,22 +43,30 @@ namespace Monopoly_2019
             {
                 foreach (Player p in game.Player_list)
                 {
+                    PlayerAction(p);
                     TurnOfPlayer(p);
                     UpdateView(tour);
+                    PlayerAction2(p);
                 }
                 tour++;
             }
         }
 
         public void TurnOfPlayer(Player player)
-        {
-            int value = game.Board.ValueDice();
+        {          
+            int value = game.Board.ValueDice(); // A REGARDER
             int newposition=game.NewPosition(player, value);
             game.LaunchCaseMethode(newposition, player,game.Board);
         }
 
-        
-
+        public void PlayerAction(Player player)
+        {
+            view.AskPlayerforAction(player);
+        }
+        public void PlayerAction2(Player player)
+        {
+            view.AskPlayerforAction2(player);
+        }
 
 
 

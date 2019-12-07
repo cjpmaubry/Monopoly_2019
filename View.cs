@@ -6,10 +6,6 @@ namespace Monopoly_2019
 {
     class View
     {
-        public void Display(Game game)
-        {
-            Console.WriteLine("MONOPOLY");
-        }
 
         public void DisplayBoard(Board board, List<Player> list)
         {
@@ -219,7 +215,7 @@ namespace Monopoly_2019
                                     }
                                 }
                             }
-                            if(list.Count == 4)
+                            if (list.Count == 4)
                             {
                                 if (i == list[j].Position && i == list[j + 1].Position)
                                 {
@@ -361,7 +357,7 @@ namespace Monopoly_2019
                                 }
                             }
                         }
-                        if(list.Count == 4)
+                        if (list.Count == 4)
                         {
                             if (board.Gameboard[i].box_description == "jail" && i == list[j].Position && list[j].Position == list[j + 1].Position)
                             {
@@ -428,17 +424,26 @@ namespace Monopoly_2019
             }
             Console.WriteLine("+--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+");
         }
-    
-    
-        public void UpdateDisplayBoard(Board board, List<Player> list,int tour)
-        {
-            Console.Clear();
+
+
+        public void UpdateDisplayBoard(Board board, List<Player> list, int tour)
+        {           
             Console.WriteLine("Tour numéro " + tour);
             DisplayBoard(board, list);
         }
 
+        public void AskPlayerforAction(Player player)
+        {
+        Console.Clear();
+        Console.WriteLine("Press a key to launch dice");
+        Console.ReadKey();
+        }
 
-
+        public void AskPlayerforAction2(Player player)
+        {
+            Console.WriteLine("Press a key to finish your turn");
+            Console.ReadKey();
+        }
 
     }
 }
