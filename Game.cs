@@ -73,7 +73,7 @@ namespace Monopoly_2019
         public string Entername(int index)
         {
             string name = null;
-            while (name == null)
+            while (name == null || name=="")
             {
                 Console.WriteLine("Enter the name of player " + index);
                 name = Console.ReadLine();
