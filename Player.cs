@@ -54,6 +54,14 @@ namespace Monopoly_2019
             }
         }
 
+        public int Id 
+        { 
+            get
+            {
+                return this.id;
+            }
+        }
+
         /// <summary>
         /// Allow the posibility to attach an observer
         /// </summary>
