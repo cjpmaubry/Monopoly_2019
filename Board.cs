@@ -32,7 +32,7 @@ namespace Monopoly_2019
             for (int i = 0; i < gameboard.Length; i++)
             {
                 //if the box has no role attributed
-                if (gameboard[i].box_description == null)
+                if (gameboard[i] == null)
                 { 
                     BoxFactory.createNeutral(i, gameboard);
                 }
