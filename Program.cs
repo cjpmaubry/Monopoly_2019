@@ -8,6 +8,8 @@ namespace Monopoly_2019
     {
         static void Main(string[] args)
         {
+            Game new_game = new Game();
+
             Console.WriteLine("Hello World!");
         }
 
