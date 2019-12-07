@@ -8,9 +8,19 @@ namespace Monopoly_2019
     {
         static void Main(string[] args)
         {
-            Game new_game = new Game();
+            Monopoly();
+        }
 
-            Console.WriteLine("Hello World!");
+
+        /// <summary>
+        /// This fonction launch the Monopoly game by creating the View and the Controller (MVC pattern)
+        /// </summary>
+        static void Monopoly()
+        {
+            View view = new View();
+            Controller controller = new Controller(view);
+            controller.LaunchGame();
+
         }
 
     }
