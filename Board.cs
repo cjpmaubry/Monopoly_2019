@@ -43,9 +43,9 @@ namespace Monopoly_2019
         /// Checks if the player is part of the jailed_players list
         /// </summary>
         /// <returns>Return true if he is in jail</returns>
-        public bool PlayerInJail(Player joueur, Board monopoly)
+        public bool PlayerInJail(Player joueur)
         {
-            foreach (Player prisonner in monopoly.Jailed_players)
+            foreach (Player prisonner in jailed_players)
             {
                 //looks at the names to see if the player is in jail
                 if (joueur.Name == prisonner.Name)
@@ -77,13 +77,9 @@ namespace Monopoly_2019
         /// <param name="joueur">Player to free</param>
         public void FreeFromJail(Player joueur)
         {
-            foreach(Player prisonner in jailed_players)
+            if(PlayerInJail(joueur))
             {
-                //we check that the player is indeed in jail
-                if(prisonner.Name == joueur.Name)
-                {
-                    jailed_players.Remove(joueur);
-                }
+                jailed_players.Remove(joueur);
             }
         }
 

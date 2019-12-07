@@ -25,7 +25,7 @@ namespace Monopoly_2019
         {
             //if the player is in jail
             
-            if(monopoly.PlayerInJail(joueur, monopoly))
+            if(monopoly.PlayerInJail(joueur))
             {
                 int move = 0;
                 int tries = 0;
