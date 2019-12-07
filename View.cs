@@ -21,7 +21,7 @@ namespace Monopoly_2019
                 {
                     if (j != 2)
                     {
-                        if (board.gameboard[i].box_description == "gotojail" && i == list[j].Position)
+                        if (board.Gameboard[i].box_description == "gotojail" && i == list[j].Position)
                         {
                             Console.BackgroundColor = ConsoleColor.Red;
                             Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
@@ -29,7 +29,7 @@ namespace Monopoly_2019
                         }
                         else
                         {
-                            if (board.gameboard[i].box_description == "gotojail")
+                            if (board.Gameboard[i].box_description == "gotojail")
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|        |");
@@ -37,7 +37,7 @@ namespace Monopoly_2019
                             }
                             else
                             {
-                                if (board.gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position)
                                 {
                                     Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                 }
@@ -52,7 +52,7 @@ namespace Monopoly_2019
                     {
                         if (list.Count == 2)
                         {
-                            if (board.gameboard[i].box_description == "gotojail")
+                            if (board.Gameboard[i].box_description == "gotojail")
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|        |");
@@ -61,7 +61,7 @@ namespace Monopoly_2019
 
                             else
                             {
-                                if (board.gameboard[i].box_description == "neutral")
+                                if (board.Gameboard[i].box_description == "neutral")
                                 {
                                     Console.Write("|        |");
                                 }
@@ -69,7 +69,7 @@ namespace Monopoly_2019
                         }
                         if (list.Count == 3)
                         {
-                            if (board.gameboard[i].box_description == "gotojail" && i == list[j].Position)
+                            if (board.Gameboard[i].box_description == "gotojail" && i == list[j].Position)
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
@@ -77,7 +77,7 @@ namespace Monopoly_2019
                             }
                             else
                             {
-                                if (board.gameboard[i].box_description == "gotojail")
+                                if (board.Gameboard[i].box_description == "gotojail")
                                 {
                                     Console.BackgroundColor = ConsoleColor.Red;
                                     Console.Write("|        |");
@@ -85,7 +85,7 @@ namespace Monopoly_2019
                                 }
                                 else
                                 {
-                                    if (board.gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                    if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position)
                                     {
                                         Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                     }
@@ -98,7 +98,7 @@ namespace Monopoly_2019
                         }
                         if (list.Count == 4)
                         {
-                            if (board.gameboard[i].box_description == "gotojail" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                            if (board.Gameboard[i].box_description == "gotojail" && i == list[j].Position && list[j].Position == list[j + 1].Position)
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
@@ -106,13 +106,13 @@ namespace Monopoly_2019
                             }
                             else
                             {
-                                if (board.gameboard[i].box_description == "neutral" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                                if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position && list[j].Position == list[j + 1].Position)
                                 {
                                     Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
                                 }
                                 else
                                 {
-                                    if (board.gameboard[i].box_description == "gotojail" && i == list[j].Position)
+                                    if (board.Gameboard[i].box_description == "gotojail" && i == list[j].Position)
                                     {
                                         Console.BackgroundColor = ConsoleColor.Red;
                                         Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
@@ -120,7 +120,7 @@ namespace Monopoly_2019
                                     }
                                     else
                                     {
-                                        if (board.gameboard[i].box_description == "gotojail" && i == list[j + 1].Position)
+                                        if (board.Gameboard[i].box_description == "gotojail" && i == list[j + 1].Position)
                                         {
                                             Console.BackgroundColor = ConsoleColor.Red;
                                             Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
@@ -128,7 +128,7 @@ namespace Monopoly_2019
                                         }
                                         else
                                         {
-                                            if (board.gameboard[i].box_description == "gotojail")
+                                            if (board.Gameboard[i].box_description == "gotojail")
                                             {
                                                 Console.BackgroundColor = ConsoleColor.Red;
                                                 Console.Write("|        |");
@@ -136,13 +136,13 @@ namespace Monopoly_2019
                                             }
                                             else
                                             {
-                                                if (board.gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                                if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position)
                                                 {
                                                     Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                                 }
                                                 else
                                                 {
-                                                    if (board.gameboard[i].box_description == "neutral" && i == list[j + 1].Position)
+                                                    if (board.Gameboard[i].box_description == "neutral" && i == list[j + 1].Position)
                                                     {
                                                         Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
                                                     }
@@ -164,7 +164,7 @@ namespace Monopoly_2019
             Console.WriteLine("+--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+");
             for (int i = 19; i >= 11; i--)
             {
-                if (board.gameboard[i].box_description == "neutral" && board.gameboard[50 - i].box_description == "neutral")
+                if (board.Gameboard[i].box_description == "neutral" && board.Gameboard[50 - i].box_description == "neutral")
                 {
                     Console.Write("+--------+");
                     Console.WriteLine("                                                                                          +--------+");
@@ -286,7 +286,7 @@ namespace Monopoly_2019
                 {
                     if (j != 2)
                     {
-                        if (board.gameboard[i].box_description == "jail" && i == list[j].Position)
+                        if (board.Gameboard[i].box_description == "jail" && i == list[j].Position)
                         {
                             Console.BackgroundColor = ConsoleColor.Red;
                             Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
@@ -294,7 +294,7 @@ namespace Monopoly_2019
                         }
                         else
                         {
-                            if (board.gameboard[i].box_description == "jail")
+                            if (board.Gameboard[i].box_description == "jail")
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|        |");
@@ -302,7 +302,7 @@ namespace Monopoly_2019
                             }
                             else
                             {
-                                if (board.gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position)
                                 {
                                     Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                 }
@@ -317,7 +317,7 @@ namespace Monopoly_2019
                     {
                         if (list.Count == 2)
                         {
-                            if (board.gameboard[i].box_description == "jail")
+                            if (board.Gameboard[i].box_description == "jail")
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|        |");
@@ -326,7 +326,7 @@ namespace Monopoly_2019
 
                             else
                             {
-                                if (board.gameboard[i].box_description == "neutral")
+                                if (board.Gameboard[i].box_description == "neutral")
                                 {
                                     Console.Write("|        |");
                                 }
@@ -334,7 +334,7 @@ namespace Monopoly_2019
                         }
                         if (list.Count == 3)
                         {
-                            if (board.gameboard[i].box_description == "jail" && i == list[j].Position)
+                            if (board.Gameboard[i].box_description == "jail" && i == list[j].Position)
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
@@ -342,7 +342,7 @@ namespace Monopoly_2019
                             }
                             else
                             {
-                                if (board.gameboard[i].box_description == "jail")
+                                if (board.Gameboard[i].box_description == "jail")
                                 {
                                     Console.BackgroundColor = ConsoleColor.Red;
                                     Console.Write("|        |");
@@ -350,7 +350,7 @@ namespace Monopoly_2019
                                 }
                                 else
                                 {
-                                    if (board.gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                    if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position)
                                     {
                                         Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                     }
@@ -363,7 +363,7 @@ namespace Monopoly_2019
                         }
                         if(list.Count == 4)
                         {
-                            if (board.gameboard[i].box_description == "jail" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                            if (board.Gameboard[i].box_description == "jail" && i == list[j].Position && list[j].Position == list[j + 1].Position)
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
@@ -371,13 +371,13 @@ namespace Monopoly_2019
                             }
                             else
                             {
-                                if (board.gameboard[i].box_description == "neutral" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                                if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position && list[j].Position == list[j + 1].Position)
                                 {
                                     Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
                                 }
                                 else
                                 {
-                                    if (board.gameboard[i].box_description == "jail" && i == list[j].Position)
+                                    if (board.Gameboard[i].box_description == "jail" && i == list[j].Position)
                                     {
                                         Console.BackgroundColor = ConsoleColor.Red;
                                         Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
@@ -385,7 +385,7 @@ namespace Monopoly_2019
                                     }
                                     else
                                     {
-                                        if (board.gameboard[i].box_description == "jail" && i == list[j + 1].Position)
+                                        if (board.Gameboard[i].box_description == "jail" && i == list[j + 1].Position)
                                         {
                                             Console.BackgroundColor = ConsoleColor.Red;
                                             Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
@@ -393,7 +393,7 @@ namespace Monopoly_2019
                                         }
                                         else
                                         {
-                                            if (board.gameboard[i].box_description == "jail")
+                                            if (board.Gameboard[i].box_description == "jail")
                                             {
                                                 Console.BackgroundColor = ConsoleColor.Red;
                                                 Console.Write("|        |");
@@ -401,13 +401,13 @@ namespace Monopoly_2019
                                             }
                                             else
                                             {
-                                                if (board.gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                                if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position)
                                                 {
                                                     Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                                 }
                                                 else
                                                 {
-                                                    if (board.gameboard[i].box_description == "neutral" && i == list[j + 1].Position)
+                                                    if (board.Gameboard[i].box_description == "neutral" && i == list[j + 1].Position)
                                                     {
                                                         Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
                                                     }
@@ -428,5 +428,17 @@ namespace Monopoly_2019
             }
             Console.WriteLine("+--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+");
         }
+    
+    
+        public void UpdateDisplayBoard(Board board, List<Player> list,int tour)
+        {
+            Console.Clear();
+            Console.WriteLine("Tour numéro " + tour);
+            DisplayBoard(board, list);
+        }
+
+
+
+
     }
 }

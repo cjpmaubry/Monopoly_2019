@@ -29,9 +29,13 @@ namespace Monopoly_2019
         /// </summary>
         public void Initialisation()
         {
-            view.Initialisation();
+            view.DisplayBoard(game.Board,game.Player_list);
         }
 
+        public void UpdateView(int tour)
+        {
+            view.UpdateDisplayBoard(game.Board, game.Player_list, tour);
+        }
 
         /// <summary>
         /// This fonction is "the main" fonction because it launch the game
@@ -47,6 +51,7 @@ namespace Monopoly_2019
                 foreach (Player p in game.Player_list)
                 {
                     TurnOfPlayer(p);
+                    UpdateView(tour);
                 }
                 tour++;
             }
