@@ -6,7 +6,9 @@ namespace Monopoly_2019
 {
     public class Board
     {
-        public Abs_Box[] gameboard;
+        private Abs_Box[] gameboard;
+        private List<Player> jailed_players;
+        private Dice dices;
 
         public Board()
         {
@@ -20,8 +22,9 @@ namespace Monopoly_2019
             BoxFactory.createGoToJail(30, gameboard);
             for (int i = 0; i < gameboard.Length; i++)
             {
-                if (i != 10 && i != 30)
-                {
+                //if the box has no role attributed
+                if (gameboard[i].box_description == null)
+                { 
                     BoxFactory.createNeutral(i, gameboard);
                 }
             }
