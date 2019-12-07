@@ -53,11 +53,20 @@ namespace Monopoly_2019
         }
 
         public void TurnOfPlayer(Player player)
-        {          
-            int value = game.Board.ValueDice(); // A REGARDER
-            DiplayDice(value,player);
-            int newposition=game.NewPosition(player, value);
-            game.LaunchCaseMethode(newposition, player,game.Board);
+        {   
+            //if the player is in jail he must try to escape instead of moving
+            //The box effect method in Jail detects on its own when it has to do the TryToEscape
+            if(game.Board.PlayerInJail(player, game.Board))
+            {
+                game.LaunchCaseMethode(player.Position, player, game.Board);
+            }
+            else
+            {
+                int value = game.Board.ValueDice(); // A REGARDER
+                DiplayDice(value, player);
+                int newposition = game.NewPosition(player, value);
+                game.LaunchCaseMethode(newposition, player, game.Board);
+            }
         }
 
         public void PlayerAction(Player player,int tour)
