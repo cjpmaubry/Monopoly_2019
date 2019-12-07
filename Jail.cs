@@ -25,7 +25,7 @@ namespace Monopoly_2019
         {
             //if the player is in jail
             
-            if(PlayerInJail(joueur, monopoly))
+            if(monopoly.PlayerInJail(joueur, monopoly))
             {
                 int move = 0;
                 int tries = 0;
@@ -49,23 +49,6 @@ namespace Monopoly_2019
             {
                 //Nothing happens, he is a visitor
             }
-        }
-
-        /// <summary>
-        /// Checks if the player is part of the jailed_players list
-        /// </summary>
-        /// <returns>Return true if he is in jail</returns>
-        private bool PlayerInJail(Player joueur, Board monopoly)
-        {
-            foreach(Player prisonner in monopoly.Jailed_players)
-            {
-                //looks at the names to see if the player is in jail
-                if(joueur.Name == prisonner.Name)
-                {
-                    return true;
-                }
-            }
-            return false;
         }
 
         /// <summary>

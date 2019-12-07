@@ -40,6 +40,23 @@ namespace Monopoly_2019
         }
 
         /// <summary>
+        /// Checks if the player is part of the jailed_players list
+        /// </summary>
+        /// <returns>Return true if he is in jail</returns>
+        public bool PlayerInJail(Player joueur, Board monopoly)
+        {
+            foreach (Player prisonner in monopoly.Jailed_players)
+            {
+                //looks at the names to see if the player is in jail
+                if (joueur.Name == prisonner.Name)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Sends a player to jail
         /// Adds it to the list of trapped players
         /// Changes its position to the position of the jail
