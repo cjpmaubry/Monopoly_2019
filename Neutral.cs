@@ -10,5 +10,11 @@ namespace Monopoly_2019
         {
             this.box_description = "neutral";
         }
+
+        //Nothing happens on neutral boxes
+        public override void BoxEffect(Player joueur, Board monopoly)
+        {
+            //Nothing happens on neutral boxes
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Monopoly_2019
 {
@@ -6,7 +8,20 @@ namespace Monopoly_2019
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Monopoly();
         }
+
+
+        /// <summary>
+        /// This fonction launches the Monopoly game by creating the View and the Controller (MVC pattern)
+        /// </summary>
+        static void Monopoly()
+        {
+            View view = new View();
+            Controller controller = new Controller(view);
+            controller.LaunchGame();
+
+        }
+
     }
 }

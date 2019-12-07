@@ -10,56 +10,74 @@ namespace Monopoly_2019
         View view;
 
         // Constructor
-        public Controller(Game game, View view)
+        public Controller( View view)
         {
-            this.game = game;
+            this.game = new Game();
             this.view = view;
         }
 
-        /// <summary>
-        /// This fonction launch the view update. It allows to vizualize the change of the party
-        /// </summary>
-        public void ViewUpdate()
-        {
-            view.Display(this.game);
-        }
 
         /// <summary>
-        /// This fonction initialize the game ( with value of the beginning of the game  party )
+        /// This fonction initialize the view thanks to the information include in the game
         /// </summary>
         public void Initialisation()
         {
-            // Initialisation des joueurs du plateau et plus générallement du game....
+            view.DisplayBoard(game.Board,game.Player_list);
         }
 
+        public void UpdateView(int tour)
+        {
+            view.UpdateDisplayBoard(game.Board, game.Player_list);
+        }
 
         /// <summary>
         /// This fonction is "the main" fonction because it launch the game
         /// </summary>
         public void LaunchGame()
         {
-            this.Initialisation();  // this. ???
-            // Boucle pour les tours
+            Initialisation();
+            Clear();
+            // Loop for the turns
             int tour = 0;
-            while (tour != 20)
+            while (tour != 30)
             {
-                foreach (Player p in this.game.list) // Il faut creer un pattern Iterator pour pouvoir appliquer le foreach
+                foreach (Player p in game.Player_list)
                 {
+                    PlayerAction(p,tour);
                     TurnOfPlayer(p);
+                    UpdateView(tour);
+                    PlayerAction2(p);
                 }
                 tour++;
             }
         }
 
         public void TurnOfPlayer(Player player)
-        {
-            int value = ValueDice(); // A DEFINIR
-            player.Position = NewPosition(player.position, value);// A DEFINIR
-
+        {          
+            int value = game.Board.ValueDice(); // A REGARDER
+            DiplayDice(value,player);
+            int newposition=game.NewPosition(player, value);
+            game.LaunchCaseMethode(newposition, player,game.Board);
         }
 
+        public void PlayerAction(Player player,int tour)
+        {
+            view.AskPlayerforAction(player,tour);
+        }
+        public void PlayerAction2(Player player)
+        {
+            view.AskPlayerforAction2(player);
+        }
 
-
+        public void Clear()
+        {
+            view.ClearConsole();
+        }
+        public void DiplayDice(int value,Player player)
+        {
+            view.DisplayDiceValue(value,player);
+        }
+        
 
     }
 }
