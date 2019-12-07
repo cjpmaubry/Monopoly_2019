@@ -432,18 +432,26 @@ namespace Monopoly_2019
             DisplayBoard(board, list);
         }
 
+
         public void AskPlayerforAction(Player player)
         {
-        Console.Clear();
+        Console.WriteLine("Turn of player "+player.Name);
         Console.WriteLine("Press a key to launch dice");
         Console.ReadKey();
         }
+
 
         public void AskPlayerforAction2(Player player)
         {
             Console.WriteLine("Press a key to finish your turn");
             Console.ReadKey();
+            Console.Clear();
         }
 
+
+        public void ClearConsole()
+        {
+            Console.Clear();
+        }
     }
 }

@@ -36,10 +36,10 @@ namespace Monopoly_2019
         public void LaunchGame()
         {
             Initialisation();
-
+            Clear();
             // Loop for the turns
             int tour = 0;
-            while (tour != 20)
+            while (tour != 30)
             {
                 foreach (Player p in game.Player_list)
                 {
@@ -68,6 +68,10 @@ namespace Monopoly_2019
             view.AskPlayerforAction2(player);
         }
 
+        public void Clear()
+        {
+            view.ClearConsole();
+        }
 
 
     }
