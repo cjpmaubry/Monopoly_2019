@@ -13,7 +13,7 @@ namespace Monopoly_2019
 
 
         /// <summary>
-        /// This fonction launch the Monopoly game by creating the View and the Controller (MVC pattern)
+        /// This fonction launches the Monopoly game by creating the View and the Controller (MVC pattern)
         /// </summary>
         static void Monopoly()
         {

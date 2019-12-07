@@ -24,6 +24,7 @@ namespace Monopoly_2019
         public override void BoxEffect(Player joueur, Board monopoly)
         {
             //if the player is in jail
+            
             if(PlayerInJail(joueur, monopoly))
             {
                 int move = 0;
@@ -74,7 +75,7 @@ namespace Monopoly_2019
         /// <returns>Returns 0 if he fails, the sum of the dices if he succeeds</returns>
         private int TryToEscape(Player joueur, Board monopoly)
         {
-            Console.WriteLine("Press enter to roll the dice");
+            Console.WriteLine("Press enter to roll the dice and try to escape");
             Console.ReadKey();
 
             //player rolls the dice
