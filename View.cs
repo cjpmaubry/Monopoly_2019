@@ -9,70 +9,422 @@ namespace Monopoly_2019
         public void Display(Game game)
         {
             Console.WriteLine("MONOPOLY");
-
-
         }
 
-        public void DisplayBoard(Board board)
+        public void DisplayBoard(Board board, List<Player> list)
         {
+
             Console.WriteLine("+--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+");
-            int compt = 0;
-            while (compt < 3)
+            for (int j = 0; j < 3; j++)
             {
                 for (int i = 20; i <= 30; i++)
                 {
-                    if (board.gameboard[i].box_description == "neutral")
+                    if (j != 2)
                     {
-                        Console.Write("|        |");
+                        if (board.gameboard[i].box_description == "gotojail" && i == list[j].Position)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                            Console.ResetColor();
+                        }
+                        else
+                        {
+                            if (board.gameboard[i].box_description == "gotojail")
+                            {
+                                Console.BackgroundColor = ConsoleColor.Red;
+                                Console.Write("|        |");
+                                Console.ResetColor();
+                            }
+                            else
+                            {
+                                if (board.gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                {
+                                    Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                                }
+                                else
+                                {
+                                    Console.Write("|        |");
+                                }
+                            }
+                        }
                     }
-                    if (board.gameboard[i].box_description == "gotojail")
+                    else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("|        |");
-                        Console.ResetColor();
+                        if (list.Count == 2)
+                        {
+                            if (board.gameboard[i].box_description == "gotojail")
+                            {
+                                Console.BackgroundColor = ConsoleColor.Red;
+                                Console.Write("|        |");
+                                Console.ResetColor();
+                            }
+
+                            else
+                            {
+                                if (board.gameboard[i].box_description == "neutral")
+                                {
+                                    Console.Write("|        |");
+                                }
+                            }
+                        }
+                        if (list.Count == 3)
+                        {
+                            if (board.gameboard[i].box_description == "gotojail" && i == list[j].Position)
+                            {
+                                Console.BackgroundColor = ConsoleColor.Red;
+                                Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                                Console.ResetColor();
+                            }
+                            else
+                            {
+                                if (board.gameboard[i].box_description == "gotojail")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Red;
+                                    Console.Write("|        |");
+                                    Console.ResetColor();
+                                }
+                                else
+                                {
+                                    if (board.gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                    {
+                                        Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                                    }
+                                    else
+                                    {
+                                        Console.Write("|        |");
+                                    }
+                                }
+                            }
+                        }
+                        if (list.Count == 4)
+                        {
+                            if (board.gameboard[i].box_description == "gotojail" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                            {
+                                Console.BackgroundColor = ConsoleColor.Red;
+                                Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
+                                Console.ResetColor();
+                            }
+                            else
+                            {
+                                if (board.gameboard[i].box_description == "neutral" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                                {
+                                    Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
+                                }
+                                else
+                                {
+                                    if (board.gameboard[i].box_description == "gotojail" && i == list[j].Position)
+                                    {
+                                        Console.BackgroundColor = ConsoleColor.Red;
+                                        Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                                        Console.ResetColor();
+                                    }
+                                    else
+                                    {
+                                        if (board.gameboard[i].box_description == "gotojail" && i == list[j + 1].Position)
+                                        {
+                                            Console.BackgroundColor = ConsoleColor.Red;
+                                            Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
+                                            Console.ResetColor();
+                                        }
+                                        else
+                                        {
+                                            if (board.gameboard[i].box_description == "gotojail")
+                                            {
+                                                Console.BackgroundColor = ConsoleColor.Red;
+                                                Console.Write("|        |");
+                                                Console.ResetColor();
+                                            }
+                                            else
+                                            {
+                                                if (board.gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                                {
+                                                    Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                                                }
+                                                else
+                                                {
+                                                    if (board.gameboard[i].box_description == "neutral" && i == list[j + 1].Position)
+                                                    {
+                                                        Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.Write("|        |");
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 Console.WriteLine();
-                compt++;
             }
             Console.WriteLine("+--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+");
-
             for (int i = 19; i >= 11; i--)
             {
                 if (board.gameboard[i].box_description == "neutral" && board.gameboard[50 - i].box_description == "neutral")
                 {
                     Console.Write("+--------+");
                     Console.WriteLine("                                                                                          +--------+");
-                    Console.Write("|        |");
-                    Console.WriteLine("                                                                                          |        |");
-                    Console.Write("|        |");
-                    Console.WriteLine("                                                                                          |        |");
-                    Console.Write("|        |");
-                    Console.WriteLine("                                                                                          |        |");
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if (j != 2)
+                        {
+                            if (i == list[j].Position)
+                            {
+                                Console.Write("|    " + Convert.ToString(list[j].Id) + "   |");
+                                Console.WriteLine("                                                                                          |        |");
+                            }
+                            else
+                            {
+                                if (50 - i == list[j].Position)
+                                {
+                                    Console.Write("|        |");
+                                    Console.WriteLine("                                                                                          |    " + Convert.ToString(list[j].Id) + "   |");
+                                }
+                                else
+                                {
+                                    Console.Write("|        |");
+                                    Console.WriteLine("                                                                                          |        |");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (list.Count == 2)
+                            {
+                                Console.Write("|        |");
+                                Console.WriteLine("                                                                                          |        |");
+                            }
+                            if (list.Count == 3)
+                            {
+                                if (i == list[j].Position)
+                                {
+                                    Console.Write("|    " + Convert.ToString(list[j].Id) + "   |");
+                                    Console.WriteLine("                                                                                          |        |");
+                                }
+                                else
+                                {
+                                    if (50 - i == list[j].Position)
+                                    {
+                                        Console.Write("|        |");
+                                        Console.WriteLine("                                                                                          |    " + Convert.ToString(list[j].Id) + "   |");
+                                    }
+                                    else
+                                    {
+                                        Console.Write("|        |");
+                                        Console.WriteLine("                                                                                          |        |");
+                                    }
+                                }
+                            }
+                            if(list.Count == 4)
+                            {
+                                if (i == list[j].Position && i == list[j + 1].Position)
+                                {
+                                    Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
+                                    Console.WriteLine("                                                                                          |        |");
+                                }
+                                else
+                                {
+                                    if (50 - i == list[j].Position && 50 - i == list[j + 1].Position)
+                                    {
+                                        Console.Write("|        |");
+                                        Console.WriteLine("                                                                                          |  "
+                                            + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
+                                    }
+                                    else
+                                    {
+                                        if (i == list[j].Position)
+                                        {
+                                            Console.Write("|    " + Convert.ToString(list[j].Id) + "   |");
+                                            Console.WriteLine("                                                                                          |        |");
+                                        }
+                                        else
+                                        {
+                                            if (50 - i == list[j].Position)
+                                            {
+                                                Console.Write("|        |");
+                                                Console.WriteLine("                                                                                          |    " + Convert.ToString(list[j].Id) + "   |");
+                                            }
+                                            else
+                                            {
+                                                if (i == list[j + 1].Position)
+                                                {
+                                                    Console.Write("|    " + Convert.ToString(list[j + 1].Id) + "   |");
+                                                    Console.WriteLine("                                                                                          |        |");
+                                                }
+                                                else
+                                                {
+                                                    if (50 - i == list[j + 1].Position)
+                                                    {
+                                                        Console.Write("|        |");
+                                                        Console.WriteLine("                                                                                          |    " + Convert.ToString(list[j + 1].Id) + "   |");
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.Write("|        |");
+                                                        Console.WriteLine("                                                                                          |        |");
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                     Console.Write("+--------+");
                     Console.WriteLine("                                                                                          +--------+");
                 }
             }
-
             Console.WriteLine("+--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+");
-            int compt2 = 0;
-            while (compt2 < 3)
+            for (int j = 0; j < 3; j++)
             {
                 for (int i = 10; i >= 0; i--)
                 {
-                    if (board.gameboard[i].box_description == "neutral")
+                    if (j != 2)
                     {
-                        Console.Write("|        |");
+                        if (board.gameboard[i].box_description == "jail" && i == list[j].Position)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                            Console.ResetColor();
+                        }
+                        else
+                        {
+                            if (board.gameboard[i].box_description == "jail")
+                            {
+                                Console.BackgroundColor = ConsoleColor.Red;
+                                Console.Write("|        |");
+                                Console.ResetColor();
+                            }
+                            else
+                            {
+                                if (board.gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                {
+                                    Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                                }
+                                else
+                                {
+                                    Console.Write("|        |");
+                                }
+                            }
+                        }
                     }
-                    if (board.gameboard[i].box_description == "jail")
+                    else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("|        |");
-                        Console.ResetColor();
+                        if (list.Count == 2)
+                        {
+                            if (board.gameboard[i].box_description == "jail")
+                            {
+                                Console.BackgroundColor = ConsoleColor.Red;
+                                Console.Write("|        |");
+                                Console.ResetColor();
+                            }
+
+                            else
+                            {
+                                if (board.gameboard[i].box_description == "neutral")
+                                {
+                                    Console.Write("|        |");
+                                }
+                            }
+                        }
+                        if (list.Count == 3)
+                        {
+                            if (board.gameboard[i].box_description == "jail" && i == list[j].Position)
+                            {
+                                Console.BackgroundColor = ConsoleColor.Red;
+                                Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                                Console.ResetColor();
+                            }
+                            else
+                            {
+                                if (board.gameboard[i].box_description == "jail")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Red;
+                                    Console.Write("|        |");
+                                    Console.ResetColor();
+                                }
+                                else
+                                {
+                                    if (board.gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                    {
+                                        Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                                    }
+                                    else
+                                    {
+                                        Console.Write("|        |");
+                                    }
+                                }
+                            }
+                        }
+                        if(list.Count == 4)
+                        {
+                            if (board.gameboard[i].box_description == "jail" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                            {
+                                Console.BackgroundColor = ConsoleColor.Red;
+                                Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
+                                Console.ResetColor();
+                            }
+                            else
+                            {
+                                if (board.gameboard[i].box_description == "neutral" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                                {
+                                    Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
+                                }
+                                else
+                                {
+                                    if (board.gameboard[i].box_description == "jail" && i == list[j].Position)
+                                    {
+                                        Console.BackgroundColor = ConsoleColor.Red;
+                                        Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                                        Console.ResetColor();
+                                    }
+                                    else
+                                    {
+                                        if (board.gameboard[i].box_description == "jail" && i == list[j + 1].Position)
+                                        {
+                                            Console.BackgroundColor = ConsoleColor.Red;
+                                            Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
+                                            Console.ResetColor();
+                                        }
+                                        else
+                                        {
+                                            if (board.gameboard[i].box_description == "jail")
+                                            {
+                                                Console.BackgroundColor = ConsoleColor.Red;
+                                                Console.Write("|        |");
+                                                Console.ResetColor();
+                                            }
+                                            else
+                                            {
+                                                if (board.gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                                {
+                                                    Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                                                }
+                                                else
+                                                {
+                                                    if (board.gameboard[i].box_description == "neutral" && i == list[j + 1].Position)
+                                                    {
+                                                        Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.Write("|        |");
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 Console.WriteLine();
-                compt2++;
             }
             Console.WriteLine("+--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+");
         }
