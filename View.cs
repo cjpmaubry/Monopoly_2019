@@ -101,8 +101,14 @@ namespace Monopoly_2019
                 Console.WriteLine();
             }
 
+
+
+
+
             //Display of the left and right colums of the board
             Console.WriteLine("+--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+");
+            
+
             for (int i = 19; i >= 11; i--)
             {
                 Console.BackgroundColor = board.Gameboard[i].color;
@@ -112,6 +118,7 @@ namespace Monopoly_2019
                 Console.BackgroundColor = board.Gameboard[i].color;
                 Console.WriteLine("+--------+");
                 Console.ResetColor();
+                
                 for (int j = 0; j < 3; j++)
                 {
                     //Display for the two top rows of each box
@@ -125,8 +132,9 @@ namespace Monopoly_2019
                             Console.ResetColor();
                             Console.Write("                                                                                          ");
                             Console.BackgroundColor = board.Gameboard[50 - i].color;
-                            Console.WriteLine("|        |");
+                            Console.Write("|        |");                          
                             Console.ResetColor();
+                            
                         }
                         else
                         {
@@ -139,6 +147,7 @@ namespace Monopoly_2019
                                 Console.BackgroundColor = board.Gameboard[50 - i].color;
                                 Console.WriteLine("|    " + Convert.ToString(list[j].Id) + "   |");
                                 Console.ResetColor();
+
                             }
                             else
                             {
@@ -147,8 +156,9 @@ namespace Monopoly_2019
                                 Console.ResetColor();
                                 Console.Write("                                                                                          ");
                                 Console.BackgroundColor = board.Gameboard[50 - i].color;
-                                Console.WriteLine("|        |");
+                                Console.Write("|        |");
                                 Console.ResetColor();
+                                Console.WriteLine("");
                             }
                         }
                     }
@@ -321,6 +331,8 @@ namespace Monopoly_2019
                 Console.WriteLine("+--------+");
                 Console.ResetColor();
             }
+
+
             //Display of the bottom row
             Console.WriteLine("+--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+");
             for (int j = 0; j < 3; j++)
