@@ -16,11 +16,27 @@ namespace Monopoly_2019
             Console.WriteLine("MONOPOLY GAME INITIALISATION\n");
             Console.WriteLine("How many players ?");
             int choice = 0;
-            choice = Convert.ToInt32(Console.ReadLine());
+            string line = Console.In.ReadLine();
+            try
+            {
+                choice = int.Parse(line);
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine("L'erreur suivante s'est produite : " + e.Message);
+            }
             while (choice >= 5 || choice < 2)
             {
                 Console.WriteLine("Choose between 2 and 4 players");
-                choice = Convert.ToInt32(Console.ReadLine());
+                line = Console.In.ReadLine();
+                try
+                {
+                    choice = int.Parse(line);
+                }
+                catch (Exception e)
+                {
+                    Console.Out.WriteLine("L'erreur suivante s'est produite : " + e.Message);
+                }
             }
             //Player information
             string name;
