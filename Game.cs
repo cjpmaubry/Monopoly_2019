@@ -16,11 +16,27 @@ namespace Monopoly_2019
             Console.WriteLine("MONOPOLY GAME INITIALISATION\n");
             Console.WriteLine("How many players ?");
             int choice = 0;
-            choice = Convert.ToInt32(Console.ReadLine());
+            string line = Console.In.ReadLine();
+            try
+            {
+                choice = int.Parse(line);
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine("L'erreur suivante s'est produite : " + e.Message);
+            }
             while (choice >= 5 || choice < 2)
             {
                 Console.WriteLine("Choose between 2 and 4 players");
-                choice = Convert.ToInt32(Console.ReadLine());
+                line = Console.In.ReadLine();
+                try
+                {
+                    choice = int.Parse(line);
+                }
+                catch (Exception e)
+                {
+                    Console.Out.WriteLine("L'erreur suivante s'est produite : " + e.Message);
+                }
             }
             //Player information
             string name;
@@ -84,13 +100,29 @@ namespace Monopoly_2019
         }
 
 
-
-        public int NewPosition(Player player, int value)
+        /// <summary>
+        /// Method that move player to the new position and add money if end a full tour
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="value"></param>
+        /// <param name="board"></param>
+        /// <returns></returns>
+        public int NewPosition(Player player, int value,Board board)
         {
             player.Position = (value + player.Position) % 40;
+            if(player.Position==0)
+            {
+                board.Gameboard[value].BoxEffect(player, board);
+            }
             return player.Position;
         }
 
+        /// <summary>
+        /// This method execute the box effect for the player in this box
+        /// </summary>
+        /// <param name="newposition"></param>
+        /// <param name="player"></param>
+        /// <param name="board"></param>
         public void LaunchCaseMethode(int newposition,Player player,Board board)
         {
             board.Gameboard[newposition].BoxEffect(player,board);

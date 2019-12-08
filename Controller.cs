@@ -91,7 +91,7 @@ namespace Monopoly_2019
             {
                 made_a_double = game.Board.Roll();
                 int value = game.Board.ValueDice();
-                int newposition = game.NewPosition(player, value);
+                int newposition = game.NewPosition(player, value, game.Board);
                 DisplayBoxDescription(newposition, game.Board);
                 game.LaunchCaseMethode(newposition, player, game.Board);
 

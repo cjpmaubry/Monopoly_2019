@@ -5,11 +5,17 @@ using System.Text;
 namespace Monopoly_2019
 {
     class BoxFactory
-    {
+    {     
         //creates a Go box at the given position
         public static void createGo(int position, Abs_Box[] plateau)
         {
             plateau[position] = new Go(position);
+        }
+
+        //creates a Proprety at the given position
+        public static void createProprety(int position, Abs_Box[] plateau, string name, int price, int rent)
+        {
+            plateau[position] = new Proprety(position, name, price, rent);
         }
 
         //creates a Luck box at given position
@@ -36,5 +42,10 @@ namespace Monopoly_2019
             plateau[position] = new Neutral(position);
         }
 
+        //creates a Community chest  box at given position
+        public static void createCommunityChest(int position, Abs_Box[] plateau)
+        {
+            plateau[position] = new CommunityChest(position);
+        }
     }
 }

@@ -38,5 +38,11 @@ namespace Monopoly_2019
             Console.WriteLine("The player" + name + " has now  " + money + " euro");
         }
 
+        public void UpdateProperty(int position,Board board)
+        {
+            string message= board.Gameboard[position].ToString();
+            Console.WriteLine(message);
+        }
+
     }
 }

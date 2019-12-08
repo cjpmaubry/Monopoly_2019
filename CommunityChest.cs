@@ -4,23 +4,22 @@ using System.Text;
 
 namespace Monopoly_2019
 {
-    class Luck : Abs_Box
+    class CommunityChest : Abs_Box
     {
-
         //Constructor
-        public Luck(int position) : base(position)
+        public CommunityChest(int position) : base(position)
         {
-            this.box_type = "luck";
-            this.color = ConsoleColor.DarkGray; 
+            this.box_type = "community chest";
+            this.color = "Grey"; 
         }
 
         public override void BoxEffect(Player joueur, Board monopoly)
         {
-            //Give a luck "card" to the player
-            GiveLuck(joueur,monopoly);
+            //Give a community chest "card" to the player
+            GiveCommunityChest(joueur, monopoly);
 
         }
-        public void GiveLuck(Player joueur,Board monopoly)
+        public void GiveCommunityChest(Player joueur, Board monopoly)
         {
             string message = "";
             Random alea = new Random();
