@@ -35,7 +35,10 @@ namespace Monopoly_2019
         /// </summary>
         public void LaunchGame()
         {
+            bool made_a_double;
+            int count;
             Initialisation();
+            Pause();
             Clear();
             // Loop for the turns
             int tour = 0;
@@ -43,41 +46,84 @@ namespace Monopoly_2019
             {
                 foreach (Player p in game.Player_list)
                 {
-                    PlayerAction(p,tour);
-                    TurnOfPlayer(p);
-                    UpdateView(tour);
-                    PlayerAction2(p);
+                    count = 0;
+                    made_a_double = false;
+                    do
+                    {
+                        PlayerAction(p, tour);
+                        made_a_double = TurnOfPlayer(p);
+                        Pause2();
+                        UpdateView(tour);
+                        PlayerAction2(p,count,made_a_double);
+                        //if a player makes a double he can play again
+                        if (made_a_double == true)
+                        {
+                            count++;
+                            if(count==3)
+                            {
+                                //if he makes three doubles in a row he goes to jail
+                                game.Board.SendTojail(p);
+                                MessageGoToJail();                              
+                            }
+                        }
+                    } while ((made_a_double == true) && (count < 3));
                 }
                 tour++;
             }
         }
 
-        public void TurnOfPlayer(Player player)
-        {          
-            int value = game.Board.ValueDice(); // A REGARDER
-            DiplayDice(value,player);
-            int newposition=game.NewPosition(player, value);
-            game.LaunchCaseMethode(newposition, player,game.Board);
+        public bool TurnOfPlayer(Player player)
+        {
+            bool made_a_double = false;
+            //if the player is in jail he must try to escape instead of moving
+            //The box effect method in Jail detects on its own when it has to do the TryToEscape
+            if(game.Board.PlayerInJail(player))
+            {
+                game.LaunchCaseMethode(player.Position, player, game.Board);
+            }
+            else
+            {
+                made_a_double = game.Board.Roll();
+                int value = game.Board.ValueDice();
+                int newposition = game.NewPosition(player, value);
+                game.LaunchCaseMethode(newposition, player, game.Board);
+            }
+            return made_a_double;
         }
 
         public void PlayerAction(Player player,int tour)
         {
             view.AskPlayerforAction(player,tour);
         }
-        public void PlayerAction2(Player player)
+        public void PlayerAction2(Player player,int count,bool made_a_double)
         {
-            view.AskPlayerforAction2(player);
+            if (count!=3 && made_a_double==true)
+            {
+                view.AskPlayerforAction3(player);
+            }
+            else
+            {
+                view.AskPlayerforAction2(player);
+            }
+            
         }
 
         public void Clear()
         {
             view.ClearConsole();
         }
-        public void DiplayDice(int value,Player player)
-        {
-            view.DisplayDiceValue(value,player);
-        }
-        
 
+        public void Pause()
+        {
+            view.PauseConsole();
+        }
+        public void Pause2()
+        {
+            view.PauseBeforeMove();
+        }
+        public void MessageGoToJail()
+        {
+            view.GoToJail();
+        }
     }
 }

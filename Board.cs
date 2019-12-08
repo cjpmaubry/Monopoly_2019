@@ -15,6 +15,8 @@ namespace Monopoly_2019
             this.gameboard = new Abs_Box[40];
             this.jailed_players = new List<Player>();
             this.dices = new Dice();
+            ObserveDice observer = new ObserveDice("1");
+            dices.Attach(observer);
         }
 
         //Getters
@@ -40,6 +42,23 @@ namespace Monopoly_2019
         }
 
         /// <summary>
+        /// Checks if the player is part of the jailed_players list
+        /// </summary>
+        /// <returns>Return true if he is in jail</returns>
+        public bool PlayerInJail(Player joueur)
+        {
+            foreach (Player prisonner in jailed_players)
+            {
+                //looks at the names to see if the player is in jail
+                if (joueur.Name == prisonner.Name)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Sends a player to jail
         /// Adds it to the list of trapped players
         /// Changes its position to the position of the jail
@@ -60,21 +79,22 @@ namespace Monopoly_2019
         /// <param name="joueur">Player to free</param>
         public void FreeFromJail(Player joueur)
         {
-            foreach(Player prisonner in jailed_players)
+            if(PlayerInJail(joueur))
             {
-                //we check that the player is indeed in jail
-                if(prisonner.Name == joueur.Name)
-                {
-                    jailed_players.Remove(joueur);
-                }
+                jailed_players.Remove(joueur);
             }
         }
 
         public int ValueDice()
         {
-            dices.RollDice();
             int value = dices.SumDice();
             return value;
+        }
+
+        public bool Roll()
+        {
+            bool made_a_double = dices.RollDice();
+            return made_a_double;
         }
     }
 }
