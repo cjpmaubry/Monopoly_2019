@@ -124,7 +124,7 @@ namespace Monopoly_2019
         /// <param name="loss">Amount of money to remove</param>
         public void LoseMoney(int loss)
         {
-            Money += Math.Abs(loss);
+            Money -= Math.Abs(loss);
         }
 
         /// <summary>

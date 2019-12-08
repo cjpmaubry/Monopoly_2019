@@ -39,7 +39,7 @@ namespace Monopoly_2019
                     //the player needs to type the correct price to show that he wants to buy
                     if(offer == price)
                     {
-                        bool transaction = TryToBuy(joueur, monopoly);
+                        owner = TryToBuy(joueur, monopoly);
                     }
                 }
                 catch(Exception e)
@@ -93,10 +93,8 @@ namespace Monopoly_2019
         /// will be added to his own.
         /// </summary>
         /// <param name="joueur">Player trying to buy</param>
-        /// <returns>Return true if the palyer was able to buy it</returns>
-        private bool TryToBuy(Player joueur, Board monopoly)
+        private Player TryToBuy(Player joueur, Board monopoly)
         {
-            bool transaction_worked = false;
             if(joueur.Money >= price)
             {
                 //pays for the proprety
@@ -104,10 +102,12 @@ namespace Monopoly_2019
                 //proprety added to personnal list
                 joueur.AddProprety(monopoly);
                 //owner becomes the player
-                owner = joueur;
-                transaction_worked = true;
+                return joueur;
             }
-            return transaction_worked;
+            else
+            {
+                return null;
+            }
         }
 
         /// <summary>

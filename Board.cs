@@ -37,6 +37,12 @@ namespace Monopoly_2019
 
             BoxFactory.createJail(10, gameboard);
             BoxFactory.createProprety(6, gameboard, "Oriental Av", 100, 6);
+            BoxFactory.createProprety(1, gameboard, "A", 10, 1);
+            BoxFactory.createProprety(2, gameboard, "B", 20, 2);
+            BoxFactory.createProprety(3, gameboard, "C", 30, 3);
+            BoxFactory.createProprety(4, gameboard, "D", 40, 4);
+            BoxFactory.createProprety(5, gameboard, "E", 50, 5);
+            BoxFactory.createProprety(8, gameboard, "F", 60, 6);
             BoxFactory.createGoToJail(30, gameboard);
             for (int i = 0; i < gameboard.Length; i++)
             {
