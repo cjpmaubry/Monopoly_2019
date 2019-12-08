@@ -62,7 +62,7 @@ namespace Monopoly_2019
             }
             else
             {
-                int value = game.Board.ValueDice(); // A REGARDER
+                int value = game.Board.ValueDice();
                 int newposition = game.NewPosition(player, value);
                 game.LaunchCaseMethode(newposition, player, game.Board);
             }

@@ -21,7 +21,7 @@ namespace Monopoly_2019
         /// <param name="dices"></param>
         public void UpdateDiceInfo(int[] dices)
         {
-            Console.WriteLine("The dice number 1 has the value :"+ dices[0]);
+            Console.WriteLine("\nThe dice number 1 has the value :" + dices[0]);
             Console.WriteLine("The dice number 2 has the value :" + dices[1]);
         }
 

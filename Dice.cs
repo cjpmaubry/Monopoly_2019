@@ -20,9 +20,9 @@ namespace Monopoly_2019
         public void RollDice()
         {
             Random alea = new Random();
-            dices[0] = alea.Next(0, 7);
-            dices[1] = alea.Next(0, 7);
-            NotifyDice(dices);
+            dices[0] = alea.Next(1, 7);
+            dices[1] = alea.Next(1, 7);
+            NotifyDice(dices);         
         }
 
 
@@ -91,6 +91,10 @@ namespace Monopoly_2019
         public void NotifyDice(int[] dices)
         {
             observer.UpdateDiceInfo(dices);
+            if (dices[0] == dices[1])
+            {
+                NotifyDoubleDice();
+            }
         }
 
 
