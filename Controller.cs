@@ -38,7 +38,7 @@ namespace Monopoly_2019
             bool made_a_double;
             int count;
             Initialisation();
-            Pause();
+            PauseBeforeLaunching();
             Clear();
             // Loop for the turns
             int tour = 0;
@@ -52,7 +52,7 @@ namespace Monopoly_2019
                     {
                         PlayerAction(p, tour);
                         made_a_double = TurnOfPlayer(p);
-                        Pause2();
+                        BreakMove();
                         UpdateView(tour);
                         PlayerAction2(p,count,made_a_double);
                         //if a player makes a double he can play again
@@ -113,24 +113,42 @@ namespace Monopoly_2019
             
         }
 
+        /// <summary>
+        /// This method ask to the view a cleaning.
+        /// </summary>
         public void Clear()
         {
             view.ClearConsole();
         }
 
-        public void Pause()
+        /// <summary>
+        /// This method call the view to ask a little break before launching the game
+        /// </summary>
+        public void PauseBeforeLaunching()
         {
             view.PauseConsole();
         }
-        public void Pause2()
+
+        /// <summary>
+        /// This method call the view to ask a break 
+        /// </summary>
+        public void BreakMove()
         {
-            view.PauseBeforeMove();
+            view.BreakBeforeMove();
         }
+        /// <summary>
+        /// This method call the view to inform player, he goes to jail.
+        /// </summary>
         public void MessageGoToJail()
         {
             view.GoToJail();
         }
 
+        /// <summary>
+        /// This method takes the desscription of the corresponding box and call the view method to display it.
+        /// </summary>
+        /// <param name="newposition"></param>
+        /// <param name="board"></param>
         public void DisplayBoxDescription(int newposition,Board board)
         {
             string description = board.Gameboard[newposition].ToString();

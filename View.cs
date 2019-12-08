@@ -507,7 +507,7 @@ namespace Monopoly_2019
         /// <summary>
         /// Method which ask player before move
         /// </summary>
-        public void PauseBeforeMove()
+        public void BreakBeforeMove()
         {
             Console.WriteLine("Press any key to move");
             Console.ReadKey();
@@ -521,6 +521,10 @@ namespace Monopoly_2019
             Console.WriteLine("Too much doubles ! You got sent to jail");
         }
 
+        /// <summary>
+        /// Method that display the description of the box which are given in parametre
+        /// </summary>
+        /// <param name="description"></param>
         public void DisplayDescription(string description)
         {
             Console.WriteLine(description);
