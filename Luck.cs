@@ -10,7 +10,8 @@ namespace Monopoly_2019
         //Constructor
         public Luck(int position) : base(position)
         {
-            this.box_description = "luck";
+            this.box_type = "luck";
+            this.color = "Red"; //JEREM
         }
 
         public override void BoxEffect(Player joueur, Board monopoly)
@@ -37,12 +38,15 @@ namespace Monopoly_2019
             }
             if (index == 3)
             {
-                message = "Nothing happen !";
+                message = "Nothing happens !";
             }
             Console.WriteLine(message);
         }
 
-
+        public override string ToString()
+        {
+            return "You have landed on " + box_type.ToUpper() + "\nYou will receive a luck card :";
+        }
 
     }
 }
