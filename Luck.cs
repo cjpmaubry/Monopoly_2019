@@ -17,10 +17,10 @@ namespace Monopoly_2019
         public override void BoxEffect(Player joueur, Board monopoly)
         {
             //Give a luck "card" to the player
-            GiveLuck(joueur);
+            GiveLuck(joueur,monopoly);
 
         }
-        public void GiveLuck(Player joueur)
+        public void GiveLuck(Player joueur,Board monopoly)
         {
             string message = "";
             Random alea = new Random();
@@ -42,8 +42,8 @@ namespace Monopoly_2019
             }
             if (index == 4)
             {
-                joueur.Position = 10;
                 message = "You have no luck, you go to jail !";
+                monopoly.SendTojail(joueur);
             }
             Console.WriteLine(message);
         }
