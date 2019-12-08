@@ -10,7 +10,8 @@ namespace Monopoly_2019
         //Constructor
         public Jail(int position) : base(position)
         {
-            this.box_description = "jail";
+            this.box_type = "jail";
+            this.color = "Red"; //JEREM
         }
 
         /// <summary>
@@ -77,6 +78,11 @@ namespace Monopoly_2019
             {
                 return 0;
             }
+        }
+
+        public override string ToString()
+        {
+            return "You have landed on " + box_type.ToUpper();
         }
     }
 }

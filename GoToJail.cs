@@ -8,7 +8,8 @@ namespace Monopoly_2019
     {
         public GoToJail(int position) : base(position)
         {
-            this.box_description = "gotojail";
+            this.box_type = "gotojail";
+            this.color = "Red"; //JEREM
         }
 
         public override void BoxEffect(Player joueur, Board monopoly)
@@ -17,5 +18,9 @@ namespace Monopoly_2019
             monopoly.SendTojail(joueur);
         }
 
+        public override string ToString()
+        {
+            return "You have landed on " + box_type.ToUpper();
+        }
     }
 }
