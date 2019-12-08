@@ -56,18 +56,18 @@ namespace Monopoly_2019
 
         public override string ToString()
         {
-            string description = "\n"+ box_type.ToUpper() + " : " + name + "\n";
+            string description = "\n"+ box_type.ToUpper() + " : " + name;
             //faire cas ou le joueur est le proprio
             if(owner == null)
             {
-                description += "\nThe proprety is for sale for " + price + ". Do you want to buy it ?\n";
-                description += "\nIf you dont have enough money the transaction will fail automatically \n" +
+                description += "\nThe proprety is for sale for " + price + ". Do you want to buy it ?";
+                description += "\nIf you dont have enough money the transaction will fail automatically" +
                     "\nType in the price shown above if you want to buy it, type 0 if you dont.\n";
             }
             else
             {
                 description += "\nBelongs to " + owner.Name + ". \n" +
-                    "Rent is" + RentCalculator() + "\n";
+                    "Rent is " + RentCalculator() + "M";
             }
             return description;
         }
