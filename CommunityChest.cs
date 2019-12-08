@@ -21,30 +21,28 @@ namespace Monopoly_2019
         }
         public void GiveCommunityChest(Player joueur, Board monopoly)
         {
-            string message = "";
             Random alea = new Random();
             int index = alea.Next(1, 5);
 
             if (index == 1)
             {
+                Console.WriteLine("You have luck, you receive 100 euro !");
                 joueur.Money += 100;
-                message = "You have luck, you receive 100 euro !";
             }
             if (index == 2)
             {
+                Console.WriteLine("You have no luck, you lose 100 euro !");
                 joueur.Money -= 100;
-                message = "You have no luck, you lose 100 euro !";
             }
             if (index == 3)
             {
-                message = "Nothing happens !";
+                Console.WriteLine("Nothing happens !");
             }
             if (index == 4)
             {
-                message = "You have no luck, you go to jail !";
+                Console.WriteLine("You have no luck, you go to jail !");
                 monopoly.SendTojail(joueur);
             }
-            Console.WriteLine(message);
         }
 
         public override string ToString()
