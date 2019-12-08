@@ -35,7 +35,7 @@ namespace Monopoly_2019
         /// <param name="name"></param>
         public void UpdateMoney(double money, string name)
         {
-            Console.WriteLine("The player" + name + " has now  " + money + " euro");
+            Console.WriteLine("The player " + name + " has now  " + money + " M");
         }
 
         public void UpdateProperty(int position,Board board)
