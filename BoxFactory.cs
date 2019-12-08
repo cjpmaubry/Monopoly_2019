@@ -23,5 +23,12 @@ namespace Monopoly_2019
         {
             plateau[position] = new Neutral(position);
         }
+
+        //created a Neutral box at the given position
+        public static void createLuck(int position, Abs_Box[] plateau)
+        {
+            plateau[position] = new Luck(position);
+        }
+
     }
 }

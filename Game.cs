@@ -91,9 +91,10 @@ namespace Monopoly_2019
             return player.Position;
         }
 
-        public void LaunchCaseMethode(int newposition,Player player,Board board)
+        public string LaunchCaseMethode(int newposition,Player player,Board board)
         {
-           board.Gameboard[newposition].BoxEffect(player,board);
+           string message =board.Gameboard[newposition].BoxEffect(player,board);
+            return message;
         }
     }
 }

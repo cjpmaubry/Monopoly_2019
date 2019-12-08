@@ -85,6 +85,31 @@ namespace Monopoly_2019
             }
         }
 
+
+        public string GiveLuck(Player joueur)
+        {
+            string message="";
+            Random alea = new Random();
+            int index = alea.Next(1,4);
+            
+            if(index==1)
+            {
+                joueur.Money += 100;
+                message = "You have luck, you receive 100 euro !";
+            }
+            if (index == 2)
+            {
+                joueur.Money -= 100;
+                message = "You have no luck, you lose 100 euro !";
+            }
+            if(index==3)
+            {
+                message = "Nothing happen !";
+            }
+            return message;
+        }
+
+
         public int ValueDice()
         {
             int value = dices.SumDice();

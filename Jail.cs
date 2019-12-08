@@ -21,8 +21,8 @@ namespace Monopoly_2019
         /// </summary>
         /// <param name="joueur">The playing player</param>
         /// <param name="monopoly">The monopoly game set</param>
-        public override void BoxEffect(Player joueur, Board monopoly)
-        {
+        public override string BoxEffect(Player joueur, Board monopoly)
+        {        
             //if the player is in jail           
             if(monopoly.PlayerInJail(joueur))
             {
