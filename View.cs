@@ -23,25 +23,17 @@ namespace Monopoly_2019
                     //To display the top two rows of each box (player 1 and player 2)
                     if (j != 2)
                     {
-                        //Display a red background for the gotojail Box
-                        if (board.Gameboard[i].box_type == "gotojail")
+                        if (i == list[j].Position)
                         {
-                            Console.BackgroundColor = ConsoleColor.Red;
-                            Console.Write("|        |");
+                            Console.BackgroundColor = board.Gameboard[i].color;
+                            Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                             Console.ResetColor();
                         }
                         else
                         {
-                            //Display if there is a player on a neutral box
-                            if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position)
-                            {
-                                Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
-                            }
-                            //Display if there is no player on a neutral box 
-                            else
-                            {
-                                Console.Write("|        |");
-                            }
+                            Console.BackgroundColor = board.Gameboard[i].color;
+                            Console.Write("|        |");
+                            Console.ResetColor();
                         }
                     }
                     //Display for the third row of each box (player 3 and player 4)
@@ -50,78 +42,56 @@ namespace Monopoly_2019
                         //If there are two players (no player on the bottom row)
                         if (list.Count == 2)
                         {
-                            if (board.Gameboard[i].box_type == "gotojail")
-                            {
-                                Console.BackgroundColor = ConsoleColor.Red;
-                                Console.Write("|        |");
-                                Console.ResetColor();
-                            }
-                            else
-                            {
-                                if (board.Gameboard[i].box_type == "neutral")
-                                {
-                                    Console.Write("|        |");
-                                }
-                            }
+                            Console.BackgroundColor = board.Gameboard[i].color;
+                            Console.Write("|        |");
+                            Console.ResetColor();
                         }
                         //If there are three players (player 3 on the bottom row)
                         if (list.Count == 3)
                         {
-                            if (board.Gameboard[i].box_type == "gotojail")
+                            if (i == list[j].Position)
                             {
-                                Console.BackgroundColor = ConsoleColor.Red;
-                                Console.Write("|        |");
+                                Console.BackgroundColor = board.Gameboard[i].color;
+                                Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                 Console.ResetColor();
                             }
                             else
                             {
-                                //If the player is on a neutral box
-                                if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position)
-                                {
-                                    Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
-                                }
-                                //If the player is not on a neutral box
-                                else
-                                {
-                                    Console.Write("|        |");
-                                }
+                                Console.BackgroundColor = board.Gameboard[i].color;
+                                Console.Write("|        |");
+                                Console.ResetColor();
                             }
                         }
                         //If there are four players (Players 3 and 4 are on the bottom row)
                         if (list.Count == 4)
                         {
-                            //Display when player 3 and player 4 are on the same box
-                            if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                            if (i == list[j].Position && list[j].Position == list[j + 1].Position)
                             {
+                                Console.BackgroundColor = board.Gameboard[i].color;
                                 Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
+                                Console.ResetColor();
                             }
                             else
                             {
-                                //Display for the gotojail box
-                                if (board.Gameboard[i].box_type == "gotojail")
+                                if (i == list[j].Position)
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Red;
-                                    Console.Write("|        |");
+                                    Console.BackgroundColor = board.Gameboard[i].color;
+                                    Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                     Console.ResetColor();
                                 }
                                 else
                                 {
-                                    //Display if player 3 is on a neutral box
-                                    if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position)
+                                    if (i == list[j+1].Position)
                                     {
-                                        Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                                        Console.BackgroundColor = board.Gameboard[i].color;
+                                        Console.Write("|   " + Convert.ToString(list[j+1].Id) + "    |");
+                                        Console.ResetColor();
                                     }
                                     else
                                     {
-                                        //Display if player 4 is on a neutral box
-                                        if (board.Gameboard[i].box_type == "neutral" && i == list[j + 1].Position)
-                                        {
-                                            Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
-                                        }
-                                        else
-                                        {
-                                            Console.Write("|        |");
-                                        }
+                                        Console.BackgroundColor = board.Gameboard[i].color;
+                                        Console.Write("|        |");
+                                        Console.ResetColor();
                                     }
                                 }
                             }
@@ -130,131 +100,231 @@ namespace Monopoly_2019
                 }
                 Console.WriteLine();
             }
+
+
+
+
+
             //Display of the left and right colums of the board
             Console.WriteLine("+--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+");
+            
+
             for (int i = 19; i >= 11; i--)
             {
-                //Display if the two boxes opposite to each other are neutral
-                if (board.Gameboard[i].box_type == "neutral" && board.Gameboard[50 - i].box_type == "neutral")
+                Console.BackgroundColor = board.Gameboard[i].color;
+                Console.Write("+--------+");
+                Console.ResetColor();
+                Console.Write("                                                                                          ");
+                Console.BackgroundColor = board.Gameboard[i].color;
+                Console.WriteLine("+--------+");
+                Console.ResetColor();
+                for (int j = 0; j < 3; j++)
                 {
-                    Console.Write("+--------+");
-                    Console.WriteLine("                                                                                          +--------+");
-                    for (int j = 0; j < 3; j++)
+                    //Display for the two top rows of each box
+                    if (j != 2)
                     {
-                        //Display for the two top rows of each box
-                        if (j != 2)
+                        //Display if a player is on a box on the left column
+                        if (i == list[j].Position)
                         {
-                            //Display if a player is on a box on the left column
-                            if (i == list[j].Position)
+                            Console.BackgroundColor = board.Gameboard[i].color;
+                            Console.Write("|    " + Convert.ToString(list[j].Id) + "   |");
+                            Console.ResetColor();
+                            Console.Write("                                                                                          ");
+                            Console.BackgroundColor = board.Gameboard[50 - i].color;
+                            Console.Write("|        |");
+                            Console.ResetColor();
+                            Console.WriteLine("");
+                        }
+                        else
+                        {
+                            if (50 - i == list[j].Position)
                             {
+                                Console.BackgroundColor = board.Gameboard[i].color;
+                                Console.Write("|        |");
+                                Console.ResetColor();
+                                Console.Write("                                                                                          ");
+                                Console.BackgroundColor = board.Gameboard[50 - i].color;
                                 Console.Write("|    " + Convert.ToString(list[j].Id) + "   |");
-                                Console.WriteLine("                                                                                          |        |");
+                                Console.ResetColor();
+                                Console.WriteLine("");
+
                             }
                             else
                             {
-                                //Display if a player is on a box on the left column
-                                if (50 - i == list[j].Position)
-                                {
-                                    Console.Write("|        |");
-                                    Console.WriteLine("                                                                                          |    " + Convert.ToString(list[j].Id) + "   |");
-                                }
-                                //Display if there is no player on opposite boxes in the colums
-                                else
-                                {
-                                    Console.Write("|        |");
-                                    Console.WriteLine("                                                                                          |        |");
-                                }
+                                Console.BackgroundColor = board.Gameboard[i].color;
+                                Console.Write("|        |");
+                                Console.ResetColor();
+                                Console.Write("                                                                                          ");
+                                Console.BackgroundColor = board.Gameboard[50 - i].color;
+                                Console.Write("|        |");
+                                Console.ResetColor();
+                                Console.WriteLine("");
                             }
                         }
-                        //Display for the third row of each box
-                        else
+                    }
+                    //Display for the third row of each box
+                    else
+                    {
+                        //If there are two players (no player on the third row of the box)
+                        if (list.Count == 2)
                         {
-                            //If there are two players (no player on the third row of the box)
-                            if (list.Count == 2)
+                            Console.BackgroundColor = board.Gameboard[i].color;
+                            Console.Write("|        |");
+                            Console.ResetColor();
+                            Console.Write("                                                                                          ");
+                            Console.BackgroundColor = board.Gameboard[50 - i].color;
+                            Console.Write("|        |");
+                            Console.ResetColor();
+                            Console.WriteLine("");
+                        }
+                        //If there are three players (player 3 on the third row) 
+                        if (list.Count == 3)
+                        {
+                            if (i == list[j].Position)
                             {
+                                Console.BackgroundColor = board.Gameboard[i].color;
+                                Console.Write("|    " + Convert.ToString(list[j].Id) + "   |");
+                                Console.ResetColor();
+                                Console.Write("                                                                                          ");
+                                Console.BackgroundColor = board.Gameboard[50 - i].color;
                                 Console.Write("|        |");
-                                Console.WriteLine("                                                                                          |        |");
+                                Console.ResetColor();
+                                Console.WriteLine("");
                             }
-                            //If there are three players (player 3 on the third row) 
-                            if (list.Count == 3)
+                            else
                             {
-                                //If there is a player on a box on the left column
-                                if (i == list[j].Position)
+                                //If there is a player on a box on the right column
+                                if (50 - i == list[j].Position)
                                 {
+                                    Console.BackgroundColor = board.Gameboard[i].color;
+                                    Console.Write("|        |");
+                                    Console.ResetColor();
+                                    Console.Write("                                                                                          ");
+                                    Console.BackgroundColor = board.Gameboard[50 - i].color;
                                     Console.Write("|    " + Convert.ToString(list[j].Id) + "   |");
-                                    Console.WriteLine("                                                                                          |        |");
+                                    Console.ResetColor();
+                                    Console.WriteLine("");
                                 }
+                                //If there is no player on both colums
                                 else
                                 {
-                                    //If there is a player on a box on the right column
-                                    if (50 - i == list[j].Position)
-                                    {
-                                        Console.Write("|        |");
-                                        Console.WriteLine("                                                                                          |    " + Convert.ToString(list[j].Id) + "   |");
-                                    }
-                                    //If there is no player on both colums
-                                    else
-                                    {
-                                        Console.Write("|        |");
-                                        Console.WriteLine("                                                                                          |        |");
-                                    }
+                                    Console.BackgroundColor = board.Gameboard[i].color;
+                                    Console.Write("|        |");
+                                    Console.ResetColor();
+                                    Console.Write("                                                                                          ");
+                                    Console.BackgroundColor = board.Gameboard[50 - i].color;
+                                    Console.Write("|        |");
+                                    Console.ResetColor();
+                                    Console.WriteLine("");
                                 }
                             }
-                            //If there are four players (player 3 and player four on the third row) 
-                            if (list.Count == 4)
+                            Console.BackgroundColor = board.Gameboard[i].color;
+                            Console.Write("+--------+");
+                            Console.ResetColor();
+                            Console.Write("                                                                                          ");
+                            Console.BackgroundColor = board.Gameboard[i].color;
+                            Console.Write("+--------+");
+                            Console.ResetColor();
+                            Console.WriteLine("");
+                        }
+
+
+                        if (list.Count == 4)
+                        {
+                            //If player 3 and player 4 are on the same box on the left column
+                            if (i == list[j].Position && i == list[j + 1].Position)
                             {
-                                //If player 3 and player 4 are on the same box on the left column
-                                if (i == list[j].Position && i == list[j + 1].Position)
+                                Console.BackgroundColor = board.Gameboard[i].color;
+                                Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
+                                Console.ResetColor();
+                                Console.Write("                                                                                          ");
+                                Console.BackgroundColor = board.Gameboard[50 - i].color;
+                                Console.Write("|        |");
+                                Console.ResetColor();
+                                Console.WriteLine("");
+                            }
+                            else
+                            {
+                                //If player 3 and player 4 are on the same box on the right column
+                                if (50 - i == list[j].Position && 50 - i == list[j + 1].Position)
                                 {
+                                    Console.BackgroundColor = board.Gameboard[i].color;
+                                    Console.WriteLine("|        |");
+                                    Console.ResetColor();
+                                    Console.Write("                                                                                          ");
+                                    Console.BackgroundColor = board.Gameboard[50 - i].color;
                                     Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
-                                    Console.WriteLine("                                                                                          |        |");
+                                    Console.ResetColor();
+                                    Console.WriteLine("");
                                 }
                                 else
                                 {
-                                    //If player 3 and player 4 are on the same box on the right column
-                                    if (50 - i == list[j].Position && 50 - i == list[j + 1].Position)
+                                    //If player 3 is on a box on the left column
+                                    if (i == list[j].Position)
                                     {
+                                        Console.BackgroundColor = board.Gameboard[i].color;
+                                        Console.Write("|    " + Convert.ToString(list[j].Id) + "   |");
+                                        Console.ResetColor();
+                                        Console.Write("                                                                                          ");
+                                        Console.BackgroundColor = board.Gameboard[50 - i].color;
                                         Console.Write("|        |");
-                                        Console.WriteLine("                                                                                          |  "
-                                            + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
+                                        Console.ResetColor();
+                                        Console.WriteLine("");
                                     }
                                     else
                                     {
-                                        //If player 3 is on a box on the left column
-                                        if (i == list[j].Position)
+                                        //If player 3 is on a box on the right column
+                                        if (50 - i == list[j].Position)
                                         {
+                                            Console.BackgroundColor = board.Gameboard[i].color;
+                                            Console.Write("|        |");
+                                            Console.ResetColor();
+                                            Console.Write("                                                                                          ");
+                                            Console.BackgroundColor = board.Gameboard[50 - i].color;
                                             Console.Write("|    " + Convert.ToString(list[j].Id) + "   |");
-                                            Console.WriteLine("                                                                                          |        |");
+                                            Console.ResetColor();
+                                            Console.WriteLine("");
                                         }
                                         else
                                         {
-                                            //If player 3 is on a box on the right column
-                                            if (50 - i == list[j].Position)
+                                            //If player 4 is on a box on the left column
+                                            if (i == list[j + 1].Position)
                                             {
+                                                Console.BackgroundColor = board.Gameboard[i].color;
+                                                Console.Write("|    " + Convert.ToString(list[j + 1].Id) + "   |");
+                                                Console.ResetColor();
+                                                Console.Write("                                                                                          ");
+                                                Console.BackgroundColor = board.Gameboard[50 - i].color;
                                                 Console.Write("|        |");
-                                                Console.WriteLine("                                                                                          |    " + Convert.ToString(list[j].Id) + "   |");
+                                                Console.ResetColor();
+                                                Console.WriteLine("");
                                             }
                                             else
                                             {
-                                                //If player 4 is on a box on the left column
-                                                if (i == list[j + 1].Position)
+                                                //If player 4 is on a box on the right column
+                                                if (50 - i == list[j + 1].Position)
                                                 {
+                                                    Console.BackgroundColor = board.Gameboard[i].color;
+                                                    Console.Write("|        |");
+                                                    Console.ResetColor();
+                                                    Console.Write("                                                                                          ");
+                                                    Console.BackgroundColor = board.Gameboard[50 - i].color;
                                                     Console.Write("|    " + Convert.ToString(list[j + 1].Id) + "   |");
-                                                    Console.WriteLine("                                                                                          |        |");
+                                                    Console.ResetColor();
+                                                    Console.WriteLine("");
                                                 }
+                                                //If there is no player on both colums
                                                 else
                                                 {
-                                                    //If player 4 is on a box on the right column
-                                                    if (50 - i == list[j + 1].Position)
-                                                    {
-                                                        Console.Write("|        |");
-                                                        Console.WriteLine("                                                                                          |    " + Convert.ToString(list[j + 1].Id) + "   |");
-                                                    }
-                                                    else
-                                                    {
-                                                        Console.Write("|        |");
-                                                        Console.WriteLine("                                                                                          |        |");
-                                                    }
+
+                                                    Console.BackgroundColor = board.Gameboard[i].color;
+                                                    Console.Write("|        |");
+                                                    Console.ResetColor();
+                                                    Console.Write("                                                                                          ");
+                                                    Console.BackgroundColor = board.Gameboard[50 - i].color;
+                                                    Console.Write("|        |");
+                                                    Console.ResetColor();
+                                                    Console.WriteLine("");
                                                 }
                                             }
                                         }
@@ -263,168 +333,88 @@ namespace Monopoly_2019
                             }
                         }
                     }
-                    Console.Write("+--------+");
-                    Console.WriteLine("                                                                                          +--------+");
                 }
             }
+
+
             //Display of the bottom row
             Console.WriteLine("+--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+");
             for (int j = 0; j < 3; j++)
             {
                 for (int i = 10; i >= 0; i--)
                 {
-                    //Display of the top two rows of each box (player 1 and player 2)
+                    //To display the top two rows of each box (player 1 and player 2)
                     if (j != 2)
                     {
-                        //Display if there is a player on the jail box (red background)
-                        if (board.Gameboard[i].box_type == "jail" && i == list[j].Position)
+                        if (i == list[j].Position)
                         {
-                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.BackgroundColor = board.Gameboard[i].color;
                             Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                             Console.ResetColor();
                         }
                         else
                         {
-                            //Display if there is no player on the jail box
-                            if (board.Gameboard[i].box_type == "jail")
-                            {
-                                Console.BackgroundColor = ConsoleColor.Red;
-                                Console.Write("|        |");
-                                Console.ResetColor();
-                            }
-                            else
-                            {
-                                //Display if there is a player on a neutral box
-                                if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position)
-                                {
-                                    Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
-                                }
-                                //Display if there is no player on a neutral box
-                                else
-                                {
-                                    Console.Write("|        |");
-                                }
-                            }
+                            Console.BackgroundColor = board.Gameboard[i].color;
+                            Console.Write("|        |");
+                            Console.ResetColor();
                         }
                     }
+                    //Display for the third row of each box (player 3 and player 4)
                     else
                     {
-                        //If there are two players (no player on the third row of the box)
+                        //If there are two players (no player on the bottom row)
                         if (list.Count == 2)
                         {
-                            if (board.Gameboard[i].box_type == "jail")
-                            {
-                                Console.BackgroundColor = ConsoleColor.Red;
-                                Console.Write("|        |");
-                                Console.ResetColor();
-                            }
-                            else
-                            {
-                                if (board.Gameboard[i].box_type == "neutral")
-                                {
-                                    Console.Write("|        |");
-                                }
-                            }
+                            Console.BackgroundColor = board.Gameboard[i].color;
+                            Console.Write("|        |");
+                            Console.ResetColor();
                         }
-                        //If there are three players (player 3 on the third row) 
+                        //If there are three players (player 3 on the bottom row)
                         if (list.Count == 3)
                         {
-                            //If the player is on the jail box
-                            if (board.Gameboard[i].box_type == "jail" && i == list[j].Position)
+                            if (i == list[j].Position)
                             {
-                                Console.BackgroundColor = ConsoleColor.Red;
+                                Console.BackgroundColor = board.Gameboard[i].color;
                                 Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                 Console.ResetColor();
                             }
                             else
                             {
-                                //If there is no player on the jail box
-                                if (board.Gameboard[i].box_type == "jail")
-                                {
-                                    Console.BackgroundColor = ConsoleColor.Red;
-                                    Console.Write("|        |");
-                                    Console.ResetColor();
-                                }
-                                else
-                                {
-                                    //If the player is on a neutral box
-                                    if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position)
-                                    {
-                                        Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
-                                    }
-                                    else
-                                    {
-                                        Console.Write("|        |");
-                                    }
-                                }
+                                Console.BackgroundColor = board.Gameboard[i].color;
+                                Console.Write("|        |");
+                                Console.ResetColor();
                             }
                         }
-                        //If there are four players (player 3 and player four on the third row) 
+                        //If there are four players (Players 3 and 4 are on the bottom row)
                         if (list.Count == 4)
                         {
-                            //If the two players are on the jail box
-                            if (board.Gameboard[i].box_type == "jail" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                            if (i == list[j].Position && list[j].Position == list[j + 1].Position)
                             {
-                                Console.BackgroundColor = ConsoleColor.Red;
+                                Console.BackgroundColor = board.Gameboard[i].color;
                                 Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
                                 Console.ResetColor();
                             }
                             else
                             {
-                                //If the two players are on the same neutral box
-                                if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                                if (i == list[j].Position)
                                 {
-                                    Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
+                                    Console.BackgroundColor = board.Gameboard[i].color;
+                                    Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                                    Console.ResetColor();
                                 }
                                 else
                                 {
-                                    //if only player 3 is on the jail box
-                                    if (board.Gameboard[i].box_type == "jail" && i == list[j].Position)
+                                    if (i == list[j + 1].Position)
                                     {
-                                        Console.BackgroundColor = ConsoleColor.Red;
-                                        Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
+                                        Console.BackgroundColor = board.Gameboard[i].color;
+                                        Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
                                         Console.ResetColor();
                                     }
                                     else
                                     {
-                                        //if only player 4 is on the jail box
-                                        if (board.Gameboard[i].box_type == "jail" && i == list[j + 1].Position)
-                                        {
-                                            Console.BackgroundColor = ConsoleColor.Red;
-                                            Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
-                                            Console.ResetColor();
-                                        }
-                                        else
-                                        {
-                                            //If there is no player on the jail box
-                                            if (board.Gameboard[i].box_type == "jail")
-                                            {
-                                                Console.BackgroundColor = ConsoleColor.Red;
-                                                Console.Write("|        |");
-                                                Console.ResetColor();
-                                            }
-                                            else
-                                            {
-                                                //If only player 3 is on a neutal box
-                                                if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position)
-                                                {
-                                                    Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
-                                                }
-                                                else
-                                                {
-                                                    //If only player 4 is on a neutral box
-                                                    if (board.Gameboard[i].box_type == "neutral" && i == list[j + 1].Position)
-                                                    {
-                                                        Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
-                                                    }
-                                                    //If there is no payer on a neutral box
-                                                    else
-                                                    {
-                                                        Console.Write("|        |");
-                                                    }
-                                                }
-                                            }
-                                        }
+                                        Console.BackgroundColor = board.Gameboard[i].color;
+                                        Console.Write("|        |");
+                                        Console.ResetColor();
                                     }
                                 }
                             }
@@ -529,6 +519,5 @@ namespace Monopoly_2019
         {
             Console.WriteLine(description);
         }
-
     }
 }

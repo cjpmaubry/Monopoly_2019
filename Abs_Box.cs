@@ -8,7 +8,7 @@ namespace Monopoly_2019
     {
         public int position;
         public string box_type;
-        public string color;
+        public System.ConsoleColor color;
 
         public Abs_Box(int position)
         {

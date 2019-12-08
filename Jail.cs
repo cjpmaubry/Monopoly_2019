@@ -11,7 +11,7 @@ namespace Monopoly_2019
         public Jail(int position) : base(position)
         {
             this.box_type = "jail";
-            this.color = "Red"; //JEREM
+            this.color = ConsoleColor.DarkRed; //JEREM
         }
 
         /// <summary>

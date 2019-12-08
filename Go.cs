@@ -10,7 +10,7 @@ namespace Monopoly_2019
         public Go(int position): base(position)
         {
             this.box_type = "go";
-            this.color = "Blue";
+            this.color = ConsoleColor.Green;
             this.go_bonus = 200;
         }
 
