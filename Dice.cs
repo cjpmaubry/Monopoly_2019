@@ -17,12 +17,14 @@ namespace Monopoly_2019
         /// <summary>
         /// Function which returns an array with two numbers randomly generated between 1 and 6
         /// </summary>
-        public void RollDice()
+        public bool RollDice()
         {
             Random alea = new Random();
             dices[0] = alea.Next(1, 7);
             dices[1] = alea.Next(1, 7);
-            NotifyDice(dices);         
+            NotifyDice(dices);
+            bool res=DoubleDice();
+            return res;
         }
 
 
@@ -91,10 +93,6 @@ namespace Monopoly_2019
         public void NotifyDice(int[] dices)
         {
             observer.UpdateDiceInfo(dices);
-            if (dices[0] == dices[1])
-            {
-                NotifyDoubleDice();
-            }
         }
 
 

@@ -35,6 +35,8 @@ namespace Monopoly_2019
         /// </summary>
         public void LaunchGame()
         {
+            bool res;
+            int count;
             Initialisation();
             Clear();
             // Loop for the turns
@@ -43,17 +45,31 @@ namespace Monopoly_2019
             {
                 foreach (Player p in game.Player_list)
                 {
-                    PlayerAction(p,tour);
-                    TurnOfPlayer(p);
-                    UpdateView(tour);
-                    PlayerAction2(p);
+                    count = 0;
+                    res = false;
+                    do
+                    {
+                        PlayerAction(p, tour);
+                        res = TurnOfPlayer(p);
+                        UpdateView(tour);
+                        PlayerAction2(p);
+                        if (res == true)
+                        {
+                            count++;
+                            if(count==2)
+                            {
+                                GoToJail(p);
+                            }
+                        }
+                    } while ((res = true) && (count < 2));
                 }
                 tour++;
             }
         }
 
-        public void TurnOfPlayer(Player player)
-        {   
+        public bool TurnOfPlayer(Player player)
+        {
+            bool res = false;
             //if the player is in jail he must try to escape instead of moving
             //The box effect method in Jail detects on its own when it has to do the TryToEscape
             if(game.Board.PlayerInJail(player))
@@ -62,10 +78,12 @@ namespace Monopoly_2019
             }
             else
             {
+                res = game.Board.Roll();
                 int value = game.Board.ValueDice();
                 int newposition = game.NewPosition(player, value);
                 game.LaunchCaseMethode(newposition, player, game.Board);
             }
+            return res;
         }
 
         public void PlayerAction(Player player,int tour)
@@ -82,6 +100,10 @@ namespace Monopoly_2019
             view.ClearConsole();
         }
        
+        public void GoToJail(Player player)
+        {
+            game.Board.SendTojail(player);
+        }
 
     }
 }

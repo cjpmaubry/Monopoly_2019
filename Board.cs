@@ -87,9 +87,14 @@ namespace Monopoly_2019
 
         public int ValueDice()
         {
-            dices.RollDice();
             int value = dices.SumDice();
             return value;
+        }
+
+        public bool Roll()
+        {
+            bool res = dices.RollDice();
+            return res;
         }
     }
 }
