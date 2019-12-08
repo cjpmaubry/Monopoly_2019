@@ -56,7 +56,7 @@ namespace Monopoly_2019
 
         public override string ToString()
         {
-            string description = "\nYou have landed on the " + box_type + " : " + name + "\n";
+            string description = "\n"+ box_type.ToUpper() + " : " + name + "\n";
             //faire cas ou le joueur est le proprio
             if(owner == null)
             {
@@ -66,9 +66,8 @@ namespace Monopoly_2019
             }
             else
             {
-                description += "\nIt belongs to " + owner.Name + ". " +
-                    "You will pay " + RentCalculator() + "M to him/her. \n" +
-                    "If you are the owner nothing will happen\n";
+                description += "\nBelongs to " + owner.Name + ". \n" +
+                    "Rent is" + RentCalculator() + "\n";
             }
             return description;
         }
