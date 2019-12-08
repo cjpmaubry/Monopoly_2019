@@ -86,16 +86,19 @@ namespace Monopoly_2019
                 made_a_double = game.Board.Roll();
                 int value = game.Board.ValueDice();
                 int newposition = game.NewPosition(player, value);
-                string message=game.LaunchCaseMethode(newposition, player, game.Board);
+                game.LaunchCaseMethode(newposition, player, game.Board);
 
             }
             return made_a_double;
         }
 
+
         public void PlayerAction(Player player,int tour)
         {
             view.AskPlayerforAction(player,tour);
         }
+
+
         public void PlayerAction2(Player player,int count,bool made_a_double)
         {
             if (count!=3 && made_a_double==true)
@@ -126,5 +129,6 @@ namespace Monopoly_2019
         {
             view.GoToJail();
         }
+
     }
 }

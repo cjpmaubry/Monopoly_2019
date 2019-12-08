@@ -20,6 +20,6 @@ namespace Monopoly_2019
         /// </summary>
         /// <param name="joueur">Affected player</param>
         /// <param name="gameboard">Board of the game, contains all the boxs</param>
-        public abstract string BoxEffect(Player joueur, Board monopoly);
+        public abstract void BoxEffect(Player joueur, Board monopoly);
     }
 }

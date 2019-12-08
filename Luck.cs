@@ -13,13 +13,13 @@ namespace Monopoly_2019
             this.box_description = "luck";
         }
 
-        public override string BoxEffect(Player joueur, Board monopoly)
+        public override void BoxEffect(Player joueur, Board monopoly)
         {
             //Give a luck "card" to the player
-            string message=GiveLuck(joueur);
-            return message;
+            GiveLuck(joueur);
+
         }
-        public string GiveLuck(Player joueur)
+        public void GiveLuck(Player joueur)
         {
             string message = "";
             Random alea = new Random();
@@ -39,7 +39,7 @@ namespace Monopoly_2019
             {
                 message = "Nothing happen !";
             }
-            return message;
+            Console.WriteLine(message);
         }
 
 
