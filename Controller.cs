@@ -86,6 +86,7 @@ namespace Monopoly_2019
                 made_a_double = game.Board.Roll();
                 int value = game.Board.ValueDice();
                 int newposition = game.NewPosition(player, value);
+                DisplayBoxDescription(newposition, game.Board);
                 game.LaunchCaseMethode(newposition, player, game.Board);
 
             }
@@ -130,5 +131,10 @@ namespace Monopoly_2019
             view.GoToJail();
         }
 
+        public void DisplayBoxDescription(int newposition,Board board)
+        {
+            string description = board.Gameboard[newposition].ToString();
+            view.DisplayDescription(description);
+        }
     }
 }

@@ -520,7 +520,11 @@ namespace Monopoly_2019
         {
             Console.WriteLine("Too much doubles ! You got sent to jail");
         }
-        
+
+        public void DisplayDescription(string description)
+        {
+            Console.WriteLine(description);
+        }
 
     }
 }
