@@ -435,7 +435,7 @@ namespace Monopoly_2019
         public void AskPlayerforAction(Player player,int tour)
         {
         Console.WriteLine("TURN NUMBER " + tour);
-        Console.WriteLine("\nTurn of player "+player.Name);
+        Console.WriteLine("\nTurn of player "+ player.Id +" : " + player.Name);
         Console.WriteLine("Press a key to launch dice");
         Console.ReadKey();
         }
@@ -453,9 +453,5 @@ namespace Monopoly_2019
         {
             Console.Clear();
         }
-
-
-     
-
     }
 }
