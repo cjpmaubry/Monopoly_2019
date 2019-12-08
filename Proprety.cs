@@ -15,11 +15,11 @@ namespace Monopoly_2019
         public Proprety(int position, string name1, int price1, int rent1) : base(position)
         {
             this.box_type = "proprety";
-            this.color = "Yellow"; //JEREM
+            this.color = ConsoleColor.Yellow; //JEREM
             this.name = name1;
             this.owner = null;
             this.price = price1;
-            this.price = rent1;
+            this.rent = rent1;
             this.nmbr_houses = 0;
         }
 

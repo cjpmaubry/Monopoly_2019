@@ -10,7 +10,7 @@ namespace Monopoly_2019
         public CommunityChest(int position) : base(position)
         {
             this.box_type = "community chest";
-            this.color = "Grey"; 
+            this.color = ConsoleColor.DarkBlue; //JEREM 
         }
 
         public override void BoxEffect(Player joueur, Board monopoly)
