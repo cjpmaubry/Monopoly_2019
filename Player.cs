@@ -11,6 +11,7 @@ namespace Monopoly_2019
         private int color;
         private int position;
         private double money;
+        private List<Abs_Box> propreties;
         private ObservePlayer observer;
 
         // Constructor
@@ -21,6 +22,7 @@ namespace Monopoly_2019
             this.color = color;
             this.position = position;
             this.money = money;
+            this.propreties = new List<Abs_Box>();
         }
 
         /// <summary>
@@ -117,6 +119,14 @@ namespace Monopoly_2019
         public void LoseMoney(int loss)
         {
             Money += Math.Abs(loss);
+        }
+
+        /// <summary>
+        /// Adds a bought proprety to the list of owned ones
+        /// </summary>
+        public void AddProprety(Board monopoly)
+        {
+            propreties.Add(monopoly.Gameboard[position]);
         }
     }
 }
