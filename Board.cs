@@ -33,7 +33,7 @@ namespace Monopoly_2019
             //BoxFactory.createLuck(7, gameboard);
             //BoxFactory.createLuck(22, gameboard);
             //BoxFactory.createLuck(38, gameboard);
-            //BoxFactory.createJail(10, gameboard);
+            BoxFactory.createJail(10, gameboard);
             BoxFactory.createGoToJail(30, gameboard);
             for (int i = 0; i < gameboard.Length; i++)
             {
