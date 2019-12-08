@@ -93,7 +93,8 @@ namespace Monopoly_2019
 
         public void LaunchCaseMethode(int newposition,Player player,Board board)
         {
-           board.Gameboard[newposition].BoxEffect(player,board);
+            board.Gameboard[newposition].BoxEffect(player,board);
+            
         }
     }
 }

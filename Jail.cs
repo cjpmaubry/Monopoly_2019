@@ -10,7 +10,8 @@ namespace Monopoly_2019
         //Constructor
         public Jail(int position) : base(position)
         {
-            this.box_description = "jail";
+            this.box_type = "jail";
+            this.color = ConsoleColor.DarkRed; //JEREM
         }
 
         /// <summary>
@@ -22,7 +23,7 @@ namespace Monopoly_2019
         /// <param name="joueur">The playing player</param>
         /// <param name="monopoly">The monopoly game set</param>
         public override void BoxEffect(Player joueur, Board monopoly)
-        {
+        {        
             //if the player is in jail           
             if(monopoly.PlayerInJail(joueur))
             {
@@ -77,6 +78,11 @@ namespace Monopoly_2019
             {
                 return 0;
             }
+        }
+
+        public override string ToString()
+        {
+            return "\nYou have landed on " + box_type.ToUpper() + "\n";
         }
     }
 }

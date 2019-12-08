@@ -8,13 +8,19 @@ namespace Monopoly_2019
     {
         public Neutral(int position) : base(position)
         {
-            this.box_description = "neutral";
+            this.box_type = "neutral";
+            this.color = ConsoleColor.Black; //JEREM
         }
 
         //Nothing happens on neutral boxes
         public override void BoxEffect(Player joueur, Board monopoly)
         {
             //Nothing happens on neutral boxes
+        }
+
+        public override string ToString()
+        {
+            return "\nYou have landed on " + box_type.ToUpper() + "\nNothing will happen\n";
         }
     }
 }
