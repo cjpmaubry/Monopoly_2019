@@ -50,11 +50,11 @@ namespace Monopoly_2019
                     made_a_double = false;
                     do
                     {
-                        PlayerAction(p, tour);
+                        PlayerActionRollDice(p, tour);
                         made_a_double = TurnOfPlayer(p);
                         BreakMove();
                         UpdateView(tour);
-                        PlayerAction2(p,count,made_a_double);
+                        PlayerActionTurn(p,count,made_a_double);
                         //if a player makes a double he can play again
                         if (made_a_double == true)
                         {
@@ -72,6 +72,12 @@ namespace Monopoly_2019
             }
         }
 
+        /// <summary>
+        /// This Method manage the turn of a player 
+        /// It performs in the right order the requiere methode and view
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
         public bool TurnOfPlayer(Player player)
         {
             bool made_a_double = false;
@@ -93,22 +99,31 @@ namespace Monopoly_2019
             return made_a_double;
         }
 
-
-        public void PlayerAction(Player player,int tour)
+        /// <summary>
+        /// This method call the view for diplaying information ( informs player, he has a new turn)
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="tour"></param>
+        public void PlayerActionRollDice(Player player,int tour)
         {
-            view.AskPlayerforAction(player,tour);
+            view.AskPlayerforRollDice(player,tour);
         }
 
-
-        public void PlayerAction2(Player player,int count,bool made_a_double)
+        /// <summary>
+        /// This method call the view to display end/new turn according the result of the dices. 
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="count"></param>
+        /// <param name="made_a_double"></param>
+        public void PlayerActionTurn(Player player,int count,bool made_a_double)
         {
             if (count!=3 && made_a_double==true)
             {
-                view.AskPlayerforAction3(player);
+                view.AskPlayerforNewTurn(player);
             }
             else
             {
-                view.AskPlayerforAction2(player);
+                view.AskPlayerforEndTurn(player);
             }
             
         }

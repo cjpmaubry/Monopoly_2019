@@ -448,23 +448,23 @@ namespace Monopoly_2019
         }
 
         /// <summary>
-        /// Method to display information for player ( informs player it's his turn)
+        /// Method to display information for player ( informs player it's his turn) ank ask for rolling dice
         /// </summary>
         /// <param name="player"></param>
         /// <param name="tour"></param>
-        public void AskPlayerforAction(Player player,int tour)
+        public void AskPlayerforRollDice(Player player,int tour)
         {
         Console.WriteLine("TURN NUMBER " + (tour + 1));
         Console.WriteLine("\nTurn of player "+player.Id + " : " + player.Name);
-        Console.WriteLine("Press any key to launch dice");
+        Console.WriteLine("Press any key to roll the dices");
         Console.ReadKey();
         }
 
         /// <summary>
-        ///  Method to display information for player ( informs player his turn is finish)
+        ///  Method to display information for player ( informs player his turn is finish) and ask to end turn
         /// </summary>
         /// <param name="player"></param>
-        public void AskPlayerforAction2(Player player)
+        public void AskPlayerforEndTurn(Player player)
         {
             Console.WriteLine("Press any key to finish your turn");
             Console.ReadKey();
@@ -472,10 +472,10 @@ namespace Monopoly_2019
         }
 
         /// <summary>
-        ///  Method to display information for player ( informs player, he has a new turn)
+        ///  Method to display information for player ( informs player, he has a new turn) and ask to begin turn
         /// </summary>
         /// <param name="player"></param>
-        public void AskPlayerforAction3(Player player)
+        public void AskPlayerforNewTurn(Player player)
         {
             Console.WriteLine("Press any key to start your new turn");
             Console.ReadKey();
