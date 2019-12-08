@@ -118,7 +118,6 @@ namespace Monopoly_2019
                 Console.BackgroundColor = board.Gameboard[i].color;
                 Console.WriteLine("+--------+");
                 Console.ResetColor();
-                
                 for (int j = 0; j < 3; j++)
                 {
                     //Display for the two top rows of each box
@@ -132,9 +131,9 @@ namespace Monopoly_2019
                             Console.ResetColor();
                             Console.Write("                                                                                          ");
                             Console.BackgroundColor = board.Gameboard[50 - i].color;
-                            Console.Write("|        |");                          
+                            Console.Write("|        |");
                             Console.ResetColor();
-                            
+                            Console.WriteLine("");
                         }
                         else
                         {
@@ -145,8 +144,9 @@ namespace Monopoly_2019
                                 Console.ResetColor();
                                 Console.Write("                                                                                          ");
                                 Console.BackgroundColor = board.Gameboard[50 - i].color;
-                                Console.WriteLine("|    " + Convert.ToString(list[j].Id) + "   |");
+                                Console.Write("|    " + Convert.ToString(list[j].Id) + "   |");
                                 Console.ResetColor();
+                                Console.WriteLine("");
 
                             }
                             else
@@ -173,8 +173,9 @@ namespace Monopoly_2019
                             Console.ResetColor();
                             Console.Write("                                                                                          ");
                             Console.BackgroundColor = board.Gameboard[50 - i].color;
-                            Console.WriteLine("|        |");
+                            Console.Write("|        |");
                             Console.ResetColor();
+                            Console.WriteLine("");
                         }
                         //If there are three players (player 3 on the third row) 
                         if (list.Count == 3)
@@ -186,8 +187,9 @@ namespace Monopoly_2019
                                 Console.ResetColor();
                                 Console.Write("                                                                                          ");
                                 Console.BackgroundColor = board.Gameboard[50 - i].color;
-                                Console.WriteLine("|        |");
+                                Console.Write("|        |");
                                 Console.ResetColor();
+                                Console.WriteLine("");
                             }
                             else
                             {
@@ -199,8 +201,9 @@ namespace Monopoly_2019
                                     Console.ResetColor();
                                     Console.Write("                                                                                          ");
                                     Console.BackgroundColor = board.Gameboard[50 - i].color;
-                                    Console.WriteLine("|    " + Convert.ToString(list[j].Id) + "   |");
+                                    Console.Write("|    " + Convert.ToString(list[j].Id) + "   |");
                                     Console.ResetColor();
+                                    Console.WriteLine("");
                                 }
                                 //If there is no player on both colums
                                 else
@@ -210,8 +213,9 @@ namespace Monopoly_2019
                                     Console.ResetColor();
                                     Console.Write("                                                                                          ");
                                     Console.BackgroundColor = board.Gameboard[50 - i].color;
-                                    Console.WriteLine("|        |");
+                                    Console.Write("|        |");
                                     Console.ResetColor();
+                                    Console.WriteLine("");
                                 }
                             }
                             Console.BackgroundColor = board.Gameboard[i].color;
@@ -219,8 +223,9 @@ namespace Monopoly_2019
                             Console.ResetColor();
                             Console.Write("                                                                                          ");
                             Console.BackgroundColor = board.Gameboard[i].color;
-                            Console.WriteLine("+--------+");
+                            Console.Write("+--------+");
                             Console.ResetColor();
+                            Console.WriteLine("");
                         }
 
 
@@ -234,8 +239,9 @@ namespace Monopoly_2019
                                 Console.ResetColor();
                                 Console.Write("                                                                                          ");
                                 Console.BackgroundColor = board.Gameboard[50 - i].color;
-                                Console.WriteLine("|        |");
+                                Console.Write("|        |");
                                 Console.ResetColor();
+                                Console.WriteLine("");
                             }
                             else
                             {
@@ -249,6 +255,7 @@ namespace Monopoly_2019
                                     Console.BackgroundColor = board.Gameboard[50 - i].color;
                                     Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
                                     Console.ResetColor();
+                                    Console.WriteLine("");
                                 }
                                 else
                                 {
@@ -260,8 +267,9 @@ namespace Monopoly_2019
                                         Console.ResetColor();
                                         Console.Write("                                                                                          ");
                                         Console.BackgroundColor = board.Gameboard[50 - i].color;
-                                        Console.WriteLine("|        |");
+                                        Console.Write("|        |");
                                         Console.ResetColor();
+                                        Console.WriteLine("");
                                     }
                                     else
                                     {
@@ -273,8 +281,9 @@ namespace Monopoly_2019
                                             Console.ResetColor();
                                             Console.Write("                                                                                          ");
                                             Console.BackgroundColor = board.Gameboard[50 - i].color;
-                                            Console.WriteLine("|    " + Convert.ToString(list[j].Id) + "   |");
+                                            Console.Write("|    " + Convert.ToString(list[j].Id) + "   |");
                                             Console.ResetColor();
+                                            Console.WriteLine("");
                                         }
                                         else
                                         {
@@ -286,8 +295,9 @@ namespace Monopoly_2019
                                                 Console.ResetColor();
                                                 Console.Write("                                                                                          ");
                                                 Console.BackgroundColor = board.Gameboard[50 - i].color;
-                                                Console.WriteLine("|        |");
+                                                Console.Write("|        |");
                                                 Console.ResetColor();
+                                                Console.WriteLine("");
                                             }
                                             else
                                             {
@@ -299,8 +309,9 @@ namespace Monopoly_2019
                                                     Console.ResetColor();
                                                     Console.Write("                                                                                          ");
                                                     Console.BackgroundColor = board.Gameboard[50 - i].color;
-                                                    Console.WriteLine("|    " + Convert.ToString(list[j + 1].Id) + "   |");
+                                                    Console.Write("|    " + Convert.ToString(list[j + 1].Id) + "   |");
                                                     Console.ResetColor();
+                                                    Console.WriteLine("");
                                                 }
                                                 //If there is no player on both colums
                                                 else
@@ -311,8 +322,9 @@ namespace Monopoly_2019
                                                     Console.ResetColor();
                                                     Console.Write("                                                                                          ");
                                                     Console.BackgroundColor = board.Gameboard[50 - i].color;
-                                                    Console.WriteLine("|        |");
+                                                    Console.Write("|        |");
                                                     Console.ResetColor();
+                                                    Console.WriteLine("");
                                                 }
                                             }
                                         }
@@ -321,15 +333,7 @@ namespace Monopoly_2019
                             }
                         }
                     }
-                    
                 }
-                Console.BackgroundColor = board.Gameboard[i].color;
-                Console.Write("+--------+");
-                Console.ResetColor();
-                Console.Write("                                                                                          ");
-                Console.BackgroundColor = board.Gameboard[i].color;
-                Console.WriteLine("+--------+");
-                Console.ResetColor();
             }
 
 
