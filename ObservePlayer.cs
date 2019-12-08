@@ -25,7 +25,7 @@ namespace Monopoly_2019
         /// <param name="name"></param>
         public void UpdatePosition(int position, string name)
         {
-            Console.WriteLine("Le joueur " + name + " est maintenant sur la case numero " + position);
+            Console.WriteLine("The player " + name + "is now at position" + position);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Monopoly_2019
         /// <param name="name"></param>
         public void UpdateMoney(double money, string name)
         {
-            Console.WriteLine("Le joueur " + name + " à maintenant " + money + " euro");
+            Console.WriteLine("The player" + name + " has now  " + money + " euro");
         }
 
     }
