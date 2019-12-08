@@ -448,6 +448,12 @@ namespace Monopoly_2019
             Console.Clear();
         }
 
+        public void AskPlayerforAction3(Player player)
+        {
+            Console.WriteLine("Press any key to start your new turn");
+            Console.ReadKey();
+            Console.Clear();
+        }
 
         public void ClearConsole()
         {
@@ -470,6 +476,12 @@ namespace Monopoly_2019
             Console.WriteLine("Press any key to move");
             Console.ReadKey();
         }
+
+        public void GoToJail()
+        {
+            Console.WriteLine("Too much doubles ! You got sent to jail");
+        }
+        
 
     }
 }
