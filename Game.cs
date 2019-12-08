@@ -84,13 +84,29 @@ namespace Monopoly_2019
         }
 
 
-
-        public int NewPosition(Player player, int value)
+        /// <summary>
+        /// Method that move player to the new position and add money if end a full tour
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="value"></param>
+        /// <param name="board"></param>
+        /// <returns></returns>
+        public int NewPosition(Player player, int value,Board board)
         {
             player.Position = (value + player.Position) % 40;
+            if(player.Position==0)
+            {
+                board.Gameboard[value].BoxEffect(player, board);
+            }
             return player.Position;
         }
 
+        /// <summary>
+        /// This method execute the box effect for the player in this box
+        /// </summary>
+        /// <param name="newposition"></param>
+        /// <param name="player"></param>
+        /// <param name="board"></param>
         public void LaunchCaseMethode(int newposition,Player player,Board board)
         {
             board.Gameboard[newposition].BoxEffect(player,board);
