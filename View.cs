@@ -454,8 +454,23 @@ namespace Monopoly_2019
             Console.Clear();
         }
 
+        public void PauseConsole()
+        {
+            Console.WriteLine("\nBegin in 5 seconde");
+            System.Threading.Thread.Sleep(1000);
+            Console.Write("===4");
+            System.Threading.Thread.Sleep(1000);
+            Console.Write("===3");
+            System.Threading.Thread.Sleep(1000);
+            Console.Write("===2");
+            System.Threading.Thread.Sleep(1000);
+            Console.Write("===1");
+            System.Threading.Thread.Sleep(1000);
+            Console.Write("===0");
+            System.Threading.Thread.Sleep(1000);
+        }
 
-     
+
 
     }
 }

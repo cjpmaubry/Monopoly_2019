@@ -38,6 +38,7 @@ namespace Monopoly_2019
             bool made_a_double;
             int count;
             Initialisation();
+            Pause();
             Clear();
             // Loop for the turns
             int tour = 0;
@@ -102,5 +103,9 @@ namespace Monopoly_2019
             view.ClearConsole();
         }
 
+        public void Pause()
+        {
+            view.PauseConsole();
+        }
     }
 }
