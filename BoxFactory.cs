@@ -36,5 +36,10 @@ namespace Monopoly_2019
             plateau[position] = new Neutral(position);
         }
 
+        //creates a Community chest  box at given position
+        public static void createCommunityChest(int position, Abs_Box[] plateau)
+        {
+            plateau[position] = new CommunityChest(position);
+        }
     }
 }
