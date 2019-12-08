@@ -23,10 +23,10 @@ namespace Monopoly_2019
         /// <param name="monopoly">The monopoly game set</param>
         public override void BoxEffect(Player joueur, Board monopoly)
         {
-            //if the player is in jail
-            
+            //if the player is in jail           
             if(monopoly.PlayerInJail(joueur))
             {
+                Console.WriteLine("You are in prison");
                 int move = 0;
                 int tries = 0;
                 //The player has three tries at each turn
@@ -38,6 +38,8 @@ namespace Monopoly_2019
 
                     if(move != 0)
                     {
+                        Console.WriteLine("You got out of jail ! Press any key to continue");
+                        Console.ReadKey();
                         //deletes the player from the jailed_players list
                         monopoly.FreeFromJail(joueur);
                         //makes the player move
@@ -48,6 +50,7 @@ namespace Monopoly_2019
             else
             {
                 //Nothing happens, he is a visitor
+                Console.WriteLine("Just visiting prison");
             }
         }
 
