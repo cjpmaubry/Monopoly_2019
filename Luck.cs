@@ -24,7 +24,7 @@ namespace Monopoly_2019
         {
             string message = "";
             Random alea = new Random();
-            int index = alea.Next(1, 4);
+            int index = alea.Next(1, 5);
 
             if (index == 1)
             {
@@ -39,6 +39,11 @@ namespace Monopoly_2019
             if (index == 3)
             {
                 message = "Nothing happens !";
+            }
+            if (index == 4)
+            {
+                joueur.Position = 10;
+                message = "You have no luck, you go to jail !";
             }
             Console.WriteLine(message);
         }
