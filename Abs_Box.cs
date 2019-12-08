@@ -23,6 +23,10 @@ namespace Monopoly_2019
         /// <param name="gameboard">Board of the game, contains all the boxs</param>
         public abstract void BoxEffect(Player joueur, Board monopoly);
 
+        /// <summary>
+        /// Describes the box by its type and more information if needed
+        /// </summary>
+        /// <returns>String that will be used in the view</returns>
         public abstract override string ToString();
     }
 }

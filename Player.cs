@@ -76,12 +76,10 @@ namespace Monopoly_2019
             this.observer = observer;
         }
 
-
         /// <summary>
         /// Allow the posibility to detach an observer
         /// </summary>
         /// <param name="observer"></param>
-
         public void Detach(ObservePlayer observer)
         {
             this.observer = observer;
@@ -90,7 +88,7 @@ namespace Monopoly_2019
         /// <summary>
         /// Notify the position of a player on the board
         /// </summary>
-        public void NotifyPosition()
+        private void NotifyPosition()
         {
             observer.UpdatePosition(this.position, this.name);
         }
@@ -98,9 +96,27 @@ namespace Monopoly_2019
         /// <summary>
         ///  Notify the money of a player 
         /// </summary>
-        public void NotifyMoney()
+        private void NotifyMoney()
         {
             observer.UpdateMoney(this.money, this.name);
+        }
+
+        /// <summary>
+        /// Adds money to the palyers money
+        /// </summary>
+        /// <param name="gain">Amount of money to add</param>
+        public void AddMoney(int gain)
+        {
+            Money += Math.Abs(gain);
+        }
+
+        /// <summary>
+        /// Removes money from the players money
+        /// </summary>
+        /// <param name="loss">Amount of money to remove</param>
+        public void LoseMoney(int loss)
+        {
+            Money += Math.Abs(loss);
         }
     }
 }
