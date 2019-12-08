@@ -437,12 +437,21 @@ namespace Monopoly_2019
         }
 
 
+        /// <summary>
+        /// Method to display the board and the position of the player with the update
+        /// </summary>
+        /// <param name="board"></param>
+        /// <param name="list"></param>
         public void UpdateDisplayBoard(Board board, List<Player> list)
         {           
             DisplayBoard(board, list);
         }
 
-
+        /// <summary>
+        /// Method to display information for player ( informs player it's his turn)
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="tour"></param>
         public void AskPlayerforAction(Player player,int tour)
         {
         Console.WriteLine("TURN NUMBER " + (tour + 1));
@@ -451,7 +460,10 @@ namespace Monopoly_2019
         Console.ReadKey();
         }
 
-
+        /// <summary>
+        ///  Method to display information for player ( informs player his turn is finish)
+        /// </summary>
+        /// <param name="player"></param>
         public void AskPlayerforAction2(Player player)
         {
             Console.WriteLine("Press any key to finish your turn");
@@ -459,6 +471,10 @@ namespace Monopoly_2019
             Console.Clear();
         }
 
+        /// <summary>
+        ///  Method to display information for player ( informs player, he has a new turn)
+        /// </summary>
+        /// <param name="player"></param>
         public void AskPlayerforAction3(Player player)
         {
             Console.WriteLine("Press any key to start your new turn");
@@ -466,11 +482,17 @@ namespace Monopoly_2019
             Console.Clear();
         }
 
+        /// <summary>
+        /// Method which clean console
+        /// </summary>
         public void ClearConsole()
         {
             Console.Clear();
         }
 
+        /// <summary>
+        /// Method that allows pause time in console
+        /// </summary>
         public void PauseConsole()
         {
             Console.WriteLine("\nGame will start in 3 secondes");
@@ -482,12 +504,18 @@ namespace Monopoly_2019
             System.Threading.Thread.Sleep(1000);
         }
 
+        /// <summary>
+        /// Method which ask player before move
+        /// </summary>
         public void PauseBeforeMove()
         {
             Console.WriteLine("Press any key to move");
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// Method that inform player he is in jail because of too much doubles 
+        /// </summary>
         public void GoToJail()
         {
             Console.WriteLine("Too much doubles ! You got sent to jail");
