@@ -39,7 +39,7 @@ namespace Monopoly_2019
                     //the player needs to type the correct price to show that he wants to buy
                     if(offer == price)
                     {
-                        owner = TryToBuy(joueur, monopoly);
+                        TryToBuy(joueur, monopoly);
                     }
                 }
                 catch(Exception e)
@@ -93,20 +93,16 @@ namespace Monopoly_2019
         /// will be added to his own.
         /// </summary>
         /// <param name="joueur">Player trying to buy</param>
-        private Player TryToBuy(Player joueur, Board monopoly)
+        private void TryToBuy(Player joueur, Board monopoly)
         {
             if(joueur.Money >= price)
             {
                 //pays for the proprety
                 joueur.LoseMoney(price);
+                //owner becomes the player
+                owner = joueur;
                 //proprety added to personnal list
                 joueur.AddProprety(monopoly);
-                //owner becomes the player
-                return joueur;
-            }
-            else
-            {
-                return null;
             }
         }
 
