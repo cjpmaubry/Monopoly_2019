@@ -53,15 +53,17 @@ namespace Monopoly_2019
                         made_a_double = TurnOfPlayer(p);
                         UpdateView(tour);
                         PlayerAction2(p);
+                        //if a player makes a double he can play again
                         if (made_a_double == true)
                         {
                             count++;
-                            if(count==2)
+                            if(count==3)
                             {
-                                GoToJail(p);
+                                //if he makes three doubles in a row he goes to jail
+                                game.Board.SendTojail(p);
                             }
                         }
-                    } while ((made_a_double = true) && (count < 2));
+                    } while ((made_a_double == true) && (count < 3));
                 }
                 tour++;
             }
@@ -98,11 +100,6 @@ namespace Monopoly_2019
         public void Clear()
         {
             view.ClearConsole();
-        }
-       
-        public void GoToJail(Player player)
-        {
-            game.Board.SendTojail(player);
         }
 
     }
