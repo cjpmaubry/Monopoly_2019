@@ -52,6 +52,7 @@ namespace Monopoly_2019
                     {
                         PlayerAction(p, tour);
                         made_a_double = TurnOfPlayer(p);
+                        Pause2();
                         UpdateView(tour);
                         PlayerAction2(p);
                         //if a player makes a double he can play again
@@ -106,6 +107,10 @@ namespace Monopoly_2019
         public void Pause()
         {
             view.PauseConsole();
+        }
+        public void Pause2()
+        {
+            view.PauseBeforeMove();
         }
     }
 }

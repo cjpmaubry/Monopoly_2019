@@ -465,7 +465,11 @@ namespace Monopoly_2019
             System.Threading.Thread.Sleep(1000);
         }
 
-
+        public void PauseBeforeMove()
+        {
+            Console.WriteLine("Press a key to move");
+            Console.ReadKey();
+        }
 
     }
 }
