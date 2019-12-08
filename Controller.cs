@@ -35,7 +35,7 @@ namespace Monopoly_2019
         /// </summary>
         public void LaunchGame()
         {
-            bool res;
+            bool made_a_double;
             int count;
             Initialisation();
             Clear();
@@ -46,14 +46,14 @@ namespace Monopoly_2019
                 foreach (Player p in game.Player_list)
                 {
                     count = 0;
-                    res = false;
+                    made_a_double = false;
                     do
                     {
                         PlayerAction(p, tour);
-                        res = TurnOfPlayer(p);
+                        made_a_double = TurnOfPlayer(p);
                         UpdateView(tour);
                         PlayerAction2(p);
-                        if (res == true)
+                        if (made_a_double == true)
                         {
                             count++;
                             if(count==2)
@@ -61,7 +61,7 @@ namespace Monopoly_2019
                                 GoToJail(p);
                             }
                         }
-                    } while ((res = true) && (count < 2));
+                    } while ((made_a_double = true) && (count < 2));
                 }
                 tour++;
             }
@@ -69,7 +69,7 @@ namespace Monopoly_2019
 
         public bool TurnOfPlayer(Player player)
         {
-            bool res = false;
+            bool made_a_double = false;
             //if the player is in jail he must try to escape instead of moving
             //The box effect method in Jail detects on its own when it has to do the TryToEscape
             if(game.Board.PlayerInJail(player))
@@ -78,12 +78,12 @@ namespace Monopoly_2019
             }
             else
             {
-                res = game.Board.Roll();
+                made_a_double = game.Board.Roll();
                 int value = game.Board.ValueDice();
                 int newposition = game.NewPosition(player, value);
                 game.LaunchCaseMethode(newposition, player, game.Board);
             }
-            return res;
+            return made_a_double;
         }
 
         public void PlayerAction(Player player,int tour)

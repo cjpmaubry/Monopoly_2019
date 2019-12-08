@@ -93,8 +93,8 @@ namespace Monopoly_2019
 
         public bool Roll()
         {
-            bool res = dices.RollDice();
-            return res;
+            bool made_a_double = dices.RollDice();
+            return made_a_double;
         }
     }
 }
