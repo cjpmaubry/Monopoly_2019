@@ -8,5 +8,6 @@ namespace Monopoly_2019
     {
         void UpdatePosition(int position, string name);
         void UpdateMoney(double money, string name);
+        void UpdateProperty(int position, Board board);
     }
 }

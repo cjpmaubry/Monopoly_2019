@@ -103,6 +103,12 @@ namespace Monopoly_2019
             observer.UpdateMoney(this.money, this.name);
         }
 
+        public void NotifyProperty(int position, Board board)
+        {
+            observer.UpdateProperty(position,board);
+        }
+
+
         /// <summary>
         /// Adds money to the palyers money
         /// </summary>
@@ -127,6 +133,7 @@ namespace Monopoly_2019
         public void AddProprety(Board monopoly)
         {
             propreties.Add(monopoly.Gameboard[position]);
+            NotifyProperty(position,monopoly);
         }
     }
 }
