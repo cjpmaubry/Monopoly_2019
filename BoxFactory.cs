@@ -12,6 +12,12 @@ namespace Monopoly_2019
             plateau[position] = new Go(position);
         }
 
+        //creates a Luck box at given position
+        public static void createLuck(int position, Abs_Box[] plateau)
+        {
+            plateau[position] = new Luck(position);
+        }
+
         //creates a Jail box at the given position
         public static void createJail(int position, Abs_Box[] plateau)
         {
@@ -28,12 +34,6 @@ namespace Monopoly_2019
         public static void createNeutral(int position, Abs_Box[] plateau)
         {
             plateau[position] = new Neutral(position);
-        }
-
-        //created a Neutral box at the given position
-        public static void createLuck(int position, Abs_Box[] plateau)
-        {
-            plateau[position] = new Luck(position);
         }
 
     }
