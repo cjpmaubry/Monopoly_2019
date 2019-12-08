@@ -24,7 +24,7 @@ namespace Monopoly_2019
                     if (j != 2)
                     {
                         //Display a red background for the gotojail Box
-                        if (board.Gameboard[i].box_description == "gotojail")
+                        if (board.Gameboard[i].box_type == "gotojail")
                         {
                             Console.BackgroundColor = ConsoleColor.Red;
                             Console.Write("|        |");
@@ -33,7 +33,7 @@ namespace Monopoly_2019
                         else
                         {
                             //Display if there is a player on a neutral box
-                            if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position)
+                            if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position)
                             {
                                 Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                             }
@@ -50,7 +50,7 @@ namespace Monopoly_2019
                         //If there are two players (no player on the bottom row)
                         if (list.Count == 2)
                         {
-                            if (board.Gameboard[i].box_description == "gotojail")
+                            if (board.Gameboard[i].box_type == "gotojail")
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|        |");
@@ -58,7 +58,7 @@ namespace Monopoly_2019
                             }
                             else
                             {
-                                if (board.Gameboard[i].box_description == "neutral")
+                                if (board.Gameboard[i].box_type == "neutral")
                                 {
                                     Console.Write("|        |");
                                 }
@@ -67,7 +67,7 @@ namespace Monopoly_2019
                         //If there are three players (player 3 on the bottom row)
                         if (list.Count == 3)
                         {
-                            if (board.Gameboard[i].box_description == "gotojail")
+                            if (board.Gameboard[i].box_type == "gotojail")
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|        |");
@@ -76,7 +76,7 @@ namespace Monopoly_2019
                             else
                             {
                                 //If the player is on a neutral box
-                                if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position)
                                 {
                                     Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                 }
@@ -91,14 +91,14 @@ namespace Monopoly_2019
                         if (list.Count == 4)
                         {
                             //Display when player 3 and player 4 are on the same box
-                            if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                            if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position && list[j].Position == list[j + 1].Position)
                             {
                                 Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
                             }
                             else
                             {
                                 //Display for the gotojail box
-                                if (board.Gameboard[i].box_description == "gotojail")
+                                if (board.Gameboard[i].box_type == "gotojail")
                                 {
                                     Console.BackgroundColor = ConsoleColor.Red;
                                     Console.Write("|        |");
@@ -107,14 +107,14 @@ namespace Monopoly_2019
                                 else
                                 {
                                     //Display if player 3 is on a neutral box
-                                    if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                    if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position)
                                     {
                                         Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                     }
                                     else
                                     {
                                         //Display if player 4 is on a neutral box
-                                        if (board.Gameboard[i].box_description == "neutral" && i == list[j + 1].Position)
+                                        if (board.Gameboard[i].box_type == "neutral" && i == list[j + 1].Position)
                                         {
                                             Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
                                         }
@@ -135,7 +135,7 @@ namespace Monopoly_2019
             for (int i = 19; i >= 11; i--)
             {
                 //Display if the two boxes opposite to each other are neutral
-                if (board.Gameboard[i].box_description == "neutral" && board.Gameboard[50 - i].box_description == "neutral")
+                if (board.Gameboard[i].box_type == "neutral" && board.Gameboard[50 - i].box_type == "neutral")
                 {
                     Console.Write("+--------+");
                     Console.WriteLine("                                                                                          +--------+");
@@ -277,7 +277,7 @@ namespace Monopoly_2019
                     if (j != 2)
                     {
                         //Display if there is a player on the jail box (red background)
-                        if (board.Gameboard[i].box_description == "jail" && i == list[j].Position)
+                        if (board.Gameboard[i].box_type == "jail" && i == list[j].Position)
                         {
                             Console.BackgroundColor = ConsoleColor.Red;
                             Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
@@ -286,7 +286,7 @@ namespace Monopoly_2019
                         else
                         {
                             //Display if there is no player on the jail box
-                            if (board.Gameboard[i].box_description == "jail")
+                            if (board.Gameboard[i].box_type == "jail")
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|        |");
@@ -295,7 +295,7 @@ namespace Monopoly_2019
                             else
                             {
                                 //Display if there is a player on a neutral box
-                                if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position)
                                 {
                                     Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                 }
@@ -312,7 +312,7 @@ namespace Monopoly_2019
                         //If there are two players (no player on the third row of the box)
                         if (list.Count == 2)
                         {
-                            if (board.Gameboard[i].box_description == "jail")
+                            if (board.Gameboard[i].box_type == "jail")
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|        |");
@@ -320,7 +320,7 @@ namespace Monopoly_2019
                             }
                             else
                             {
-                                if (board.Gameboard[i].box_description == "neutral")
+                                if (board.Gameboard[i].box_type == "neutral")
                                 {
                                     Console.Write("|        |");
                                 }
@@ -330,7 +330,7 @@ namespace Monopoly_2019
                         if (list.Count == 3)
                         {
                             //If the player is on the jail box
-                            if (board.Gameboard[i].box_description == "jail" && i == list[j].Position)
+                            if (board.Gameboard[i].box_type == "jail" && i == list[j].Position)
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
@@ -339,7 +339,7 @@ namespace Monopoly_2019
                             else
                             {
                                 //If there is no player on the jail box
-                                if (board.Gameboard[i].box_description == "jail")
+                                if (board.Gameboard[i].box_type == "jail")
                                 {
                                     Console.BackgroundColor = ConsoleColor.Red;
                                     Console.Write("|        |");
@@ -348,7 +348,7 @@ namespace Monopoly_2019
                                 else
                                 {
                                     //If the player is on a neutral box
-                                    if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                    if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position)
                                     {
                                         Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                     }
@@ -363,7 +363,7 @@ namespace Monopoly_2019
                         if (list.Count == 4)
                         {
                             //If the two players are on the jail box
-                            if (board.Gameboard[i].box_description == "jail" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                            if (board.Gameboard[i].box_type == "jail" && i == list[j].Position && list[j].Position == list[j + 1].Position)
                             {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
@@ -372,14 +372,14 @@ namespace Monopoly_2019
                             else
                             {
                                 //If the two players are on the same neutral box
-                                if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position && list[j].Position == list[j + 1].Position)
+                                if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position && list[j].Position == list[j + 1].Position)
                                 {
                                     Console.Write("|  " + Convert.ToString(list[j].Id) + "  " + Convert.ToString(list[j + 1].Id) + "  |");
                                 }
                                 else
                                 {
                                     //if only player 3 is on the jail box
-                                    if (board.Gameboard[i].box_description == "jail" && i == list[j].Position)
+                                    if (board.Gameboard[i].box_type == "jail" && i == list[j].Position)
                                     {
                                         Console.BackgroundColor = ConsoleColor.Red;
                                         Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
@@ -388,7 +388,7 @@ namespace Monopoly_2019
                                     else
                                     {
                                         //if only player 4 is on the jail box
-                                        if (board.Gameboard[i].box_description == "jail" && i == list[j + 1].Position)
+                                        if (board.Gameboard[i].box_type == "jail" && i == list[j + 1].Position)
                                         {
                                             Console.BackgroundColor = ConsoleColor.Red;
                                             Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
@@ -397,7 +397,7 @@ namespace Monopoly_2019
                                         else
                                         {
                                             //If there is no player on the jail box
-                                            if (board.Gameboard[i].box_description == "jail")
+                                            if (board.Gameboard[i].box_type == "jail")
                                             {
                                                 Console.BackgroundColor = ConsoleColor.Red;
                                                 Console.Write("|        |");
@@ -406,14 +406,14 @@ namespace Monopoly_2019
                                             else
                                             {
                                                 //If only player 3 is on a neutal box
-                                                if (board.Gameboard[i].box_description == "neutral" && i == list[j].Position)
+                                                if (board.Gameboard[i].box_type == "neutral" && i == list[j].Position)
                                                 {
                                                     Console.Write("|   " + Convert.ToString(list[j].Id) + "    |");
                                                 }
                                                 else
                                                 {
                                                     //If only player 4 is on a neutral box
-                                                    if (board.Gameboard[i].box_description == "neutral" && i == list[j + 1].Position)
+                                                    if (board.Gameboard[i].box_type == "neutral" && i == list[j + 1].Position)
                                                     {
                                                         Console.Write("|   " + Convert.ToString(list[j + 1].Id) + "    |");
                                                     }
