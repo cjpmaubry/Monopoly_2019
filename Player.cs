@@ -88,7 +88,7 @@ namespace Monopoly_2019
         /// <summary>
         /// Notify the position of a player on the board
         /// </summary>
-        private void NotifyPosition()
+        public void NotifyPosition()
         {
             observer.UpdatePosition(this.position, this.name);
         }
@@ -96,7 +96,7 @@ namespace Monopoly_2019
         /// <summary>
         ///  Notify the money of a player 
         /// </summary>
-        private void NotifyMoney()
+        public void NotifyMoney()
         {
             observer.UpdateMoney(this.money, this.name);
         }
