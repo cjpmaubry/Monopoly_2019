@@ -434,16 +434,16 @@ namespace Monopoly_2019
 
         public void AskPlayerforAction(Player player,int tour)
         {
-        Console.WriteLine("TURN NUMBER " + tour);
-        Console.WriteLine("\nTurn of player "+player.Name);
-        Console.WriteLine("Press a key to launch dice");
+        Console.WriteLine("TURN NUMBER " + (tour + 1));
+        Console.WriteLine("\nTurn of player "+player.Id + " : " + player.Name);
+        Console.WriteLine("Press any key to launch dice");
         Console.ReadKey();
         }
 
 
         public void AskPlayerforAction2(Player player)
         {
-            Console.WriteLine("Press a key to finish your turn");
+            Console.WriteLine("Press any key to finish your turn");
             Console.ReadKey();
             Console.Clear();
         }
@@ -467,7 +467,7 @@ namespace Monopoly_2019
 
         public void PauseBeforeMove()
         {
-            Console.WriteLine("Press a key to move");
+            Console.WriteLine("Press any key to move");
             Console.ReadKey();
         }
 
