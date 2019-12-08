@@ -9,7 +9,7 @@ namespace Monopoly_2019
         public GoToJail(int position) : base(position)
         {
             this.box_type = "gotojail";
-            this.color = "Red"; //JEREM
+            this.color = ConsoleColor.DarkRed; //JEREM
         }
 
         public override void BoxEffect(Player joueur, Board monopoly)
