@@ -29,6 +29,7 @@ namespace Monopoly_2019
         /// </summary>
         public void InitialiseBoard()
         {
+            BoxFactory.createGo(0, gameboard);
             BoxFactory.createJail(10, gameboard);
             BoxFactory.createGoToJail(30, gameboard);
             for (int i = 0; i < gameboard.Length; i++)
