@@ -82,7 +82,7 @@ namespace Monopoly_2019
 
         public override string ToString()
         {
-            return "You have landed on " + box_type.ToUpper();
+            return "\nYou have landed on " + box_type.ToUpper() + "\n";
         }
     }
 }

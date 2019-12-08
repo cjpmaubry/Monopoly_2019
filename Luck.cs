@@ -45,7 +45,7 @@ namespace Monopoly_2019
 
         public override string ToString()
         {
-            return "You have landed on " + box_type.ToUpper() + "\nYou will receive a luck card :";
+            return "\nYou have landed on " + box_type.ToUpper() + "\nYou will receive a luck card :\n";
         }
 
     }
