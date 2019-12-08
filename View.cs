@@ -454,10 +454,6 @@ namespace Monopoly_2019
             Console.Clear();
         }
 
-        public void DisplayDiceValue(int value,Player player)
-        {
-            Console.WriteLine(player.Name + " obtain the value of "+value+" with the dice");
-        }
 
      
 

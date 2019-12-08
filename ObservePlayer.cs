@@ -25,7 +25,7 @@ namespace Monopoly_2019
         /// <param name="name"></param>
         public void UpdatePosition(int position, string name)
         {
-            Console.WriteLine("The player " + name + "is now at position" + position);
+            Console.WriteLine("The player " + name + " is now at position " + position);
         }
 
         /// <summary>

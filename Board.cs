@@ -15,6 +15,8 @@ namespace Monopoly_2019
             this.gameboard = new Abs_Box[40];
             this.jailed_players = new List<Player>();
             this.dices = new Dice();
+            ObserveDice observer = new ObserveDice("1");
+            dices.Attach(observer);
         }
 
         //Getters

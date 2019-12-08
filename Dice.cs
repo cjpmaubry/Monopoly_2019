@@ -10,9 +10,10 @@ namespace Monopoly_2019
         private ObserveDice observer;
 
         public Dice()
-        {
+        {        
             this.dices = new int[2];
         }
+
         /// <summary>
         /// Function which returns an array with two numbers randomly generated between 1 and 6
         /// </summary>

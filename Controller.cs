@@ -63,7 +63,6 @@ namespace Monopoly_2019
             else
             {
                 int value = game.Board.ValueDice(); // A REGARDER
-                DiplayDice(value, player);
                 int newposition = game.NewPosition(player, value);
                 game.LaunchCaseMethode(newposition, player, game.Board);
             }
@@ -82,11 +81,7 @@ namespace Monopoly_2019
         {
             view.ClearConsole();
         }
-        public void DiplayDice(int value,Player player)
-        {
-            view.DisplayDiceValue(value,player);
-        }
-        
+       
 
     }
 }
