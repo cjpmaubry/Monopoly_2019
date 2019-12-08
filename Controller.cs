@@ -63,6 +63,7 @@ namespace Monopoly_2019
                             {
                                 //if he makes three doubles in a row he goes to jail
                                 game.Board.SendTojail(p);
+                                Console.WriteLine("Too much doubles ! You got sent to jail");
                             }
                         }
                     } while ((made_a_double == true) && (count < 3));
