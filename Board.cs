@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace Monopoly_2019
@@ -51,9 +53,40 @@ namespace Monopoly_2019
 
         /// <summary>
         /// Uses a csv file to create all the offical propreties in the game
+        /// 1 : Finds the executable directory of the project on the users computer
+        /// 2 : Puts the propreties.csv file in it in order to use it as a ressource
+        /// 3 : Adds each propreties contained in the file to the board of the game
         /// </summary>
         private void InitialisePropreties()
         {
+            //Finds the executable location of the project on the computer
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string[] exe_location = executableLocation.Split("\\");
+
+            //Finds and creates a variable containing the path to the properties.csv file
+            string propreties_location = null;
+            int index = 0;
+            while(exe_location[index] != "bin")
+            {
+                propreties_location += exe_location[index];
+                propreties_location += "\\";
+                index++;
+            }
+            propreties_location += "propreties.csv";
+
+            //copies the propreties file to the executable directory
+            string sourceFile = propreties_location;
+            string destinationFile = Path.Combine(executableLocation, "propreties.csv"); ;
+            try
+            {
+                File.Copy(sourceFile, destinationFile, true);
+            }
+            catch (IOException iox)
+            {
+                Console.WriteLine(iox.Message);
+            }
+
+            //extracts the information contained in the csv file
             System.IO.StreamReader propreties_file = new System.IO.StreamReader("propreties.csv");
 
             string line;
@@ -61,6 +94,7 @@ namespace Monopoly_2019
             {
                 string[] list_description = line.Split(';');
 
+                //creates proprety instances in the board of the game
                 int p_position = int.Parse(list_description[0]);
                 string p_name = list_description[1];
                 int p_price = int.Parse(list_description[2]);

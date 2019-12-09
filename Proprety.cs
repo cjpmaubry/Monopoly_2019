@@ -61,7 +61,7 @@ namespace Monopoly_2019
             if(owner == null)
             {
                 description += "\nThe proprety is for sale for " + price + ". Do you want to buy it ?";
-                description += "\nIf you dont have enough money the transaction will fail automatically" +
+                description += "\nIf you dont have enough money the transaction will fail automatically\n" +
                     "\nType in the price shown above if you want to buy it, type 0 if you dont.\n";
             }
             else
