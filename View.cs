@@ -14,6 +14,7 @@ namespace Monopoly_2019
         /// <param name="list">List of players</param>
         public void DisplayBoard(Board board, List<Player> list)
         {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             //To display the top row of the board
             for (int i = 20; i <= 30; i++)
             {
