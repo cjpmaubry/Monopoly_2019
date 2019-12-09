@@ -103,9 +103,9 @@ namespace Monopoly_2019
             observer.UpdateMoney(this.money, this.name);
         }
 
-        public void NotifyProperty(int position, Board board)
+        public void NotifyProperty(List<Abs_Box> propreties, Board board)
         {
-            observer.UpdateProperty(position,board);
+            observer.UpdateProperty(propreties, board);
         }
 
 
@@ -133,7 +133,7 @@ namespace Monopoly_2019
         public void AddProprety(Board monopoly)
         {
             propreties.Add(monopoly.Gameboard[position]);
-            NotifyProperty(position,monopoly);
+            NotifyProperty(propreties, monopoly);
         }
     }
 }

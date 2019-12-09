@@ -66,7 +66,7 @@ namespace Monopoly_2019
             else
             {
                 description += "\nBelongs to " + owner.Name + ". \n" +
-                    "Rent is " + RentCalculator() + "M";
+                    "Rent is " + RentCalculator() + "M\n";
             }
             return description;
         }
