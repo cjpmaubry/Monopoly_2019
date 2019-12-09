@@ -113,7 +113,7 @@ namespace Monopoly_2019
             player.Position = (value + player.Position) % 40;
             if(player.Position<temporal)
             {
-                board.Gameboard[value].BoxEffect(player, board);
+                board.Gameboard[0].BoxEffect(player, board);
             }
             return player.Position;
         }
