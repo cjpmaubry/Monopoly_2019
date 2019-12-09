@@ -109,8 +109,9 @@ namespace Monopoly_2019
         /// <returns></returns>
         public int NewPosition(Player player, int value,Board board)
         {
+            int temporal = player.Position;
             player.Position = (value + player.Position) % 40;
-            if(player.Position==0)
+            if(player.Position<temporal)
             {
                 board.Gameboard[value].BoxEffect(player, board);
             }
