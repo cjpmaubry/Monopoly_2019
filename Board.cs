@@ -34,10 +34,14 @@ namespace Monopoly_2019
             InitialisePropreties();
 
             BoxFactory.createGo(0, gameboard);
+
             BoxFactory.createLuck(7, gameboard);
             BoxFactory.createLuck(22, gameboard);
+            BoxFactory.createLuck(36, gameboard);
 
-            BoxFactory.createCommunityChest(38, gameboard);
+            BoxFactory.createCommunityChest(2, gameboard);
+            BoxFactory.createCommunityChest(17, gameboard);
+            BoxFactory.createCommunityChest(33, gameboard);
 
             BoxFactory.createJail(10, gameboard);
             BoxFactory.createGoToJail(30, gameboard);

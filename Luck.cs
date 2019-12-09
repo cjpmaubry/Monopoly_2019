@@ -11,7 +11,7 @@ namespace Monopoly_2019
         public Luck(int position) : base(position)
         {
             this.box_type = "luck";
-            this.color = ConsoleColor.DarkGray; 
+            this.color = ConsoleColor.DarkMagenta; 
         }
 
         public override void BoxEffect(Player joueur, Board monopoly)
