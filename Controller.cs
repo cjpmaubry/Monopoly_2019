@@ -12,8 +12,10 @@ namespace Monopoly_2019
         // Constructor
         public Controller( View view)
         {
-            this.game = new Game();
             this.view = view;
+            view.Presentation();
+            this.game = new Game();
+            
         }
 
 

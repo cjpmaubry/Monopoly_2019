@@ -519,5 +519,19 @@ namespace Monopoly_2019
         {
             Console.WriteLine(description);
         }
+
+        public void Presentation()
+        {
+            string space = "                                  ";
+            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
+            Console.WriteLine(space+"  /\\/\\   ___  _ __   ___  _ __   ___ | |_   _ ");
+            Console.WriteLine(space + " /    \\ / _ \\| '_ \\ / _ \\| '_ \\ / _ \\| | | | |");
+            Console.WriteLine(space + "/ /\\/\\ \\ (_) | | | | (_) | |_) | (_) | | |_| |");
+            Console.WriteLine(space + "\\/    \\/\\___/|_| |_|\\___/| .__/ \\___/|_|\\__, |");
+            Console.WriteLine(space + "                         |_|            |___/ ");
+            System.Threading.Thread.Sleep(2500);
+            Console.Clear();
+        }
+
     }
 }
