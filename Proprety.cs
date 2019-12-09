@@ -12,10 +12,10 @@ namespace Monopoly_2019
         private int rent;
         private int nmbr_houses;
 
-        public Proprety(int position, string name1, int price1, int rent1) : base(position)
+        public Proprety(int position, string name1, int price1, int rent1, System.ConsoleColor color1) : base(position)
         {
             this.box_type = "proprety";
-            this.color = ConsoleColor.Yellow; //JEREM
+            this.color = color1; //JEREM
             this.name = name1;
             this.owner = null;
             this.price = price1;
@@ -57,17 +57,16 @@ namespace Monopoly_2019
         public override string ToString()
         {
             string description = "\n"+ box_type.ToUpper() + " : " + name;
-            //faire cas ou le joueur est le proprio
             if(owner == null)
             {
                 description += "\nThe proprety is for sale for " + price + ". Do you want to buy it ?";
-                description += "\nIf you dont have enough money the transaction will fail automatically" +
+                description += "\nIf you dont have enough money the transaction will fail automatically\n" +
                     "\nType in the price shown above if you want to buy it, type 0 if you dont.\n";
             }
             else
             {
                 description += "\nBelongs to " + owner.Name + ". \n" +
-                    "Rent is " + RentCalculator() + "M";
+                    "Rent is " + RentCalculator() + "M\n";
             }
             return description;
         }

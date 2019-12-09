@@ -9,7 +9,7 @@ namespace Monopoly_2019
         public Neutral(int position) : base(position)
         {
             this.box_type = "neutral";
-            this.color = ConsoleColor.Black; //JEREM
+            this.color = ConsoleColor.White;
         }
 
         //Nothing happens on neutral boxes

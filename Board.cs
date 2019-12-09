@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace Monopoly_2019
@@ -29,20 +31,19 @@ namespace Monopoly_2019
         /// </summary>
         public void InitialiseBoard()
         {
+            InitialisePropreties();
+
             BoxFactory.createGo(0, gameboard);
+
             BoxFactory.createLuck(7, gameboard);
             BoxFactory.createLuck(22, gameboard);
+            BoxFactory.createLuck(36, gameboard);
 
-            BoxFactory.createCommunityChest(38, gameboard);
+            BoxFactory.createCommunityChest(2, gameboard);
+            BoxFactory.createCommunityChest(17, gameboard);
+            BoxFactory.createCommunityChest(33, gameboard);
 
             BoxFactory.createJail(10, gameboard);
-            BoxFactory.createProprety(6, gameboard, "Oriental Av", 100, 6);
-            BoxFactory.createProprety(1, gameboard, "A", 10, 1);
-            BoxFactory.createProprety(2, gameboard, "B", 20, 2);
-            BoxFactory.createProprety(3, gameboard, "C", 30, 3);
-            BoxFactory.createProprety(4, gameboard, "D", 40, 4);
-            BoxFactory.createProprety(5, gameboard, "E", 50, 5);
-            BoxFactory.createProprety(8, gameboard, "F", 60, 6);
             BoxFactory.createGoToJail(30, gameboard);
             for (int i = 0; i < gameboard.Length; i++)
             {
@@ -51,6 +52,60 @@ namespace Monopoly_2019
                 { 
                     BoxFactory.createNeutral(i, gameboard);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Uses a csv file to create all the offical propreties in the game
+        /// 1 : Finds the executable directory of the project on the users computer
+        /// 2 : Puts the propreties.csv file in it in order to use it as a ressource
+        /// 3 : Adds each propreties contained in the file to the board of the game
+        /// </summary>
+        private void InitialisePropreties()
+        {
+            //Finds the executable location of the project on the computer
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string[] exe_location = executableLocation.Split("\\");
+
+            //Finds and creates a variable containing the path to the properties.csv file
+            string propreties_location = null;
+            int index = 0;
+            while(exe_location[index] != "bin")
+            {
+                propreties_location += exe_location[index];
+                propreties_location += "\\";
+                index++;
+            }
+            propreties_location += "propreties.csv";
+
+            //copies the propreties file to the executable directory
+            string sourceFile = propreties_location;
+            string destinationFile = Path.Combine(executableLocation, "propreties.csv"); ;
+            try
+            {
+                File.Copy(sourceFile, destinationFile, true);
+            }
+            catch (IOException iox)
+            {
+                Console.WriteLine(iox.Message);
+            }
+
+            //extracts the information contained in the csv file
+            System.IO.StreamReader propreties_file = new System.IO.StreamReader("propreties.csv");
+
+            string line;
+            while ((line = propreties_file.ReadLine()) != null)
+            {
+                string[] list_description = line.Split(';');
+
+                //creates proprety instances in the board of the game
+                int p_position = int.Parse(list_description[0]);
+                string p_name = list_description[1];
+                int p_price = int.Parse(list_description[2]);
+                int p_rent = int.Parse(list_description[3]);
+                System.ConsoleColor p_color = (System.ConsoleColor)int.Parse(list_description[4]);
+
+                BoxFactory.createProprety(p_position, gameboard, p_name, p_price, p_rent, p_color);
             }
         }
 

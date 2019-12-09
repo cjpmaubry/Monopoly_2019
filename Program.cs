@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Monopoly_2019
 {
@@ -8,6 +6,8 @@ namespace Monopoly_2019
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(115, 50);
+            Console.SetWindowPosition(0, 0);
             Monopoly();
         }
 

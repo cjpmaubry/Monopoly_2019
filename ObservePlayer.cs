@@ -38,9 +38,13 @@ namespace Monopoly_2019
             Console.WriteLine("The player " + name + " has now " + money + " M");
         }
 
-        public void UpdateProperty(int position,Board board)
+        public void UpdateProperty(List<Abs_Box> propreties, Board board)
         {
-            string message= board.Gameboard[position].ToString();
+            string message = null;
+            foreach(Abs_Box owned in propreties)
+            {
+                message += owned.ToString();
+            }
             Console.WriteLine(message);
         }
 

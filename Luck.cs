@@ -11,7 +11,7 @@ namespace Monopoly_2019
         public Luck(int position) : base(position)
         {
             this.box_type = "luck";
-            this.color = ConsoleColor.DarkGray; 
+            this.color = ConsoleColor.DarkMagenta; 
         }
 
         public override void BoxEffect(Player joueur, Board monopoly)
@@ -27,21 +27,21 @@ namespace Monopoly_2019
 
             if (index == 1)
             {
-                Console.WriteLine("You have luck, you receive 100 euro !");
-                joueur.Money += 100;   
+                Console.WriteLine("Luck Card : Receive 100 M !");
+                joueur.AddMoney(100);   
             }
             if (index == 2)
             {
-                Console.WriteLine("You have no luck, you lose 100 euro !");
-                joueur.Money -= 100;  
+                Console.WriteLine("Luck Card : Pay 100 M !");
+                joueur.LoseMoney(100); 
             }
             if (index == 3)
             {
-                Console.WriteLine("Nothing happens !");
+                Console.WriteLine("Luck Card : Nothing happens !");
             }
             if (index == 4)
             {
-                Console.WriteLine("You have no luck, you go to jail !");
+                Console.WriteLine("Luck Card : Go To Jail");
                 monopoly.SendTojail(joueur);
             }
             
@@ -49,7 +49,7 @@ namespace Monopoly_2019
 
         public override string ToString()
         {
-            return "\nYou have landed on " + box_type.ToUpper() + "\nYou will receive a luck card :\n";
+            return "\nYou have landed on " + box_type.ToUpper() + "\nYou will receive a luck card\n";
         }
 
     }
