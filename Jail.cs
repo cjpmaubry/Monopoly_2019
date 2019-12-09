@@ -65,11 +65,8 @@ namespace Monopoly_2019
             Console.WriteLine("Press enter to roll the dice and try to escape");
             Console.ReadKey();
 
-            //player rolls the dice
-            monopoly.Dices.RollDice();
-
             //if he makes a double
-            if(monopoly.Dices.DoubleDice())
+            if(monopoly.Dices.RollDice())
             {
                 //returns the sum of the dices to allow him to move
                 return monopoly.Dices.SumDice();
