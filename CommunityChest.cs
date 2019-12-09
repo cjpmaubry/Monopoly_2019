@@ -32,7 +32,7 @@ namespace Monopoly_2019
             if (index == 2)
             {
                 Console.WriteLine("Community Chest : Pay 100 M !");
-                joueur.Money -= 100;
+                joueur.LoseMoney(100);
             }
             if (index == 3)
             {
