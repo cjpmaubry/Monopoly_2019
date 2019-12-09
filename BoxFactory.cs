@@ -13,9 +13,9 @@ namespace Monopoly_2019
         }
 
         //creates a Proprety at the given position
-        public static void createProprety(int position, Abs_Box[] plateau, string name, int price, int rent)
+        public static void createProprety(int position, Abs_Box[] plateau, string name, int price, int rent, System.ConsoleColor color)
         {
-            plateau[position] = new Proprety(position, name, price, rent);
+            plateau[position] = new Proprety(position, name, price, rent, color);
         }
 
         //creates a Luck box at given position
