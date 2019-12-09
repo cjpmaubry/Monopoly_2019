@@ -57,7 +57,6 @@ namespace Monopoly_2019
         public override string ToString()
         {
             string description = "\n"+ box_type.ToUpper() + " : " + name;
-            //faire cas ou le joueur est le proprio
             if(owner == null)
             {
                 description += "\nThe proprety is for sale for " + price + ". Do you want to buy it ?";

@@ -26,28 +26,28 @@ namespace Monopoly_2019
 
             if (index == 1)
             {
-                Console.WriteLine("You have luck, you receive 100 euro !");
-                joueur.Money += 100;
+                Console.WriteLine("Community Chest : Receive 100 M !");
+                joueur.AddMoney(100);
             }
             if (index == 2)
             {
-                Console.WriteLine("You have no luck, you lose 100 euro !");
+                Console.WriteLine("Community Chest : Pay 100 M !");
                 joueur.Money -= 100;
             }
             if (index == 3)
             {
-                Console.WriteLine("Nothing happens !");
+                Console.WriteLine("Community Chest : Nothing happens !");
             }
             if (index == 4)
             {
-                Console.WriteLine("You have no luck, you go to jail !");
-                monopoly.SendTojail(joueur);
+                Console.WriteLine("Community Chest : Go on the Go Case");
+                joueur.Position = 0;
             }
         }
 
         public override string ToString()
         {
-            return "\nYou have landed on " + box_type.ToUpper() + "\nYou will receive a luck card :\n";
+            return "\nYou have landed on " + box_type.ToUpper() + "\nYou will receive a community chest card\n";
         }
 
     }
