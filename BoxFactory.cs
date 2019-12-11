@@ -47,5 +47,11 @@ namespace Monopoly_2019
         {
             plateau[position] = new CommunityChest(position);
         }
+
+        //creates a Tax box at given position
+        public static void createTax(int position, Abs_Box[] plateau)
+        {
+            plateau[position] = new Tax(position);
+        }
     }
 }
