@@ -7,10 +7,15 @@ Contributors:
 -GOLDSCHIELD Jérémy
 
 PATTERN USE :
---> MVC
---> Observer
---> Factory
---> Singleton
+-- MVC
+-- Observer
+-- Factory
+-- Singleton
+
+Explaination of the pattern MVC :
+
+We use the model View Controller for the projet. With this we can easily display the information and the board. The controller manage the game and each time it's necessary call the view (the method of the view ) to diplay usefull information for the player.
+
 
 Explaination of the pattern Observer :
 
