@@ -53,9 +53,8 @@ namespace Monopoly_2019
                     do
                     {
                         PlayerActionRollDice(p, tour);
-                        made_a_double = TurnOfPlayer(p);
-                        BreakMove();
-                        UpdateView(tour);
+                        made_a_double = TurnOfPlayer(p,tour);
+                        BreakMove();                      
                         PlayerActionTurn(p,count,made_a_double);
                         //if a player makes a double he can play again
                         if (made_a_double == true)
@@ -80,7 +79,7 @@ namespace Monopoly_2019
         /// </summary>
         /// <param name="player"></param>
         /// <returns></returns>
-        public bool TurnOfPlayer(Player player)
+        public bool TurnOfPlayer(Player player,int tour)
         {
             bool made_a_double = false;
             //if the player is in jail he must try to escape instead of moving
@@ -94,7 +93,8 @@ namespace Monopoly_2019
                 made_a_double = game.Board.Roll();
                 int value = game.Board.ValueDice();
                 int newposition = game.NewPosition(player, value, game.Board);
-                DisplayBoxDescription(newposition, game.Board);
+                UpdateView(tour);
+                DisplayBoxDescription(newposition, game.Board);  
                 game.LaunchCaseMethode(newposition, player, game.Board);
 
             }
