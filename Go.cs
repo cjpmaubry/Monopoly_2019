@@ -22,7 +22,7 @@ namespace Monopoly_2019
 
         public override string ToString()
         {
-            return "\nYou have landed on " + box_type.ToUpper() + "\nYou will receive 200M\n";
+            return "\nYou have landed exactly on " + box_type.ToUpper() + "\nYou will receive 400M\n";
         }
     }
 }
