@@ -33,6 +33,8 @@ namespace Monopoly_2019
             {
                 Console.WriteLine("Community Chest : Pay 100 M !");
                 joueur.LoseMoney(100);
+                //Adds that money to the free parking box
+                monopoly.Gameboard[20].BoxEffect(joueur, monopoly);
             }
             if (index == 3)
             {

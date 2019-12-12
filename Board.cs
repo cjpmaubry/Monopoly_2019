@@ -50,6 +50,7 @@ namespace Monopoly_2019
         public void InitialiseBoard()
         {
             BoxFactory.createGo(0, gameboard);
+            BoxFactory.createFreeParking(20, gameboard);
 
             InitialisePropreties();
 
@@ -60,6 +61,9 @@ namespace Monopoly_2019
 
             BoxFactory.createUtility(12, gameboard, "Electric Company");
             BoxFactory.createUtility(28, gameboard, "Water Works");
+
+            BoxFactory.createTax(4, gameboard, "Income Tax");
+            BoxFactory.createTax(38, gameboard, "Luxury Tax");
 
             BoxFactory.createLuck(7, gameboard);
             BoxFactory.createLuck(22, gameboard);

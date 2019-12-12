@@ -36,6 +36,12 @@ namespace Monopoly_2019
             plateau[position] = new Luck(position);
         }
 
+        //creates the FreeParking box
+        public static void createFreeParking(int position, Abs_Box[] plateau)
+        {
+            plateau[position] = new FreeParking(position);
+        }
+
         //creates a Jail box at the given position
         public static void createJail(int position, Abs_Box[] plateau)
         {
@@ -61,9 +67,9 @@ namespace Monopoly_2019
         }
 
         //creates a Tax box at given position
-        public static void createTax(int position, Abs_Box[] plateau)
+        public static void createTax(int position, Abs_Box[] plateau, string name)
         {
-            plateau[position] = new Tax(position);
+            plateau[position] = new Tax(position, name);
         }
     }
 }
