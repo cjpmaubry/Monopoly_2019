@@ -53,8 +53,7 @@ namespace Monopoly_2019
                     do
                     {
                         PlayerActionRollDice(p, tour);
-                        made_a_double = TurnOfPlayer(p,tour);
-                        BreakMove();                      
+                        made_a_double = TurnOfPlayer(p,tour);                   
                         PlayerActionTurn(p,count,made_a_double);
                         //if a player makes a double he can play again
                         if (made_a_double == true)
@@ -92,6 +91,7 @@ namespace Monopoly_2019
             {
                 made_a_double = game.Board.Roll();
                 int value = game.Board.ValueDice();
+                BreakMove();
                 int newposition = game.NewPosition(player, value, game.Board);
                 UpdateView(tour);
                 DisplayBoxDescription(newposition, game.Board);  
