@@ -11,6 +11,8 @@ namespace Monopoly_2019
         private Abs_Box[] gameboard;
         private List<Player> jailed_players;
         private SingletonDice dices;
+        private static readonly object objlock = new object();
+        private static Board instance;
 
         public Board()
         {
@@ -26,6 +28,21 @@ namespace Monopoly_2019
         //internal Dice Dices { get => dices;}
         public Abs_Box[] Gameboard { get => gameboard; }
         internal SingletonDice Dices { get => dices; }
+
+        public static Board getInstance()
+        {
+            if (instance == null)
+            {
+                lock (objlock)
+                {
+                    if (instance == null)
+                    {
+                        instance = new Board();
+                    }
+                }
+            }
+            return instance;
+        }
 
         /// <summary>
         /// Initialises the game by filling the boxs of the board with a defined role
