@@ -52,7 +52,7 @@ namespace Monopoly_2019
             }
 
             //Initialisation of the board
-            this.board = new Board();
+            this.board = Board.getInstance();
             this.board.InitialiseBoard();
             this.player_list = tempPlayers;
         }
