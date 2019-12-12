@@ -10,7 +10,7 @@ namespace Monopoly_2019
         public Tax(int position) : base(position)
         {
             this.box_type = "tax";
-            this.color = ConsoleColor.DarkMagenta; // A CHANGER !!!!!!!!!!!!
+            this.color = ConsoleColor.DarkGray;
         }
 
         public override void BoxEffect(Player joueur, Board monopoly)

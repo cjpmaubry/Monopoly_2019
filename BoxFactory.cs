@@ -18,6 +18,11 @@ namespace Monopoly_2019
             plateau[position] = new Proprety(position, name, price, rent, color);
         }
 
+        public static void createRailroad(int position, Abs_Box[] plateau, string name)
+        {
+            plateau[position] = new Railroad(position, name);
+        }
+
         //creates a Luck box at given position
         public static void createLuck(int position, Abs_Box[] plateau)
         {
