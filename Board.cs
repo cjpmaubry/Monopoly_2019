@@ -14,7 +14,7 @@ namespace Monopoly_2019
         private static readonly object objlock = new object();
         private static Board instance;
 
-        public Board()
+        private Board()
         {
             this.gameboard = new Abs_Box[40];
             this.jailed_players = new List<Player>();
