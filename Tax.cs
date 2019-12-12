@@ -6,29 +6,26 @@ namespace Monopoly_2019
 {
     class Tax : Abs_Box
     {
+        private string name;
         //Constructor
-        public Tax(int position) : base(position)
+        public Tax(int position, string name1) : base(position)
         {
+            this.name = name1;
             this.box_type = "tax";
-            this.color = ConsoleColor.DarkMagenta; // A CHANGER !!!!!!!!!!!!
+            this.color = ConsoleColor.DarkGray;
         }
 
         public override void BoxEffect(Player joueur, Board monopoly)
         {
-            //Give a "tax" to the player
-            GiveTax(joueur, monopoly);
+            //Give a 200M "tax" to the player
+            joueur.LoseMoney(200);
 
         }
-        public void GiveTax(Player joueur, Board monopoly)
-        {           
-                Console.WriteLine("Tax : Paid 200 M !");
-                joueur.LoseMoney(200);        
-        }
-
 
         public override string ToString()
         {
-            return "\nYou have landed on " + box_type.ToUpper() + "\nYou will paid a tax\n";
+            return "\nYou have landed on " + box_type.ToUpper() + ": " + name + "\n" +
+                "You will pay a 200M tax\n";
         }
     }
 }

@@ -18,10 +18,28 @@ namespace Monopoly_2019
             plateau[position] = new Proprety(position, name, price, rent, color);
         }
 
+        //creates a Utility at the given position
+        public static void createUtility(int position, Abs_Box[] plateau, string name)
+        {
+            plateau[position] = new Utility(position, name);
+        }
+
+        //creates a Railroad at the given position
+        public static void createRailroad(int position, Abs_Box[] plateau, string name)
+        {
+            plateau[position] = new Railroad(position, name);
+        }
+
         //creates a Luck box at given position
         public static void createLuck(int position, Abs_Box[] plateau)
         {
             plateau[position] = new Luck(position);
+        }
+
+        //creates the FreeParking box
+        public static void createFreeParking(int position, Abs_Box[] plateau)
+        {
+            plateau[position] = new FreeParking(position);
         }
 
         //creates a Jail box at the given position
@@ -49,9 +67,9 @@ namespace Monopoly_2019
         }
 
         //creates a Tax box at given position
-        public static void createTax(int position, Abs_Box[] plateau)
+        public static void createTax(int position, Abs_Box[] plateau, string name)
         {
-            plateau[position] = new Tax(position);
+            plateau[position] = new Tax(position, name);
         }
     }
 }

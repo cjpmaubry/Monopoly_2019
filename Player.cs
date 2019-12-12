@@ -68,6 +68,10 @@ namespace Monopoly_2019
         /// Getter for name of the player
         /// </summary>
         public string Name { get => name; }
+        /// <summary>
+        /// Getter list of propreties
+        /// </summary>
+        public List<Abs_Box> Propreties { get => propreties;}
 
         /// <summary>
         /// Allow the posibility to attach an observer

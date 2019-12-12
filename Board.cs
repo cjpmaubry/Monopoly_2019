@@ -49,9 +49,21 @@ namespace Monopoly_2019
         /// </summary>
         public void InitialiseBoard()
         {
+            BoxFactory.createGo(0, gameboard);
+            BoxFactory.createFreeParking(20, gameboard);
+
             InitialisePropreties();
 
-            BoxFactory.createGo(0, gameboard);
+            BoxFactory.createRailroad(5, gameboard, "Reading Railroad");
+            BoxFactory.createRailroad(15, gameboard, "Pennsylvania Railroad");
+            BoxFactory.createRailroad(25, gameboard, "B & O Railroad");
+            BoxFactory.createRailroad(35, gameboard, "Short Line");
+
+            BoxFactory.createUtility(12, gameboard, "Electric Company");
+            BoxFactory.createUtility(28, gameboard, "Water Works");
+
+            BoxFactory.createTax(4, gameboard, "Income Tax");
+            BoxFactory.createTax(38, gameboard, "Luxury Tax");
 
             BoxFactory.createLuck(7, gameboard);
             BoxFactory.createLuck(22, gameboard);
