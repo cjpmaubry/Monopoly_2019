@@ -10,21 +10,22 @@ namespace Monopoly_2019
     {
         private Abs_Box[] gameboard;
         private List<Player> jailed_players;
-        private Dice dices;
+        private SingletonDice dices;
 
         public Board()
         {
             this.gameboard = new Abs_Box[40];
             this.jailed_players = new List<Player>();
-            this.dices = new Dice();
+            this.dices = SingletonDice.GetInstance();
             ObserveDice observer = new ObserveDice("1");
             dices.Attach(observer);
         }
 
         //Getters
-        public List<Player> Jailed_players { get => jailed_players;}
-        internal Dice Dices { get => dices;}
-        public Abs_Box[] Gameboard { get => gameboard;}
+        public List<Player> Jailed_players { get => jailed_players; }
+        //internal Dice Dices { get => dices;}
+        public Abs_Box[] Gameboard { get => gameboard; }
+        internal SingletonDice Dices { get => dices; }
 
         /// <summary>
         /// Initialises the game by filling the boxs of the board with a defined role
@@ -49,7 +50,7 @@ namespace Monopoly_2019
             {
                 //if the box has no role attributed
                 if (gameboard[i] == null)
-                { 
+                {
                     BoxFactory.createNeutral(i, gameboard);
                 }
             }
@@ -70,7 +71,7 @@ namespace Monopoly_2019
             //Finds and creates a variable containing the path to the properties.csv file
             string propreties_location = null;
             int index = 0;
-            while(exe_location[index] != "bin")
+            while (exe_location[index] != "bin")
             {
                 propreties_location += exe_location[index];
                 propreties_location += "\\";
@@ -147,14 +148,14 @@ namespace Monopoly_2019
         /// <param name="joueur">Player to free</param>
         public void FreeFromJail(Player joueur)
         {
-            if(PlayerInJail(joueur))
+            if (PlayerInJail(joueur))
             {
                 jailed_players.Remove(joueur);
             }
         }
 
 
-        
+
 
 
         public int ValueDice()
