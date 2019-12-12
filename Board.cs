@@ -58,6 +58,9 @@ namespace Monopoly_2019
             BoxFactory.createRailroad(25, gameboard, "B & O Railroad");
             BoxFactory.createRailroad(35, gameboard, "Short Line");
 
+            BoxFactory.createUtility(12, gameboard, "Electric Company");
+            BoxFactory.createUtility(28, gameboard, "Water Works");
+
             BoxFactory.createLuck(7, gameboard);
             BoxFactory.createLuck(22, gameboard);
             BoxFactory.createLuck(36, gameboard);

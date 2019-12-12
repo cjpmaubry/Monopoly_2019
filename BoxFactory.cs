@@ -18,6 +18,13 @@ namespace Monopoly_2019
             plateau[position] = new Proprety(position, name, price, rent, color);
         }
 
+        //creates a Utility at the given position
+        public static void createUtility(int position, Abs_Box[] plateau, string name)
+        {
+            plateau[position] = new Utility(position, name);
+        }
+
+        //creates a Railroad at the given position
         public static void createRailroad(int position, Abs_Box[] plateau, string name)
         {
             plateau[position] = new Railroad(position, name);
