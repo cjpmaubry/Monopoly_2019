@@ -4,7 +4,7 @@ Projet de Design Pattern
 Contributors:
 -AUBRY Corentin
 -DUVERGER Leopold
--GOLDSCHIELD Jérémy
+-GOLDSCHILD Jérémy
 
 PATTERN USE :
 -- MVC
@@ -35,3 +35,30 @@ We use them to make sure that there is a single instance for the board and the d
 
 To do so, we use a method that checks if there is an instance of the dices or board created. If there is none, it creates an instace of the object by calling its constructor. Else it returns the existing one.
 This method is called when we instanciate the dices int the Board class and when we instanciate the board int the Game class.
+
+
+Rules of the game :
+
+In our version of the Monopoly, the game can have from two to four players.
+Each player is given a name, 500M of money and starts on the Go box.
+Each turn, a player rolls two dices and moves forward by a number of boxes equal to the sum of the dices.
+If the dices roll the same value (double), the player plays again.
+
+If a player lands on a property box, if the box isn't owned, he can choose to buy the property. If the property is owned, he can choose to buy it or not if he has enough money. If the box is already owned, he has to pay a rent to the player that owns the car.
+
+If he lands on the Go To Jail box, the player is sent to Jail.
+To escape Jail, the player has to throw the dices and get a double. He can also escape if he fails to get a double three times in a row. In both cases, he moves forward by the sum of the dices.
+The jail box can also be visited if the player lands on this box after having rolled the dices.
+If the player gets three double in a row, he is sent to Jail.
+
+If the player lands on a box Luck or Community Chest, he draws a card and is required to follow the instructions written on it (Pay money, Receive money, Go to jail, Nothing happens).
+
+If the player lands on a Tax box, he has to pay the amount of the tax.
+
+If the player lands on the Free Park box, he receives the money payed by the players to the taxes, luck cards or community chest cards.
+
+Every time a player passes by the box Go, he receives 20M. If he directly lands on it, he receives double the amount.
+
+The game ends when there is only one player that still has money left.
+
+
