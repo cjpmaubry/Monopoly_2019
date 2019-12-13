@@ -173,6 +173,12 @@ namespace Monopoly_2019
             view.DisplayDescription(description);
         }
 
+
+        /// <summary>
+        /// This method return treu if it's the end of the game and false if not
+        /// It's the end when only on player has money
+        /// </summary>
+        /// <returns></returns>
         public bool EndGame()
         {
             int count = 0;
@@ -183,6 +189,7 @@ namespace Monopoly_2019
                 if (p.Money<0)
                 {
                     count++;
+                    game.Player_list.Remove(p); // WARNING
                 }
                 nbplayer++;
             }
@@ -191,6 +198,10 @@ namespace Monopoly_2019
             return res;
         }
 
+
+        /// <summary>
+        /// This method find the winner of the game ( the player which has still money ) and call the view to display him
+        /// </summary>
         public void Winner()
         {
             Player winner;

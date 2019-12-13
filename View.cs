@@ -469,6 +469,10 @@ namespace Monopoly_2019
             Console.WriteLine(description);
         }
 
+        /// <summary>
+        /// Method which display the name of the winner
+        /// </summary>
+        /// <param name="player"></param>
         public void DisplayWinner(Player player)
         {
             Console.Clear();
@@ -476,6 +480,9 @@ namespace Monopoly_2019
 
         }
 
+        /// <summary>
+        /// Method which display MONOPOLY on the console
+        /// </summary>
         public void Presentation()
         {
             string space = "                                  ";
