@@ -44,7 +44,7 @@ namespace Monopoly_2019
             Clear();
             // Loop for the turns
             int tour = 0;
-            while (tour != 30)
+            while (EndGame() == false)
             {
                 foreach (Player p in game.Player_list)
                 {
@@ -70,6 +70,7 @@ namespace Monopoly_2019
                 }
                 tour++;
             }
+            Winner();
         }
 
         /// <summary>
@@ -171,5 +172,40 @@ namespace Monopoly_2019
             string description = board.Gameboard[newposition].ToString();
             view.DisplayDescription(description);
         }
+
+        public bool EndGame()
+        {
+            int count = 0;
+            int nbplayer = 0;
+            bool res = false;
+            foreach (Player p in game.Player_list)
+            {
+                if (p.Money<0)
+                {
+                    count++;
+                }
+                nbplayer++;
+            }
+            if (count + 1 == nbplayer)
+                res = true;
+            return res;
+        }
+
+        public void Winner()
+        {
+            Player winner;
+            foreach (Player p in game.Player_list)
+            {
+                if (p.Money > 0)
+                {
+                    winner=p;
+                }
+            }
+
+            view.DisplayWinner();
+
+        }
+
+
     }
 }
