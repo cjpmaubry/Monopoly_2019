@@ -469,6 +469,13 @@ namespace Monopoly_2019
             Console.WriteLine(description);
         }
 
+        public void DisplayWinner(Player player)
+        {
+            Console.Clear();
+            Console.WriteLine("The player name " + player.Name + " win the game");
+
+        }
+
         public void Presentation()
         {
             string space = "                                  ";

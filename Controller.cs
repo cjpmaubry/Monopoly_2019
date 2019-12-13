@@ -199,11 +199,9 @@ namespace Monopoly_2019
                 if (p.Money > 0)
                 {
                     winner=p;
+                    view.DisplayWinner(winner);
                 }
             }
-
-            view.DisplayWinner();
-
         }
 
 
