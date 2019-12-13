@@ -1,23 +1,24 @@
+
 # Monopoly_2019
-Projet de Design Pattern
+### Design Pattern Project
 
 Contributors:
--AUBRY Corentin
--DUVERGER Leopold
--GOLDSCHILD Jérémy
+- AUBRY Corentin
+- DUVERGER Leopold
+- GOLDSCHILD Jérémy
 
-PATTERN USE :
--- MVC
--- Observer
--- Factory
--- Singleton
+## PATTERNS USED 
+- MVC
+- Observer
+- Factory
+- Singleton
 
-Explaination of the pattern MVC :
+### Explaination of the pattern MVC :
 
 We use the model View Controller for the projet. With this we can easily display the information and the board. The controller manage the game and each time it's necessary call the view (the method of the view ) to diplay usefull information for the player.
 
 
-Explaination of the pattern Observer :
+### Explaination of the pattern Observer :
 
 There are 2 observers in the project : one for the player and another for the dices.
 For the player: The observer notify each time the value of the position or money are modified.
@@ -28,7 +29,7 @@ That way it's not necessary when some methods change this value, to create somet
 We are sure that the player is notify of the modification.
 
 
-Explaination of the pattern Singleton :
+### Explaination of the pattern Singleton :
 
 There are 2 singleton in the project : one for the dices in the SingletonDice class and one for the board in the Board class.
 We use them to make sure that there is a single instance for the board and the dices.
@@ -36,8 +37,13 @@ We use them to make sure that there is a single instance for the board and the d
 To do so, we use a method that checks if there is an instance of the dices or board created. If there is none, it creates an instace of the object by calling its constructor. Else it returns the existing one.
 This method is called when we instanciate the dices int the Board class and when we instanciate the board int the Game class.
 
+## Use of GitHub
 
-Rules of the game :
+We collaborated on this project through GitHub. To do so, we used the GitHub fuctionality on Visual Studio and the GitHub website.
+
+Each time someone needed to implement a new functionality, we created a new branch from master. If someone else needed to work on something different at the same time, we then created a new branch from the first branch. Once those implementations were done, we merged together these branches than we merged the branch into master.
+
+## Rules of the game 
 
 In our version of the Monopoly, the game can have from two to four players.
 Each player is given a name, 500M of money and starts on the Go box.
