@@ -1,6 +1,6 @@
 
-# Monopoly_2019
-### School Project : Design Pattern Lessons
+# Monopoly Project ESILV IBO1 DUVERGER-NOINSKI Leopold, AUBRY Corentin, GOLDSCHILD Jérémy
+### School Project : Git and Design Pattern Lessons
 
 
                                     /\/\   ___  _ __   ___  _ __   ___ | |_   _
@@ -21,6 +21,7 @@ The main goal was to create a very simplified Monopoly Game with only :
 - dice mechanic
 - movable players
 - jail and gotojail mechanic
+
 HOWEVER, we went a little further and tried to make a complete fully playable Monopoly Game.
 
 In this version, we have succesfully implemented :
@@ -68,7 +69,7 @@ If the player lands on a Tax box, he has to pay the amount of the tax.
 
 If the player lands on the Free Park box, he receives the money payed by the players to the taxes, luck cards or community chest cards.
 
-Every time a player passes by the box Go, he receives 20M. If he directly lands on it, he receives double the amount.
+Every time a player passes by the box Go, he receives 200M. If he directly lands on it, he receives double the amount.
 
 End of the game:
 
@@ -103,7 +104,7 @@ dans view expliquer le coup du ToString
 [Go to the Display part](#display-of-the-game)
 
 ## Use of Observer pattern :
-@cjpmaubry
+@contributors\cjpmaubry
 There are 2 observers in the project : one for the player and another for the dices.
 For the player: The observer notifies each time the value of the position or the money are modified.
 For the dice: The observer notifies each time the value of the dices change ( each time rolling dices ).
@@ -113,7 +114,7 @@ That way it's not necessary when some methods change this value, to create somet
 We are sure that the player is notified of the modification.
 
 ## Use of the Singleton pattern :
-@jgoldschild
+@contributors\jgoldschild
 There are 2 singletons in the project : one for the dices in the SingletonDice class and one for the board in the Board class.
 We use them to make sure that there is a single instance for the board and the dices.
 
@@ -121,7 +122,7 @@ To do so, we use a method that checks if there is an instance of the dices or bo
 This method is called when we instanciate the dices in the Board class and when we instanciate the board in the Game class.
 
 ## Use of the Factory pattern :
-@leoduv
+@contributors\leoduv
 
 ## Display of the game
 
