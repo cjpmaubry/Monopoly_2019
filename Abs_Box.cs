@@ -27,6 +27,6 @@ namespace Monopoly_2019
         /// Describes the box by its type and more information if needed
         /// </summary>
         /// <returns>String that will be used in the view</returns>
-        public abstract override string ToString();
+        public abstract string ToString(Board monopoly);
     }
 }

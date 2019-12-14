@@ -28,9 +28,9 @@ namespace Monopoly_2019
         /// If it is own the player will pay the rent, except if he is the owner.
         /// </summary>
         public override void BoxEffect(Player joueur, Board monopoly)
-        {
-            //if it is for sale
-            if(owner == null)
+        {           
+                //if it is for sale
+                if (owner == null)
             {
                 string line = Console.In.ReadLine();
                 try
@@ -54,12 +54,35 @@ namespace Monopoly_2019
             }
         }
 
+        public Player Owner
+        {
+            get
+            {
+                return this.owner;
+            }
+            set
+            {
+                this.owner = value;
+
+            }
+        }
+
+
         /// <summary>
         /// Method ToString to display usefull information of the box ( string display with the help of the view )
         /// </summary>
         /// <returns></returns>
-        public override string ToString()
+        public override string ToString(Board monopoly)
         {
+            if (owner != null)
+            {
+                foreach (Player p in monopoly.Removed_players)
+                    if (owner.Id == p.Id)
+                    {
+                        owner = null;
+                    }
+            }
+
             string description = "\n"+ box_type.ToUpper() + " : " + name;
             if(owner == null)
             {
@@ -127,5 +150,7 @@ namespace Monopoly_2019
                 the_owner.AddMoney(RentCalculator());
             }
         }
+
+       
     }
 }

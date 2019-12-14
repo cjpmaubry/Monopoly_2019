@@ -129,5 +129,15 @@ namespace Monopoly_2019
             board.Gameboard[newposition].BoxEffect(player,board);
             
         }
+
+        /// <summary>
+        /// Remove a player from the list
+        /// </summary>
+        /// <param name="player"></param>
+        public void Removeplayer(Player player)
+        {
+            player_list.Remove(player);
+            board.Removed_players.Add(player);
+        }
     }
 }

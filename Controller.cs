@@ -67,8 +67,14 @@ namespace Monopoly_2019
                             }
                         }
                     } while ((made_a_double == true) && (count < 3));
+                    //////////////////
+                    if ((tour == 2 )&&(p.Name=="aaa"))
+                    {
+                        p.Money -= 10000;
+                    }
                 }
                 tour++;
+                
             }
             Winner();
         }
@@ -169,7 +175,7 @@ namespace Monopoly_2019
         /// <param name="board"></param>
         public void DisplayBoxDescription(int newposition,Board board)
         {
-            string description = board.Gameboard[newposition].ToString();
+            string description = board.Gameboard[newposition].ToString(board);
             view.DisplayDescription(description);
         }
 
@@ -184,14 +190,27 @@ namespace Monopoly_2019
             int count = 0;
             int nbplayer = 0;
             bool res = false;
+            Player[] tab=new Player[4];
+            int indice = 0;
             foreach (Player p in game.Player_list)
             {
                 if (p.Money<0)
                 {
                     count++;
-                    game.Player_list.Remove(p);
+                    tab[indice] = p;
+                    indice++;
                 }
                 nbplayer++;
+            }
+            if (tab != null)
+            {
+                for (int i = 0; i < tab.Length; i++)
+                {
+                    if (tab[i]!=null)
+                    {
+                        game.Removeplayer(tab[i]);
+                    }   
+                }
             }
             if (count + 1 == nbplayer)
                 res = true;

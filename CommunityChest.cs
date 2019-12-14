@@ -51,7 +51,7 @@ namespace Monopoly_2019
         ///  Method ToString to display usefull information of the box ( string display with the help of the view )
         /// </summary>
         /// <returns></returns>
-        public override string ToString()
+        public override string ToString(Board monopoly)
         {
             return "\nYou have landed on " + box_type.ToUpper() + "\nYou will receive a community chest card\n";
         }

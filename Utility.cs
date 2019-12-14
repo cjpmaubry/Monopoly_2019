@@ -54,8 +54,18 @@ namespace Monopoly_2019
         ///  Method ToString to display usefull information of the box ( string display with the help of the view )
         /// </summary>
         /// <returns></returns>
-        public override string ToString()
+        public override string ToString(Board monopoly)
         {
+            if (owner != null)
+            {
+                foreach (Player p in monopoly.Removed_players)
+                    if (owner.Id == p.Id)
+                    {
+                        owner = null;
+                    }
+            }
+
+
             string description = "\n" + box_type.ToUpper() + " : " + name;
             if (owner == null)
             {

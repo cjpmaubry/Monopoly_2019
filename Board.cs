@@ -13,6 +13,7 @@ namespace Monopoly_2019
         private SingletonDice dices;
         private static readonly object objlock = new object();
         private static Board instance;
+        private List<Player> removed_players=new List<Player>();
 
         private Board()
         {
@@ -25,6 +26,10 @@ namespace Monopoly_2019
 
         //Getters
         public Player[] Jailed_players { get => jailed_players; }
+        public List<Player> Removed_players { get => removed_players; set => removed_players=value;}
+
+
+
         //internal Dice Dices { get => dices;}
         public Abs_Box[] Gameboard { get => gameboard; }
         internal SingletonDice Dices { get => dices; }
