@@ -48,7 +48,7 @@ namespace Monopoly_2019
             string message = null;
             foreach(Abs_Box owned in propreties)
             {
-                message += owned.ToString();
+                message += owned.ToString(board);
             }
             Console.WriteLine(message);
         }
