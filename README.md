@@ -64,6 +64,7 @@ To escape Jail, the player has to throw the dices and get a double. He can also 
 The jail box can also be visited if the player lands on this box after having rolled the dices.
 
 All of the following are automatic and don't require any input from the player :
+
 If the player lands on a box Luck or Community Chest, he draws a card and is required to follow the instructions written on it (Pay money, Receive money, Go to jail, Nothing happens, Go to Go).
 
 If the player lands on a Tax box, he has to pay the amount of the tax.
@@ -82,7 +83,7 @@ The monopoly board boxes are initialised using the BoxFactory methode using the 
 But for the propreties, instead of having 1000 lines of "create this proprety with this name and..." we use a [CSV file containing all the propreties and their description](propreties.csv).
 This allows use to be able to make different versions of the game by changing this file, and simplifies the initialisation of the game.
 
-When started the game will ask for the number of players (between 2 and 4) and fro their names. the game will then start after 3 secondes.
+When started the game will ask for the number of players (between 2 and 4) and fro their names. The game will then start after 3 secondes.
 
 # PATTERNS USED 
 - MVC : backbone of the project execution, game management and control
@@ -100,7 +101,7 @@ Each "effect" is different according to the type of the box, defined in it's cla
 We also created a new method ToString which allows to the [view](View.cs) to display the description of the box.
 These two methods are important in order to respect the MVC pattern.
 
-[If you want to see the Console Display part](#display-of-the-game)
+[If you want to see the Console Display part click here](#display-of-the-game)
 
 ## Use of Observer pattern :
 
@@ -117,15 +118,15 @@ We are sure that the player is notified of the modification.
 There are 2 singletons in the project : one for the dices in the SingletonDice class and one for the board in the Board class.
 We use them to make sure that there is a single instance for the board and the dices.
 
-To do so, we use a method that checks if there is an instance of the dices or board created. If there is none, it creates an instace of the object by calling its constructor. Else it returns the existing one.
+To do so, we use a method that checks if there is an instance of the dices or board created. If there is none, it creates an instance of the object by calling its constructor. Else it returns the existing one.
 This method is called when we instanciate the dices in the Board class and when we instanciate the board in the Game class.
 
 ## Use of the Factory pattern :
 
 We implemented a factory pattern in the creation and management of the different boxes of the monopoly board.
 All the box classes inherit from an abstract class [Abs_box](Abs_Box.cs) that defines what information and methods will be in all the boxes of the board.
-Each class will then add the specifics of each diffrent box typye (like [Propreties](Proprety.cs), or [Jail](Jail.cs)).
-The [factory class](Boxfactory.cs) regroups all the the creation methodes and is used during the initialisation of the board.
+Each class will then add the specifics of each different box type (like [Propreties](Proprety.cs), or [Jail](Jail.cs)).
+The [factory class](BoxFactory.cs) regroups all the the creation methodes and is used during the initialisation of the board.
 
 ## Display of the game
 
@@ -134,7 +135,7 @@ To display the board in the console, we made a method that first display the top
 Each box is displayed with three rows.
 The board is displayed row by row.
 
-Depending of the category of the box, the background in the console for each box will have a different color:
+Depending of the category of the box, the background of the console will have a different color:
 
 - Start / Free Park = Green
 - Mediterranean Avenue / Baltic avenue = Blue
@@ -156,7 +157,7 @@ If there are two players, the first one will be displayed on the top row of the 
 If there is a third player, he will be displayed o the bottom row.
 If there is a fourth player, he will be displayed on the bottom row too.
 
-All of the display is also managed through the MVC and Observer patterns as explained above.
+All of the display is managed through the MVC and Observer patterns as explained above.
 
 ### Example (without color) of the display of the board with 2 players
 ```
