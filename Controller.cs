@@ -189,7 +189,7 @@ namespace Monopoly_2019
                 if (p.Money<0)
                 {
                     count++;
-                    game.Player_list.Remove(p); // WARNING
+                    game.Player_list.Remove(p);
                 }
                 nbplayer++;
             }
