@@ -1,5 +1,6 @@
 
-# Monopoly Project ESILV IBO1 DUVERGER-NOINSKI Leopold, AUBRY Corentin, GOLDSCHILD Jérémy
+# Monopoly Project ESILV IBO1 
+# DUVERGER-NOINSKI Leopold, AUBRY Corentin, GOLDSCHILD Jérémy
 ### School Project : Git and Design Pattern Lessons
 
 
@@ -122,8 +123,8 @@ This method is called when we instanciate the dices in the Board class and when 
 ## Use of the Factory pattern :
 
 We implemented a factory pattern in the creation and management of the different boxes of the monopoly board.
-All the box classes inherit from an abstract class [Abs_box](Abs_box.cs) that defines what information and methods will be in all the boxes of the board.
-Each class will then add the specifics of each diffrent box typye (like [Propreties](proprety.cs), or [Jail](Jail.cs)).
+All the box classes inherit from an abstract class [Abs_box](Abs_Box.cs) that defines what information and methods will be in all the boxes of the board.
+Each class will then add the specifics of each diffrent box typye (like [Propreties](Proprety.cs), or [Jail](Jail.cs)).
 The [factory class](Boxfactory.cs) regroups all the the creation methodes and is used during the initialisation of the board.
 
 ## Display of the game
