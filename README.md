@@ -1,6 +1,6 @@
 
 # Monopoly_2019
-### Design Pattern Project
+### School Project : Design Pattern Lessons
 
 
                                     /\/\   ___  _ __   ___  _ __   ___ | |_   _
@@ -15,18 +15,80 @@ Contributors:
 - DUVERGER Leopold
 - GOLDSCHILD Jérémy
 
-## PATTERNS USED 
-- MVC
-- Observer
-- Factory
-- Singleton
+### Introduction
+This project wad made in order to apply the principles seen during the course on Git and Design Patterns.
+The main goal was to create a very simplified Monopoly Game with only :
+- dice mechanic
+- movable players
+- jail and gotojail mechanic
+HOWEVER, we went a little further and tried to make a complete fully playable Monopoly Game.
 
-### Explaination of the pattern MVC :
+In this version, we have succesfully implemented :
+- all the original boxes on a Monopoly Game Board
+- money and the ability to buy and own propreties, and to pay taxes yeaaay !
+- luck and community cards (not all of them, only 4 different cards in each)
+- propreties, railroads, utilities
+- free parking and go
+
+We are only missing the possibility to buy houses, hyhypothec a proprety or trad with other players
+
+This project was meant to be lauched manually from Visual Studio 2019 by following the following steps
+
+##Getting started
+Easy way to run this program on your computer
+###Prerequisites
+```
+Visual Studio 2019 will be the easiest way
+```
+###Installing
+Open Visual Studio 2019 and clone this repository
+Simply launch it by using F5 or the launch button on the top.
+Or if you have a an older version of Visual Studio, you can try to download the files and create a new console project using them.
+
+Blablabla [Look at the Player class](Player.cs)
+
+## Rules of the game of Monopoly used
+
+In our version of the Monopoly, the game can have from two to four players.
+Each player is given a name, 500M of money and starts on the Go box.
+Each turn, a player rolls two dices and moves forward by a number of boxes equal to the sum of the dices.
+If the two dices roll the same value (double), the player plays again.
+If the player gets three double in a row, he is sent to Jail.
+
+When a player lands on a property box, if the box isn't owned, he can choose to buy the property. 
+If the property is owned, he can choose to buy it or not. 
+If the box is already owned, he has to pay a rent to the player that owns it.
+
+When he lands on the Go To Jail box, the player is sent to Jail.
+To escape Jail, the player has to throw the dices and get a double. He can also escape if he fails to get a double three turns in a row, but will haev tp pay 50 M. 
+The jail box can also be visited if the player lands on this box after having rolled the dices.
+
+All of the following are automatic and don't require any input from the player :
+If the player lands on a box Luck or Community Chest, he draws a card and is required to follow the instructions written on it (Pay money, Receive money, Go to jail, Nothing happens, Go to Go).
+
+If the player lands on a Tax box, he has to pay the amount of the tax.
+
+If the player lands on the Free Park box, he receives the money payed by the players to the taxes, luck cards or community chest cards.
+
+Every time a player passes by the box Go, he receives 20M. If he directly lands on it, he receives double the amount.
+
+End of the game:
+
+When a player is out of money, he is removed from the game and his propreties are unowned.
+The game ends when there is only ONE player that still has money left.
+
+## PATTERNS USED 
+- MVC : bakcbone of the project execution, game management and control
+- Observer : updating changes to the player and the view
+- Factory : for the creation of the different boxes of the board
+- Singleton : control that only one board and one dices instance is created
+
+### Use of MVC pattern : 
 
 We use the model View Controller for the projet. With this we can easily display the information and the board. The controller manage the game and each time it's necessary call the view (the method of the view ) to diplay usefull information for the player.
 
 
-### Explaination of the pattern Observer :
+### Use of Observer pattern :
 
 There are 2 observers in the project : one for the player and another for the dices.
 For the player: The observer notify each time the value of the position or money are modified.
@@ -37,7 +99,7 @@ That way it's not necessary when some methods change this value, to create somet
 We are sure that the player is notify of the modification.
 
 
-### Explaination of the pattern Singleton :
+### Use of the Singleton pattern :
 
 There are 2 singleton in the project : one for the dices in the SingletonDice class and one for the board in the Board class.
 We use them to make sure that there is a single instance for the board and the dices.
@@ -45,35 +107,6 @@ We use them to make sure that there is a single instance for the board and the d
 To do so, we use a method that checks if there is an instance of the dices or board created. If there is none, it creates an instace of the object by calling its constructor. Else it returns the existing one.
 This method is called when we instanciate the dices int the Board class and when we instanciate the board int the Game class.
 
-## Use of GitHub
-
-We collaborated on this project through GitHub. To do so, we used the GitHub fuctionality on Visual Studio and the GitHub website.
-
-Each time someone needed to implement a new functionality, we created a new branch from master. If someone else needed to work on something different at the same time, we then created a new branch from the first branch. Once those implementations were done, we merged together these branches than we merged the branch into master.
-
-## Rules of the game 
-
-In our version of the Monopoly, the game can have from two to four players.
-Each player is given a name, 500M of money and starts on the Go box.
-Each turn, a player rolls two dices and moves forward by a number of boxes equal to the sum of the dices.
-If the dices roll the same value (double), the player plays again.
-
-If a player lands on a property box, if the box isn't owned, he can choose to buy the property. If the property is owned, he can choose to buy it or not if he has enough money. If the box is already owned, he has to pay a rent to the player that owns the car.
-
-If he lands on the Go To Jail box, the player is sent to Jail.
-To escape Jail, the player has to throw the dices and get a double. He can also escape if he fails to get a double three times in a row. In both cases, he moves forward by the sum of the dices.
-The jail box can also be visited if the player lands on this box after having rolled the dices.
-If the player gets three double in a row, he is sent to Jail.
-
-If the player lands on a box Luck or Community Chest, he draws a card and is required to follow the instructions written on it (Pay money, Receive money, Go to jail, Nothing happens).
-
-If the player lands on a Tax box, he has to pay the amount of the tax.
-
-If the player lands on the Free Park box, he receives the money payed by the players to the taxes, luck cards or community chest cards.
-
-Every time a player passes by the box Go, he receives 20M. If he directly lands on it, he receives double the amount.
-
-The game ends when there is only one player that still has money left.
 
 ## Display of the game
 
@@ -104,3 +137,61 @@ If there is a third player, he will be displayed o the bottom row.
 If there is a fourth player, he will be displayed on the bottom row too.
 
 All of the display is also managed through the MVC and Observer patterns as explained above.
+
+###Example (without color) of the display of the board with 2 players
+
++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+
+|        ||        ||        ||        ||        ||        ||        ||        ||        ||        ||        |
+|        ||        ||        ||        ||        ||        ||        ||        ||        ||        ||        |
+|        ||        ||        ||        ||        ||        ||        ||        ||        ||        ||        |
++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+
+|        ||        ||        ||        ||        ||        ||        ||        ||        ||        ||   1    |
+|        ||        ||        ||        ||        ||        ||        ||        ||        ||        ||   2    |
+|        ||        ||        ||        ||        ||        ||        ||        ||        ||        ||        |
++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+
