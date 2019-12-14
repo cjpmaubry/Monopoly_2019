@@ -40,7 +40,7 @@ namespace Monopoly_2019
                 }
                 catch (Exception e)
                 {
-                    Console.Out.WriteLine("The following error has occured : " + e.Message);
+                    Console.WriteLine("You chose to not buy the property (you didn't enter the price)\n");
                 }
             }
             //if it belongs to someone
