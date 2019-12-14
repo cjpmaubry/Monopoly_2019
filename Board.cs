@@ -75,12 +75,13 @@ namespace Monopoly_2019
 
             BoxFactory.createJail(10, gameboard);
             BoxFactory.createGoToJail(30, gameboard);
+            //checks if the board is compleet
             for (int i = 0; i < gameboard.Length; i++)
             {
                 //if the box has no role attributed
                 if (gameboard[i] == null)
                 {
-                    BoxFactory.createNeutral(i, gameboard);
+                    Console.WriteLine("Missing box at " + i);
                 }
             }
         }
