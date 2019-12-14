@@ -67,11 +67,6 @@ namespace Monopoly_2019
                             }
                         }
                     } while ((made_a_double == true) && (count < 3));
-                    //////////////////
-                    if ((tour == 2 )&&(p.Name=="aaa"))
-                    {
-                        p.Money -= 10000;
-                    }
                 }
                 tour++;
                 
