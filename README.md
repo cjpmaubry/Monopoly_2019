@@ -18,16 +18,16 @@ Contributors:
 ### Introduction
 This project wad made in order to apply the principles seen during the course on Git and Design Patterns.
 The main goal was to create a very simplified Monopoly Game with only :
--dice mechanic
--movable players
--jail and gotojail mechanic
+- dice mechanic
+- movable players
+- jail and gotojail mechanic
 HOWEVER, we went a little further and tried to make a complete fully playable Monopoly Game.
 In this version, we have succesfully implemented :
--all the original boxes on a Monopoly Game Board
--money and the ability to buy and own propreties
--luck and community cards (not all of them, only 4 different cards in each)
--propreties, railroads, utilities
--free parking and go
+- all the original boxes on a Monopoly Game Board
+- money and the ability to buy and own propreties
+- luck and community cards (not all of them, only 4 different cards in each)
+- propreties, railroads, utilities
+- free parking and go
 We are only missing the possibility to buy houses, hyhypothec a proprety or trad with other players
 
 ## Rules of the game 
