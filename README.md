@@ -34,18 +34,16 @@ We are only missing the possibility to buy houses, hyhypothec a proprety or trad
 
 This project was meant to be lauched manually from Visual Studio 2019 by following the following steps
 
-##Getting started
+## Getting started
 Easy way to run this program on your computer
-###Prerequisites
+### Prerequisites
 ```
 Visual Studio 2019 will be the easiest way
 ```
-###Installing
+### Installing
 Open Visual Studio 2019 and clone this repository
 Simply launch it by using F5 or the launch button on the top.
 Or if you have a an older version of Visual Studio, you can try to download the files and create a new console project using them.
-
-Blablabla [Look at the Player class](Player.cs)
 
 ## Rules of the game of Monopoly used
 
@@ -77,18 +75,20 @@ End of the game:
 When a player is out of money, he is removed from the game and his propreties are unowned.
 The game ends when there is only ONE player that still has money left.
 
-## PATTERNS USED 
+# PATTERNS USED 
 - MVC : bakcbone of the project execution, game management and control
 - Observer : updating changes to the player and the view
 - Factory : for the creation of the different boxes of the board
 - Singleton : control that only one board and one dices instance is created
 
-### Use of MVC pattern : 
+## Use of MVC pattern : 
 
 We use the model View Controller for the projet. With this we can easily display the information and the board. The controller manage the game and each time it's necessary call the view (the method of the view ) to diplay usefull information for the player.
+[Controller class](Controller.cs)
+[View class](View.cs)
+[Go to the Display part](#display-of-the-game)
 
-
-### Use of Observer pattern :
+## Use of Observer pattern :
 
 There are 2 observers in the project : one for the player and another for the dices.
 For the player: The observer notify each time the value of the position or money are modified.
@@ -98,8 +98,7 @@ We use this observer to easily display the modification of money or position of 
 That way it's not necessary when some methods change this value, to create something to do the display.
 We are sure that the player is notify of the modification.
 
-
-### Use of the Singleton pattern :
+## Use of the Singleton pattern :
 
 There are 2 singleton in the project : one for the dices in the SingletonDice class and one for the board in the Board class.
 We use them to make sure that there is a single instance for the board and the dices.
@@ -108,7 +107,7 @@ To do so, we use a method that checks if there is an instance of the dices or bo
 This method is called when we instanciate the dices int the Board class and when we instanciate the board int the Game class.
 
 
-## Display of the game
+# Display of the game
 
 When the game is launched, you first have to enter the number of players and their names then the board is displayed.
 For each turn, we indicate which player has to play and that he has to press any key to roll the dices. Then the results of the dices are displayed and the board with the new position of the player. Then depending on the box he lands on a display will be made asking for the player for an interaction.
