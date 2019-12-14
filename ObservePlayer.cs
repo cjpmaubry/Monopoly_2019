@@ -38,6 +38,11 @@ namespace Monopoly_2019
             Console.WriteLine("The player " + name + " has now " + money + " M");
         }
 
+        /// <summary>
+        ///  Display the information of property for the player notify
+        /// </summary>
+        /// <param name="propreties"></param>
+        /// <param name="board"></param>
         public void UpdateProperty(List<Abs_Box> propreties, Board board)
         {
             string message = null;

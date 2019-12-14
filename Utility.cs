@@ -50,6 +50,10 @@ namespace Monopoly_2019
             }
         }
 
+        /// <summary>
+        ///  Method ToString to display usefull information of the box ( string display with the help of the view )
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             string description = "\n" + box_type.ToUpper() + " : " + name;

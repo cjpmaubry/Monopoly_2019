@@ -75,4 +75,32 @@ Every time a player passes by the box Go, he receives 20M. If he directly lands 
 
 The game ends when there is only one player that still has money left.
 
+## Display of the game
 
+When the game is launched, you first have to enter the number of players and their names then the board is displayed.
+For each turn, we indicate which player has to play and that he has to press any key to roll the dices. Then the results of the dices are displayed and the board with the new position of the player. Then depending on the box he lands on a display will be made asking for the player for an interaction.
+To display the board in the console, we made a method that first display the top row of the board, then the columns and finally the bottom row.
+Each box is displayed with three rows.
+The board is displayed row by row.
+
+Depending of the category of the box, the background in the console for each box will have a different color:
+
+- Start / Free Park = Green
+- Mediterranean Avenue / Baltic avenue = Blue
+- Oriental Avenue / Vermont Avenue / Connecticut Avenue = Cyan
+- St. Charles Palace / States avenue / Virginia avenue = Magenta
+- St James Place / Tennessee Avenue / New York Avenue = Dark Yellow
+- Kentucky Avenue / Indiana Avenue / Illinois Avenue = Dark Red
+- Atlantic Avenue / Ventnor Avenue / Marvin Gardens = Yellow
+- Pacific Avenue / North Carolina Avenue / Pennsylvania Avenue = Dark Green
+- Park Place / Board Walk = Dark Blue
+- Chance / Community Chest = Dark Magenta
+- Tax = Dark Grey
+- Jail / Go To Jail = Red
+- Railroad / Companies = White
+
+If there are two players, the first one will be displayed on the top row of the box where he is positioned and the second one on the middle row.
+If there is a third player, he will be displayed o the bottom row.
+If there is a fourth player, he will be displayed on the bottom row too.
+
+All of the display is also managed through the MVC and Observer patterns as explained above.

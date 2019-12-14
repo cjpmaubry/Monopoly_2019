@@ -15,7 +15,7 @@ namespace Monopoly_2019
         public Proprety(int position, string name1, int price1, int rent1, System.ConsoleColor color1) : base(position)
         {
             this.box_type = "proprety";
-            this.color = color1; //JEREM
+            this.color = color1; 
             this.name = name1;
             this.owner = null;
             this.price = price1;
@@ -54,6 +54,10 @@ namespace Monopoly_2019
             }
         }
 
+        /// <summary>
+        /// Method ToString to display usefull information of the box ( string display with the help of the view )
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             string description = "\n"+ box_type.ToUpper() + " : " + name;

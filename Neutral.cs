@@ -18,6 +18,10 @@ namespace Monopoly_2019
             //Nothing happens on neutral boxes
         }
 
+        /// <summary>
+        ///  Method ToString to display usefull information of the box ( string display with the help of the view )
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "\nYou have landed on " + box_type.ToUpper() + "\nNothing will happen\n";
