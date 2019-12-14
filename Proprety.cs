@@ -77,10 +77,12 @@ namespace Monopoly_2019
             if (owner != null)
             {
                 foreach (Player p in monopoly.Removed_players)
+                {
                     if (owner.Id == p.Id)
                     {
                         owner = null;
                     }
+                }
             }
 
             string description = "\n"+ box_type.ToUpper() + " : " + name;
