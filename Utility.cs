@@ -56,6 +56,7 @@ namespace Monopoly_2019
         /// <returns></returns>
         public override string ToString(Board monopoly)
         {
+            //resets the owner to null if the previous owner has been removed from the game (he lost)
             if (owner != null)
             {
                 foreach (Player p in monopoly.Removed_players)

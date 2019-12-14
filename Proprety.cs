@@ -29,8 +29,8 @@ namespace Monopoly_2019
         /// </summary>
         public override void BoxEffect(Player joueur, Board monopoly)
         {           
-                //if it is for sale
-                if (owner == null)
+            //if it is for sale
+            if (owner == null)
             {
                 string line = Console.In.ReadLine();
                 try
@@ -74,6 +74,7 @@ namespace Monopoly_2019
         /// <returns></returns>
         public override string ToString(Board monopoly)
         {
+            //resets the owner to null if the previous owner has been removed from the game (he lost)
             if (owner != null)
             {
                 foreach (Player p in monopoly.Removed_players)
