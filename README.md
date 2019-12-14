@@ -1,6 +1,6 @@
 
 # Monopoly_2019
-### Design Pattern Project
+### School Project : Design Pattern Lessons
 
 
                                     /\/\   ___  _ __   ___  _ __   ___ | |_   _
@@ -14,6 +14,50 @@ Contributors:
 - AUBRY Corentin
 - DUVERGER Leopold
 - GOLDSCHILD Jérémy
+
+### Introduction
+This project wad made in order to apply the principles seen during the course on Git and Design Patterns.
+The main goal was to create a very simplified Monopoly Game with only :
+-dice mechanic
+-movable players
+-jail and gotojail mechanic
+HOWEVER, we went a little further and tried to make a complete fully playable Monopoly Game.
+In this version, we have succesfully implemented :
+-all the original boxes on a Monopoly Game Board
+-money and the ability to buy and own propreties
+-luck and community cards (not all of them, only 4 different cards in each)
+-propreties, railroads, utilities
+-free parking and go
+We are only missing the possibility to buy houses, hyhypothec a proprety or trad with other players
+
+## Rules of the game 
+
+In our version of the Monopoly, the game can have from two to four players.
+Each player is given a name, 500M of money and starts on the Go box.
+Each turn, a player rolls two dices and moves forward by a number of boxes equal to the sum of the dices.
+If the two dices roll the same value (double), the player plays again.
+If the player gets three double in a row, he is sent to Jail.
+
+When a player lands on a property box, if the box isn't owned, he can choose to buy the property. 
+If the property is owned, he can choose to buy it or not. 
+If the box is already owned, he has to pay a rent to the player that owns it.
+
+When he lands on the Go To Jail box, the player is sent to Jail.
+To escape Jail, the player has to throw the dices and get a double. He can also escape if he fails to get a double three turns in a row, but will haev tp pay 50 M. 
+The jail box can also be visited if the player lands on this box after having rolled the dices.
+
+All of the following are automatic and don't require any input from the player :
+If the player lands on a box Luck or Community Chest, he draws a card and is required to follow the instructions written on it (Pay money, Receive money, Go to jail, Nothing happens, Go to Go).
+
+If the player lands on a Tax box, he has to pay the amount of the tax.
+
+If the player lands on the Free Park box, he receives the money payed by the players to the taxes, luck cards or community chest cards.
+
+Every time a player passes by the box Go, he receives 20M. If he directly lands on it, he receives double the amount.
+
+End of the game:
+When a player is out of money, he is removed from the game and his propreties are unowned.
+The game ends when there is only ONE player that still has money left.
 
 ## PATTERNS USED 
 - MVC
@@ -51,30 +95,6 @@ We collaborated on this project through GitHub. To do so, we used the GitHub fuc
 
 Each time someone needed to implement a new functionality, we created a new branch from master. If someone else needed to work on something different at the same time, we then created a new branch from the first branch. Once those implementations were done, we merged together these branches than we merged the branch into master.
 
-## Rules of the game 
-
-In our version of the Monopoly, the game can have from two to four players.
-Each player is given a name, 500M of money and starts on the Go box.
-Each turn, a player rolls two dices and moves forward by a number of boxes equal to the sum of the dices.
-If the dices roll the same value (double), the player plays again.
-
-If a player lands on a property box, if the box isn't owned, he can choose to buy the property. If the property is owned, he can choose to buy it or not if he has enough money. If the box is already owned, he has to pay a rent to the player that owns the car.
-
-If he lands on the Go To Jail box, the player is sent to Jail.
-To escape Jail, the player has to throw the dices and get a double. He can also escape if he fails to get a double three times in a row. In both cases, he moves forward by the sum of the dices.
-The jail box can also be visited if the player lands on this box after having rolled the dices.
-If the player gets three double in a row, he is sent to Jail.
-
-If the player lands on a box Luck or Community Chest, he draws a card and is required to follow the instructions written on it (Pay money, Receive money, Go to jail, Nothing happens).
-
-If the player lands on a Tax box, he has to pay the amount of the tax.
-
-If the player lands on the Free Park box, he receives the money payed by the players to the taxes, luck cards or community chest cards.
-
-Every time a player passes by the box Go, he receives 20M. If he directly lands on it, he receives double the amount.
-
-The game ends when there is only one player that still has money left.
-
 ## Display of the game
 
 When the game is launched, you first have to enter the number of players and their names then the board is displayed.
@@ -104,3 +124,61 @@ If there is a third player, he will be displayed o the bottom row.
 If there is a fourth player, he will be displayed on the bottom row too.
 
 All of the display is also managed through the MVC and Observer patterns as explained above.
+
+###Example (without color) of the display of the board with 2 players
+
++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+
+|        ||        ||        ||        ||        ||        ||        ||        ||        ||        ||        |
+|        ||        ||        ||        ||        ||        ||        ||        ||        ||        ||        |
+|        ||        ||        ||        ||        ||        ||        ||        ||        ||        ||        |
++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------+                                                                                          +--------+
+|        |                                                                                          |        |
+|        |                                                                                          |        |
+|        |                                                                                          |        |
++--------+                                                                                          +--------+
++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+
+|        ||        ||        ||        ||        ||        ||        ||        ||        ||        ||   1    |
+|        ||        ||        ||        ||        ||        ||        ||        ||        ||        ||   2    |
+|        ||        ||        ||        ||        ||        ||        ||        ||        ||        ||        |
++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------++--------+
