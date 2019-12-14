@@ -76,7 +76,7 @@ End of the game:
 When a player is out of money, he is removed from the game and his propreties are unowned.
 The game ends when there is only ONE player that still has money left.
 
-## Intialisation and start of the game
+## Initialisation and start of the game
 The monopoly board boxes are initialised using the BoxFactory methode using the Factory pattern (you will see more on that later on).
 But for the propreties, instead of having 1000 lines of "create this proprety with this name and..." we use a [CSV file containing all the propreties and their description](propreties.csv).
 This allows use to be able to make different versions of the game by changing this file, and simplifies the initialisation of the game.
@@ -93,18 +93,16 @@ When started the game will ask for the number of players (between 2 and 4) and f
 
 We use the model View Controller for the projet. With this we can easily display the information and the board. The controller manage the game and each time it's necessary call the view (the method of the view ) to diplay usefull information for the player.
 
-EXPLIQUER LE CONTROLLER
-conditions darret
-boxeffect
-[Controller class](Controller.cs)
+We have used a specific method called BoxEffect to help the [controller](Controller.cs) manage the game when players arrive in a special box.
+Each "effect" is different according to the type of the box, defined in it's class.
 
-dans view expliquer le coup du ToString
-[View class](View.cs)
+We also created a new method ToString which allows to the [view](View.cs) to display the description of the box.
+These two methods are important in order to respect the MVC pattern.
 
-[Go to the Display part](#display-of-the-game)
+[If you want to see the Console Display part](#display-of-the-game)
 
 ## Use of Observer pattern :
-@contributors\cjpmaubry
+
 There are 2 observers in the project : one for the player and another for the dices.
 For the player: The observer notifies each time the value of the position or the money are modified.
 For the dice: The observer notifies each time the value of the dices change ( each time rolling dices ).
@@ -114,7 +112,7 @@ That way it's not necessary when some methods change this value, to create somet
 We are sure that the player is notified of the modification.
 
 ## Use of the Singleton pattern :
-@contributors\jgoldschild
+
 There are 2 singletons in the project : one for the dices in the SingletonDice class and one for the board in the Board class.
 We use them to make sure that there is a single instance for the board and the dices.
 
@@ -122,11 +120,14 @@ To do so, we use a method that checks if there is an instance of the dices or bo
 This method is called when we instanciate the dices in the Board class and when we instanciate the board in the Game class.
 
 ## Use of the Factory pattern :
-@contributors\leoduv
+
+We implemented a factory pattern in the creation and management of the different boxes of the monopoly board.
+All the box classes inherit from an abstract class [Abs_box](Abs_box.cs) that defines what information and methods will be in all the boxes of the board.
+Each class will then add the specifics of each diffrent box typye (like [Propreties](proprety.cs), or [Jail](Jail.cs)).
+The [factory class](Boxfactory.cs) regroups all the the creation methodes and is used during the initialisation of the board.
 
 ## Display of the game
 
-When the game is launched, you first have to enter the number of players and their names then the board is displayed.
 For each turn, we indicate which player has to play and that he has to press any key to roll the dices. Then the results of the dices are displayed and the board with the new position of the player. Then depending on the box he lands on a display will be made asking for the player for an interaction.
 To display the board in the console, we made a method that first display the top row of the board, then the columns and finally the bottom row.
 Each box is displayed with three rows.
