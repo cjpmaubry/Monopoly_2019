@@ -84,7 +84,7 @@ namespace Monopoly_2019
             bool made_a_double = false;
             //if the player is in jail he must try to escape instead of moving
             //The box effect method in Jail detects on its own when it has to do the TryToEscape
-            if(game.Board.PlayerInJail(player))
+            if(game.Board.PlayerInJail(player) < 4)
             {
                 game.LaunchCaseMethode(player.Position, player, game.Board);
             }

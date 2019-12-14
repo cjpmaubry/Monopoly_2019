@@ -2,6 +2,14 @@
 # Monopoly_2019
 ### Design Pattern Project
 
+
+                                    /\/\   ___  _ __   ___  _ __   ___ | |_   _
+                                   /    \ / _ \| '_ \ / _ \| '_ \ / _ \| | | | |
+                                  / /\/\ \ (_) | | | | (_) | |_) | (_) | | |_| |
+                                  \/    \/\___/|_| |_|\___/| .__/ \___/|_|\__, |
+                                                           |_|            |___/
+
+
 Contributors:
 - AUBRY Corentin
 - DUVERGER Leopold

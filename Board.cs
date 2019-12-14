@@ -9,7 +9,7 @@ namespace Monopoly_2019
     public class Board
     {
         private Abs_Box[] gameboard;
-        private List<Player> jailed_players;
+        private Player[] jailed_players;
         private SingletonDice dices;
         private static readonly object objlock = new object();
         private static Board instance;
@@ -17,14 +17,14 @@ namespace Monopoly_2019
         private Board()
         {
             this.gameboard = new Abs_Box[40];
-            this.jailed_players = new List<Player>();
+            this.jailed_players = new Player[4];
             this.dices = SingletonDice.GetInstance();
             ObserveDice observer = new ObserveDice("1");
             dices.Attach(observer);
         }
 
         //Getters
-        public List<Player> Jailed_players { get => jailed_players; }
+        public Player[] Jailed_players { get => jailed_players; }
         //internal Dice Dices { get => dices;}
         public Abs_Box[] Gameboard { get => gameboard; }
         internal SingletonDice Dices { get => dices; }
@@ -141,19 +141,34 @@ namespace Monopoly_2019
 
         /// <summary>
         /// Checks if the player is part of the jailed_players list
+        /// Returns his prisonner number, or 4 if he isnt in jail
+        /// The prisonner number is usde to keep track of the number of turns he psends in prison
         /// </summary>
-        /// <returns>Return true if he is in jail</returns>
-        public bool PlayerInJail(Player joueur)
+        /// <returns>Returns his prisonner number (if he was the first to go in jail than he is number 0)</returns>
+        public int PlayerInJail(Player joueur)
         {
+            int prisonner_number = 0;
             foreach (Player prisonner in jailed_players)
             {
-                //looks at the names to see if the player is in jail
-                if (joueur.Name == prisonner.Name)
+                if(prisonner != null)
                 {
-                    return true;
+                    if (joueur.Name == prisonner.Name)
+                    {
+                        return prisonner_number;
+                    }
+                    else
+                    {
+                        prisonner_number++;
+                    }
+                }
+                else
+                {
+                    prisonner_number ++;
                 }
             }
-            return false;
+            //there can only be up to 4 players. So 3 is the max prisonner number
+            //reutrning 4 allows us to signal that that player isnt in jail
+            return 4;
         }
 
         /// <summary>
@@ -164,8 +179,13 @@ namespace Monopoly_2019
         /// <param name="joueur">Player sent to jail</param>
         public void SendTojail(Player joueur)
         {
-            //adds the player to the list of trapped players
-            jailed_players.Add(joueur);
+            int prisonner_number = 0;
+            //finds the first available spot
+            while(jailed_players[prisonner_number] != null)
+            {
+                prisonner_number++;
+            }
+            jailed_players[prisonner_number] = joueur;
 
             //sets the position of the player to the position of the jail, 10
             joueur.Position = 10;
@@ -177,9 +197,10 @@ namespace Monopoly_2019
         /// <param name="joueur">Player to free</param>
         public void FreeFromJail(Player joueur)
         {
-            if (PlayerInJail(joueur))
+            if (PlayerInJail(joueur) < 4)
             {
-                jailed_players.Remove(joueur);
+                //remove the player from his "cell"
+                jailed_players[PlayerInJail(joueur)] = null;
             }
         }
 
